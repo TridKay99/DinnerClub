@@ -1,0 +1,22 @@
+body {
+  background: black;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dinnerClubTitle {
+  font-family: 'Great Vibes', cursive;
+  color: #c21e56;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.instagram {
+  height: 40px;
+  width: auto;
+  margin-left: 160px;
+}
