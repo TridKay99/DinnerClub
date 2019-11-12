@@ -15,8 +15,9 @@ body {
   align-items: center;
 }
 
-.instagram {
-  height: 40px;
-  width: auto;
-  margin-top: 20px;
+@media screen and (max-width: 600px) {
+  .dinnerClubTitle {
+    font-size: 40px;
+    margin-top: 130px;
+  }
 }

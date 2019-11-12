@@ -12,6 +12,12 @@
   width: auto;
 }
 
+.instagram {
+  height: 40px;
+  width: auto;
+  margin-top: 20px;
+}
+
 @mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
   box-shadow: inset 0 0 0 $width $color;
   color: $color;
@@ -77,4 +83,19 @@
   margin-left: 1rem;
   margin-right: 1rem;
   &:focus { outline: 2px dotted #55d7dc; }
+}
+
+@media screen and (max-width: 600px) {
+  .btn {
+    font-size: 1rem;
+  }
+
+  .moustache {
+    height: 200px;
+    width: auto;
+  }
+
+  .instagram {
+    height: 60px;
+  }
 }
