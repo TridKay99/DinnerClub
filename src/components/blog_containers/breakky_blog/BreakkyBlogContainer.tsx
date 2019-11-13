@@ -3,10 +3,15 @@ import '../../styles/component-blog-containers.scss'
 
 export class BreakkyBlogContainer extends React.Component {
 
+  getBlogTiles = () => {
+    return ''
+  }
+
   render() {
+
     return (
-      <div className={'blog'}>
-        breakky Blogs
+      <div className={'blogContainer'}>
+        {this.getBlogTiles()}
       </div>
     )
   }

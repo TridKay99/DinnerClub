@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/component-banner.scss'
-import {Button, Header} from 'semantic-ui-react';
+import {Header} from 'semantic-ui-react';
 import {ToggleBlogs} from "../DinnerClubContainer";
 
 type Props = {

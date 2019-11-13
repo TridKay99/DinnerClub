@@ -10,7 +10,7 @@ export class Home extends React.Component {
     return (
       <div className={'homeImages'}>
         <div className={'instagram'}>
-          <a href={'https://www.instagram.com/dinner_club_adventures/?hl=en'} target="_blank">
+          <a href={'https://www.instagram.com/dinner_club_adventures/?hl=en'} target="_blank" rel='' >
             <img src={instagram} alt={''} className={'instagram'}/>
           </a>
         </div>
