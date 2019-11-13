@@ -16,7 +16,7 @@ The food was above average, with a quality pork belly but a not so quality brais
 Another issue that I didn't really enjoy was how they served duck on duck.
 </br>
 </br>
-<img src={'https://res.cloudinary.com/dqsacxogt/image/upload/v1573636966/BlogPhotos/duckOnDuck_fkvv8y.jpg'} alt="" height='150px' width="auto"/>
+<img src='https://res.cloudinary.com/dqsacxogt/image/upload/v1573651092/BlogPhotos/duckOnDuck_adrqyo.jpg' alt="" height='200px' width="auto"/>
 </br>
 Upon entering we were informed we only had until 7:30 to indulge in provender. 
 This proved to not be an issue as the service was very fast. Well done on your quick juicy dumpers.
@@ -28,7 +28,7 @@ Although without labeled vinegar and soy sauce, the muscular man buggered up his
 </br>
 Environment: 8/10 Food: 7/10 Simi's jumper: 1/10 - very Shao la Tauba.
 </br>
-<img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1573636967/BlogPhotos/simisJumper_soumcj.jpg" alt="" height='150px' width="auto"/>
+<img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1573636967/BlogPhotos/simisJumper_soumcj.jpg" alt="" height='200px' width="auto"/>
 `,
 
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1573636967/BlogPhotos/simisJumper_soumcj.jpg"
