@@ -27,7 +27,7 @@ export class DinnerClubContainer extends React.Component {
   render() {
     return (
       <Container>
-        <Banner />
+        <Banner handleClick={this.handleClick}/>
         <NavBar handleClick={this.handleClick}/>
         <BlogRenderer pageToRender={this.state.pageToRender}/>
       </Container>

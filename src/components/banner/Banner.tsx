@@ -1,8 +1,13 @@
 import React from 'react';
 import '../styles/component-banner.scss'
-import { Header } from 'semantic-ui-react';
+import {Button, Header} from 'semantic-ui-react';
+import {ToggleBlogs} from "../DinnerClubContainer";
 
-export class Banner extends React.Component {
+type Props = {
+  handleClick: (value: ToggleBlogs) => void
+}
+
+export class Banner extends React.Component<Props> {
 
   render() {
     return (
