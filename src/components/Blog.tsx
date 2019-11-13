@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/component-blog.scss'
-import {BlogInfo} from "./blog1Trial";
+import {BlogInfo} from "./services/DinnerDramaService";
 
 type Props = {
   blog: BlogInfo

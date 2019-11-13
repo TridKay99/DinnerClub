@@ -1,30 +1,30 @@
 import React from 'react';
 import '../../styles/component-blog-containers.scss'
-import {Blog1, Blog2} from "../../blog1Trial";
+import {Container, Image} from 'semantic-ui-react';
+import {BeansRepublique, MrFoxx} from "../../services/BreakkyBlogService";
 
 export class BreakkyBlogContainer extends React.Component {
 
-  getBlogTiles = () => {
-    const blog = Blog1
-    const blog2 = Blog2
-    const blogs = [Blog1, Blog2]
-
-    return blogs.map((blog) => {
+  getBlogCards = () => {
+    const breakkyBlods = [BeansRepublique, MrFoxx]
+    return breakkyBlods.map((blog) => {
       return (
-        <div className="card">
-          <h3 className="title">{blog.title}</h3>
-          <img src={blog.image} alt={''}/>
+        <div className={'blogContent'}>
+          <Image src={blog.img} className={'blogImage'}/>
+          {blog.title}
+          <button className={'btn draw-border blogArrowIcon'}>
+            >
+          </button>
         </div>
       )
     })
   };
 
   render() {
-
     return (
-      <div className="blogContainer">
-        {this.getBlogTiles()}
-      </div>
+      <Container className={'blogOptionContainer'}>
+        {this.getBlogCards()}
+      </Container>
     )
   }
 }
