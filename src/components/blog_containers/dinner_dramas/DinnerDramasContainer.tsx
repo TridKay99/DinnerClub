@@ -1,9 +1,20 @@
 import React from 'react';
 import '../../styles/component-blog-containers.scss'
 import {Container, Image} from "semantic-ui-react";
-import {ILoveDumplings} from "../../services/DinnerDramaService";
+import {BlogInfo, ILoveDumplings} from "../../services/DinnerDramaService";
+import {Blog} from "../../Blog";
+
+type State = {
+  isBlogPicked: boolean
+  blogInfo: BlogInfo | null
+}
 
 export class DinnerDramasContainer extends React.Component {
+
+  state: State = {
+    isBlogPicked: false,
+    blogInfo: null
+  }
 
   getBlogCards = () => {
     const dinnerDramas = [ILoveDumplings]
@@ -12,7 +23,7 @@ export class DinnerDramasContainer extends React.Component {
         <div className={'blogContent'}>
           <Image src={blog.img} className={'blogImage'}/>
           {blog.title}
-          <button className={'btn draw-border blogArrowIcon'}>
+          <button className={'btn draw-border blogArrowIcon'} onClick={() => this.handleBlogChange(blog)}>
             >
           </button>
         </div>
@@ -20,11 +31,28 @@ export class DinnerDramasContainer extends React.Component {
     })
   };
 
+  handleBlogChange = (value: BlogInfo) => {
+    this.setState({blogInfo: value, isBlogPicked: true})
+  }
+
+  renderBlog = () => {
+    const {blogInfo} = this.state
+    if(blogInfo) {
+      return (
+        <Blog blog={blogInfo}/>
+      )
+    }
+  }
+
   render() {
     return (
-      <Container className={'blogOptionContainer'}>
-        {this.getBlogCards()}
-      </Container>
+      <>
+        {!this.state.isBlogPicked ?  <Container className={'blogOptionContainer'}>
+                                     {this.getBlogCards()}
+                                     </Container>
+                                  :  this.renderBlog()
+        }
+      </>
     )
   }
 }

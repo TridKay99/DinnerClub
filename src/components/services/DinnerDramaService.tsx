@@ -27,6 +27,7 @@ Although without labeled vinegar and soy sauce, the muscular man buggered up his
 </br>
 </br>
 Environment: 8/10 Food: 7/10 Simi's jumper: 1/10 - very Shao la Tauba.
+</br>
 <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1573636967/BlogPhotos/simisJumper_soumcj.jpg" alt="" height='150px' width="auto"/>
 `,
 
