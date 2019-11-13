@@ -1,6 +1,7 @@
+import {BlogInfo} from "./DinnerDramaService";
 
 
-export const BeansRepublique = {
+export const BeansRepublique: BlogInfo = {
   title: 'Chilly Saturdays - Beans Republique, Glen Iris',
   body: `
   Environment: 7/10 Weather: 2/10
