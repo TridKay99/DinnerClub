@@ -21,3 +21,9 @@
   overflow: scroll;
 }
 
+
+@media screen and (max-width: 600px) {
+  .blog {
+    width: 80%;
+  }
+}
