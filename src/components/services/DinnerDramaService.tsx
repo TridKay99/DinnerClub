@@ -18,7 +18,7 @@ Another issue that I didn't really enjoy was how they served duck on duck.
 </br>
 <img src='https://res.cloudinary.com/dqsacxogt/image/upload/v1573651092/BlogPhotos/duckOnDuck_adrqyo.jpg' alt="" height='200px' width="auto"/>
 </br>
-Upon entering we were informed we only had until 7:30 to indulge in provender. 
+Upon entering we were informed we only had until 7:30 to eat. 
 This proved to not be an issue as the service was very fast. Well done on your quick juicy dumpers.
 </br>
 </br>
@@ -26,7 +26,11 @@ The muscular blonde man sitting opposite me seemed to be pleasantly surprised wi
 Although without labeled vinegar and soy sauce, the muscular man buggered up his mixture. He was very upset.
 </br>
 </br>
-Environment: 8/10 Food: 7/10 Simi's jumper: 1/10 - very Shao la Tauba.
+Environment: 8/10
+</br>
+Food: 7/10
+</br>
+Simi's jumper: 1/10 - very Shao la Tauba.
 </br>
 <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1573636967/BlogPhotos/simisJumper_soumcj.jpg" alt="" height='200px' width="auto"/>
 `,
