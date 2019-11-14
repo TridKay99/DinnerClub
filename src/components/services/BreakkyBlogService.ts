@@ -13,7 +13,9 @@ export const BeansRepublique: BlogInfo = {
   </br>
   </br>
   Hot tips: when I order a coffee I would like it in t-minus 5 minutes. Maybe fire the barista for ruining my life. 8/10 ill come back.
-  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1573648172/BlogPhotos/simiPitt_q3alq8.jpg" alt=""/>
+  </br>
+  </br>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1573648172/BlogPhotos/simiPitt_q3alq8.jpg" alt="" height='400px'/>
   `,
   img: 'https://res.cloudinary.com/dqsacxogt/image/upload/v1573648172/BlogPhotos/simiPitt_q3alq8.jpg'
 }
