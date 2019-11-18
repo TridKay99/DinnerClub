@@ -59,7 +59,10 @@ export const EmpressOfChina: BlogInfo = {
   Legal – 4/10. Food safety issues, pays of council, seems to have all the paperwork in place but clearly doesn’t comply with emergency evacuation legislation.
   </br>
   </br>
-  Overall the food was good but nothing to write a postcard about, lets give it a 6/10. Special mention must be made to the deconstructed lemon chicken, which left the lemon sauce aside from the chicken. As someone who generally despises Gatorade chicken, the fact the chicken wasn’t soggy, and the sauce was quite light made it tolerable. Will be back. Reluctantly.
+  Overall the food was good but nothing to write a postcard about, lets give it a 6/10. Special mention must be made to the deconstructed lemon chicken, 
+  which left the lemon sauce aside from the chicken. As someone who generally despises Gatorade chicken, the fact the chicken wasn’t soggy, and the sauce 
+  was quite light made it tolerable. Will be back. Reluctantly.
+  </br>
   <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1574071626/BlogPhotos/lemonChick_eqm5md.png" alt="" height='200px' width="auto">
   `,
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1574071626/BlogPhotos/lemonChick_eqm5md.png"
