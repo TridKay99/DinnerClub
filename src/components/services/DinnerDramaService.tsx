@@ -37,3 +37,57 @@ Simi's jumper: 1/10 - very Shao la Tauba.
 
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1573636967/BlogPhotos/simisJumper_soumcj.jpg"
 };
+
+
+export const EmpressOfChina: BlogInfo = {
+  title: 'Empress and the ancient Fujitsu Air Con - Empress Of China',
+  body: `
+  Some Friday night complications caused a schism in dinner club seeing, Tridda heading out for his own adventures 
+  with Nick and Christian joined by Mikka and Bas who proved to be great guest diners at Empress of China. 
+  </br>
+  </br>
+  Upon entering we decided to conduct a pre-dinner assessment of the restaurant and is as follows:
+  </br>
+  Political – 2/10. Absolute chaos, no semblance of authority
+  </br>
+  Environmental – 4.5/10. Poor air quality, decent water quality and clean table with minimal stick.
+  </br>
+  Technological – 2/10. Issues with the ancient Fujitsu AC, appears to not have worked since 2011, clearly fake LCD TV, functioning fridge
+  </br>
+  Economic – 9/10. Excellent value, only $22 per head included corkage
+  </br>
+  Legal – 4/10. Food safety issues, pays of council, seems to have all the paperwork in place but clearly doesn’t comply with emergency evacuation legislation.
+  </br>
+  </br>
+  Overall the food was good but nothing to write a postcard about, lets give it a 6/10. Special mention must be made to the deconstructed lemon chicken, which left the lemon sauce aside from the chicken. As someone who generally despises Gatorade chicken, the fact the chicken wasn’t soggy, and the sauce was quite light made it tolerable. Will be back. Reluctantly.
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1574071626/BlogPhotos/lemonChick_eqm5md.png" alt="" height='200px' width="auto">
+  `,
+  img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1574071626/BlogPhotos/lemonChick_eqm5md.png"
+}
+
+export const Madaeya: BlogInfo = {
+  title:'Panini D Dragon and the ipad, Madaeya',
+  body: `
+  The dinner club members were all in full force on a nippy saturday Night!
+  </br>
+  Being the leading dinner review practitioners in the industry, there was a lot of discussion towards the future of the demanding occupation.
+  </br>
+  One Panini D Dragon (Sick Nantini) arrived, his usual dinner club antics came into play with very dominant ordering on the ipad. And he complimented my jumper(ty).
+  </br>
+  </br>
+  Knicky Nan's agressive ipad plays & Christian's vomit green sweater
+  </br>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1574072464/BlogPhotos/ipadAndVomit_hg3rqf.jpg" alt="" height="200px" width="auto">
+  </br>
+  </br>
+  Food was a solid 7, great porky skewers but very average juicy chicken ones.
+  </br>
+  Servings were only for 2 people so they pulled a classic fake taxi over the members which we didn't appreciate at all!
+  </br>
+  Hot tip: don't confiscate our ipad
+  </br>
+  7/10 great booths
+   `
+  ,
+  img: 'https://res.cloudinary.com/dqsacxogt/image/upload/v1574072464/BlogPhotos/ipadAndVomit_hg3rqf.jpg'
+}

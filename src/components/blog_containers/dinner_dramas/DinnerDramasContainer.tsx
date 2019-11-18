@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/component-blog-containers.scss'
 import {Container, Image} from "semantic-ui-react";
-import {BlogInfo, ILoveDumplings} from "../../services/DinnerDramaService";
+import {BlogInfo, EmpressOfChina, ILoveDumplings, Madaeya} from "../../services/DinnerDramaService";
 import {Blog} from "../../Blog";
 
 type State = {
@@ -17,7 +17,7 @@ export class DinnerDramasContainer extends React.Component {
   }
 
   getBlogCards = () => {
-    const dinnerDramas = [ILoveDumplings]
+    const dinnerDramas = [Madaeya, EmpressOfChina, ILoveDumplings]
     return dinnerDramas.map((blog) => {
       return (
         <div className={'blogContent'}>
