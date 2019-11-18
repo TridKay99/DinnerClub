@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/component-blog-containers.scss'
 import {Container, Image} from 'semantic-ui-react';
-import {BeansRepublique, MrFoxx} from "../../services/BreakkyBlogService";
+import {BeansRepublique, Darling, MrFoxx} from "../../services/BreakkyBlogService";
 import {BlogInfo} from "../../services/DinnerDramaService";
 import {Blog} from "../../Blog";
 
@@ -18,7 +18,7 @@ export class BreakkyBlogContainer extends React.Component<{}, State> {
   }
 
   getBlogCards = () => {
-    const breakkyBlogs = [BeansRepublique, MrFoxx]
+    const breakkyBlogs = [Darling, BeansRepublique, MrFoxx]
     return breakkyBlogs.map((blog) => {
       return (
         <div className={'blogContent'}>

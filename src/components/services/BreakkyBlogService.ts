@@ -15,7 +15,7 @@ export const BeansRepublique: BlogInfo = {
   Hot tips: when I order a coffee I would like it in t-minus 5 minutes. Maybe fire the barista for ruining my life. 8/10 ill come back.
   </br>
   </br>
-  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1573648172/BlogPhotos/simiPitt_q3alq8.jpg" alt="" height='400px'/>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1573648172/BlogPhotos/simiPitt_q3alq8.jpg" alt="" height='400px' width="auto"/>
   `,
   img: 'https://res.cloudinary.com/dqsacxogt/image/upload/v1573648172/BlogPhotos/simiPitt_q3alq8.jpg'
 }
@@ -31,4 +31,26 @@ export const MrFoxx = {
   flying everywhere against our will. 7/10 coffee needs to be better... maybe fire the barista.
   `,
   img: ''
+}
+
+export const Darling = {
+  title: 'Christian and the potato rosti - The Darling, South Yarra',
+  body: `
+  Environment: 8 </br>
+  Parking: 2 </br>
+  </br>
+  Once again, we are at the Darling enjoying a great brekky with a slighty tipsy Kevin Costaner (Trid) who really enjoys taytay saturdays(Taylor Swift). Eggs your way was on 
+  the menu which was just a delight to see, but going to have to -1 off the score as bread on bread on a small plate is just a bit too difficult to tackle and navigate around.
+  </br>
+  </br>
+  Their vege breakfast is a certainty to cure that saturday morning hang over. </br>
+  A plate of great mushrooms, eggs, potato rosti and some classic sourdough put some life back into the cold, dead, dumb, 
+  stupid but extremely sexy blue bombshell eyes of Trid.
+  </br>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1574071632/BlogPhotos/deadEyes_gvktye.png" alt="" height='400px' width="auto"
+  </br>
+  </br>
+  9/10 - keep the barista but yet to see anyone finish their kale?
+  `,
+  img: 'https://res.cloudinary.com/dqsacxogt/image/upload/v1574071632/BlogPhotos/deadEyes_gvktye.png'
 }
