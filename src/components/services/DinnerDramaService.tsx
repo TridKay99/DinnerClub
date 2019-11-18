@@ -69,7 +69,7 @@ export const EmpressOfChina: BlogInfo = {
 }
 
 export const Madaeya: BlogInfo = {
-  title:'Panini D Dragon and the ipad, Madaeya',
+  title:'Panini D Dragon and the ipad -  Madaeya, Richmond',
   body: `
   The dinner club members were all in full force on a nippy saturday Night!
   </br>
