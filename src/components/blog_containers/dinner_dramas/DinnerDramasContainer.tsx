@@ -3,6 +3,7 @@ import '../../styles/component-blog-containers.scss'
 import {Container, Image} from "semantic-ui-react";
 import {BlogInfo, EmpressOfChina, ILoveDumplings, Madaeya} from "../../services/DinnerDramaService";
 import {Blog} from "../../Blog";
+import {TaoDumplings} from "../../DinnerBlogs/DinnerDramasListTwo";
 
 type State = {
   isBlogPicked: boolean
@@ -17,7 +18,7 @@ export class DinnerDramasContainer extends React.Component {
   }
 
   getBlogCards = () => {
-    const dinnerDramas = [Madaeya, EmpressOfChina, ILoveDumplings]
+    const dinnerDramas = [TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings]
     return dinnerDramas.map((blog) => {
       return (
         <div className={'blogContent'}>

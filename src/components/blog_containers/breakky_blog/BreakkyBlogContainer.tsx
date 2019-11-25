@@ -4,6 +4,7 @@ import {Container, Image} from 'semantic-ui-react';
 import {BeansRepublique, Darling, MrFoxx} from "../../services/BreakkyBlogService";
 import {BlogInfo} from "../../services/DinnerDramaService";
 import {Blog} from "../../Blog";
+import {MobyDick} from "../../BreakkyBlogs/BreakkyBlogListTwo";
 
 type State = {
   isBlogPicked: boolean
@@ -18,7 +19,7 @@ export class BreakkyBlogContainer extends React.Component<{}, State> {
   }
 
   getBlogCards = () => {
-    const breakkyBlogs = [Darling, BeansRepublique, MrFoxx]
+    const breakkyBlogs = [MobyDick, Darling, BeansRepublique, MrFoxx]
     return breakkyBlogs.map((blog) => {
       return (
         <div className={'blogContent'}>
