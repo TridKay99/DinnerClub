@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/component-navbar.scss'
 import {Button} from "semantic-ui-react";
-import {ToggleBlogs} from "../DinnerClubContainer";
+import {ToggleBlogs} from "../DinnerClubContainerAdventures";
 
 type Props = {
   handleClick: (value: ToggleBlogs) => any

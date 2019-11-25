@@ -14,7 +14,7 @@ type State = {
   pageToRender: ToggleBlogs
 }
 
-export class DinnerClubContainer extends React.Component {
+export class DinnerClubContainerAdventures extends React.Component {
 
   state: State = {
     pageToRender: ToggleBlogs.HOME

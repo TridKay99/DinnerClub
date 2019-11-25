@@ -1,12 +1,12 @@
 import React from 'react';
-import {DinnerClubContainer} from "./components/DinnerClubContainer";
+import {DinnerClubContainerAdventures} from "./components/DinnerClubContainerAdventures";
 
 
 export class App extends React.Component {
 
   render() {
     return (
-      <DinnerClubContainer />
+      <DinnerClubContainerAdventures />
     )
   }
 }

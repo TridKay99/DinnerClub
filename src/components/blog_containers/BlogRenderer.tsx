@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/component-banner.scss'
 import {Home} from "../Home";
-import {ToggleBlogs} from "../DinnerClubContainer";
+import {ToggleBlogs} from "../DinnerClubContainerAdventures";
 import { BreakkyBlogContainer } from './breakky_blog/BreakkyBlogContainer';
 import { DinnerDramasContainer } from './dinner_dramas/DinnerDramasContainer';
 
