@@ -1,5 +1,7 @@
 .blogContainer {
   display: flex;
+  margin-top: 10px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

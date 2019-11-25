@@ -7,14 +7,17 @@ import {Blog} from "../../Blog";
 import {MobyDick} from "../../BreakkyBlogs/BreakkyBlogListTwo";
 
 type State = {
-  isBlogPicked: boolean
   blogInfo: BlogInfo | null
 }
 
-export class BreakkyBlogContainer extends React.Component<{}, State> {
+type Props = {
+  isBlogPicked: boolean
+  handleIsBlogPicked: () => void
+}
+
+export class BreakkyBlogContainer extends React.Component<Props, State> {
 
   state: State = {
-    isBlogPicked: false,
     blogInfo: null
   }
 
@@ -34,7 +37,7 @@ export class BreakkyBlogContainer extends React.Component<{}, State> {
   };
 
   handleBlogChange = (value: BlogInfo) => {
-    this.setState({blogInfo: value, isBlogPicked: true})
+    this.setState({blogInfo: value}, () => this.props.handleIsBlogPicked())
   }
 
   renderBlog = () => {
@@ -49,11 +52,12 @@ export class BreakkyBlogContainer extends React.Component<{}, State> {
   render() {
     return (
       <>
-      {!this.state.isBlogPicked ? <Container className={'blogOptionContainer'}>
-      {this.getBlogCards()}
-      </Container> :
-      this.renderBlog()
-      }
+      {!this.props.isBlogPicked ? <Container className={'blogOptionContainer'}>
+                                  {this.getBlogCards()}
+                                  </Container>
+                                :
+                                  this.renderBlog()
+                                  }
       </>
     )
   }

@@ -6,14 +6,17 @@ import {Blog} from "../../Blog";
 import {TaoDumplings} from "../../DinnerBlogs/DinnerDramasListTwo";
 
 type State = {
-  isBlogPicked: boolean
   blogInfo: BlogInfo | null
 }
 
-export class DinnerDramasContainer extends React.Component {
+type Props = {
+  isBlogPicked: boolean
+  handleIsBlogPicked: () => void
+}
+
+export class DinnerDramasContainer extends React.Component<Props, State> {
 
   state: State = {
-    isBlogPicked: false,
     blogInfo: null
   }
 
@@ -33,7 +36,7 @@ export class DinnerDramasContainer extends React.Component {
   };
 
   handleBlogChange = (value: BlogInfo) => {
-    this.setState({blogInfo: value, isBlogPicked: true})
+    this.setState({blogInfo: value}, () => this.props.handleIsBlogPicked())
   }
 
   renderBlog = () => {
@@ -48,10 +51,10 @@ export class DinnerDramasContainer extends React.Component {
   render() {
     return (
       <>
-        {!this.state.isBlogPicked ?  <Container className={'blogOptionContainer'}>
+        {!this.props.isBlogPicked ?  <Container className={'blogOptionContainer'}>
                                      {this.getBlogCards()}
                                      </Container>
-                                  :  this.renderBlog()
+                                    :  this.renderBlog()
         }
       </>
     )

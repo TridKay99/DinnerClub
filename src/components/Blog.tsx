@@ -9,6 +9,7 @@ type Props = {
 
 export class Blog extends React.Component<Props> {
 
+
   render() {
     const { blog } = this.props
 

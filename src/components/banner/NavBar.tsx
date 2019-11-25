@@ -4,7 +4,7 @@ import {Button} from "semantic-ui-react";
 import {ToggleBlogs} from "../DinnerClubContainerAdventures";
 
 type Props = {
-  handleClick: (value: ToggleBlogs) => any
+  handleClick: (value: ToggleBlogs) => void
 }
 
 export class NavBar extends React.Component<Props> {
@@ -13,10 +13,10 @@ export class NavBar extends React.Component<Props> {
     return (
       <div className={'navbar'}>
         <div className={'bnavButtons'}>
-        <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(ToggleBlogs.BREAKKY)}>
+        <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(ToggleBlogs.BREAKKY_BLOG_LIST)}>
           Breakky Blogs
         </Button>
-        <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(ToggleBlogs.DINNER)}>
+        <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(ToggleBlogs.DINNER_BLOG_LIST)}>
           Dinner Dramas
         </Button>
         </div>
