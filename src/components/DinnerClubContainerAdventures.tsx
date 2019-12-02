@@ -1,8 +1,9 @@
 import React from 'react';
-import { Banner } from './banner/Banner';
+import {Banner} from './banner/Banner';
 import {Container} from "semantic-ui-react";
 import {NavBar} from "./banner/NavBar";
 import {BlogRenderer} from "./blog_containers/BlogRenderer";
+import './styles/component-container-container.scss'
 
 export enum ToggleBlogs {
   BREAKKY_BLOG_LIST = 'breakky',
@@ -33,7 +34,7 @@ export class DinnerClubContainerAdventures extends React.Component {
   render() {
 
     return (
-      <Container>
+      <Container className={'containerOfAllContainers'}>
         <Banner handleClick={this.handleClick} />
         <NavBar handleClick={this.handleClick} />
         <BlogRenderer pageToRender={this.state.pageToRender}
