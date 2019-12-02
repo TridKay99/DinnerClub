@@ -1,8 +1,9 @@
-import {BlogInfo} from "./DinnerDramaService";
+import {BlogInfo} from "../types/BlogInfo";
 
 
 export const BeansRepublique: BlogInfo = {
-  title: 'Chilly Saturdays - Beans Republique, Glen Iris',
+  title: 'Chilly Saturdays',
+  restaurant: 'Bean Republique, Glen Iris',
   body: `
   Environment: 7/10 Weather: 2/10
   </br>
@@ -21,7 +22,8 @@ export const BeansRepublique: BlogInfo = {
 }
 
 export const MrFoxx = {
-  title: 'Christian throwing coffee - Mr.Foxx, Glen Iris',
+  title: 'Christian throwing coffee',
+  restaurant: 'Mr.Foxx, Glen Iris',
   body: `
   The atmosphere at Mr.Foxx was rather pleasant for a Saturday brunch outing, although a few hiccups with the waiter. 
   I, as the customer, had to correct him about one of the most popular items on the meny. It's egg your way, not whatever...
@@ -34,7 +36,8 @@ export const MrFoxx = {
 }
 
 export const Darling = {
-  title: 'Christian and the potato rosti - The Darling, South Yarra',
+  title: 'Christian and the potato rosti',
+  restaurant: 'The Darling, South Yarra',
   body: `
   Environment: 8 </br>
   Parking: 2 </br>

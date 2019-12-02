@@ -1,12 +1,8 @@
-export type BlogInfo = {
-  title: string
-  body: string
-  img: string
-}
+import {BlogInfo} from "../types/BlogInfo";
 
 export const ILoveDumplings: BlogInfo = {
-title: 'A night with duck - I Love Dumpling\'s, Richmond',
-
+title: 'A night with duck',
+restaurant: "I Love Dumplings, Richmond",
 body: `
 hmmm where do i start?
 </br>
@@ -40,7 +36,8 @@ Simi's jumper: 1/10 - very Shao la Tauba.
 
 
 export const EmpressOfChina: BlogInfo = {
-  title: 'Empress and the ancient Fujitsu Air Con - Empress Of China',
+  title: 'Empress and the ancient Fujitsu Air Con',
+  restaurant: 'Empress Of China',
   body: `
   Some Friday night complications caused a schism in dinner club seeing, Tridda heading out for his own adventures 
   with Nick and Christian joined by Mikka and Bas who proved to be great guest diners at Empress of China. 
@@ -69,7 +66,8 @@ export const EmpressOfChina: BlogInfo = {
 }
 
 export const Madaeya: BlogInfo = {
-  title:'Panini D Dragon and the ipad -  Madaeya, Richmond',
+  title:'Panini D Dragon and the ipad',
+  restaurant: 'Madaeya, Richmond',
   body: `
   The dinner club members were all in full force on a nippy saturday Night!
   </br>

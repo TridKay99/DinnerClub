@@ -1,7 +1,8 @@
-import {BlogInfo} from "../services/DinnerDramaService";
+import {BlogInfo} from "../types/BlogInfo";
 
 export const MobyDick: BlogInfo = {
-  title: `Now I'm Moby Dick for real - Moby, Armadale`,
+  title: `Now I'm Moby Dick for real`,
+  restaurant: 'Moby, Armadale',
   body: `
   Great brunch outing this weekend, Moby had the 'eggs your way on toast', yes on toast. We will let it slide!</br>
   It was a solid 7 only because of the mushies.</br>
