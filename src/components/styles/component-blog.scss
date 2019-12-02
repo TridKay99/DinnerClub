@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 }
 
 .blog {
@@ -25,8 +24,17 @@
   font-size: 46px;
   float: left;
   width: 100%;
+  color: #ffe593;
   p {
     margin-bottom: 5px !important;
+  }
+}
+
+.blogRestaurant {
+  font-family: 'Dosis', sans-serif;
+  font-size: 25px;
+  p {
+    margin-bottom: 0 !important;
   }
 }
 
