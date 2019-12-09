@@ -3,7 +3,7 @@ import '../../styles/component-blog-containers.scss'
 import {Container, Image} from "semantic-ui-react";
 import {EmpressOfChina, ILoveDumplings, Madaeya} from "../../services/DinnerDramaService";
 import {Blog} from "../../Blog";
-import {TaoDumplings, ThaiToGo} from "../../DinnerBlogs/DinnerDramasListTwo";
+import {MalvenVale, TaoDumplings, ThaiToGo} from "../../DinnerBlogs/DinnerDramasListTwo";
 import {BlogInfo} from "../../types/BlogInfo";
 
 type State = {
@@ -22,7 +22,7 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
   }
 
   getBlogCards = () => {
-    const dinnerDramas = [ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings]
+    const dinnerDramas = [MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings]
     return dinnerDramas.map((blog) => {
       return (
         <div className={'blogContent'}>

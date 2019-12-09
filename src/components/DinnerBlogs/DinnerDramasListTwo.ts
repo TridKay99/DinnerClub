@@ -41,3 +41,26 @@ export const ThaiToGo: BlogInfo = {
   `,
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1575271103/BlogPhotos/bobby_kimn4o.jpg"
 }
+
+export const MalvenVale: BlogInfo = {
+  title: 'Double Jack-Knife Jager Bombs in front of Chrissy Orlando’s family',
+  restaurant: 'Malvernvale Hotel, Malvern',
+  body: `
+  This week took us Parma Fridays down at the Vale but we were, unfortunately, a man down as Panini D Dragon had a zorba circle 
+  to attend to with his work colleagues. In his absence, Michael Jordan joined the gang for a Parma and Pint combo meal deal which 
+  was amazing value. Parms were a bit cheesy and lacked napoli sauce but still good for its buck!
+  </br>
+  </br>
+  We requested Jager bombs to give us some life energy for the night’s festivities. 
+  Unfortunately, this left the young bartender embarrassed because she didn't know how to make a Jager bomb and shocked 
+  that these men would even consider a 7.30 pm bomb in front of a room full of families just finishing entrees. 
+  $15 ea. for the bombs which is just ridiculous.</br>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1575869331/BlogPhotos/Screen_Shot_2019-12-09_at_4.26.21_pm_ckz9ca.png" alt="" height='200px' width="auto">
+  </br>
+  </br>
+  7/10 Will be back for the combo</br>
+  </br>
+  Hot tip: Create a 12-month mentoring program to educate the young bartenders to make a Jager bomb.
+  `,
+  img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1575869331/BlogPhotos/Screen_Shot_2019-12-09_at_4.26.21_pm_ckz9ca.png"
+}
