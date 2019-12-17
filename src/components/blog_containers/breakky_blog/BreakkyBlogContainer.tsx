@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../styles/component-blog-containers.scss'
 import {Container, Image} from 'semantic-ui-react';
-import {BeansRepublique, Darling, MrFoxx} from "../../services/BreakkyBlogService";
+import {BeansRepublique, Darling, MrFoxx} from "../../services/BreakkyBlogs/BreakkyBlogService";
 import {Blog} from "../../Blog";
-import {MobyDick} from "../../BreakkyBlogs/BreakkyBlogListTwo";
+import {MobyDick} from "../../services/BreakkyBlogs/BreakkyBlogListTwo";
 import {BlogInfo} from "../../types/BlogInfo";
 
 type State = {

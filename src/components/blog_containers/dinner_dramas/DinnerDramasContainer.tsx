@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../styles/component-blog-containers.scss'
 import {Container, Image} from "semantic-ui-react";
-import {EmpressOfChina, ILoveDumplings, Madaeya} from "../../services/DinnerDramaService";
+import {EmpressOfChina, ILoveDumplings, Madaeya} from "../../services/DinnerBlogs/DinnerDramaService";
 import {Blog} from "../../Blog";
-import {MalvenVale, TaoDumplings, ThaiToGo} from "../../DinnerBlogs/DinnerDramasListTwo";
+import {MalvenVale, SubiQKoreanBBQ, TaoDumplings, ThaiToGo} from "../../services/DinnerBlogs/DinnerDramasListTwo";
 import {BlogInfo} from "../../types/BlogInfo";
 
 type State = {
@@ -22,7 +22,7 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
   }
 
   getBlogCards = () => {
-    const dinnerDramas = [MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings]
+    const dinnerDramas = [SubiQKoreanBBQ, MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings]
     return dinnerDramas.map((blog) => {
       return (
         <div className={'blogContent'}>

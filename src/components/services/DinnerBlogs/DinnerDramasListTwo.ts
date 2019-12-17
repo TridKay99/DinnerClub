@@ -1,4 +1,4 @@
-import {BlogInfo} from "../types/BlogInfo";
+import {BlogInfo} from "../../types/BlogInfo";
 
 export const TaoDumplings: BlogInfo = {
   title: 'Christian and the attempt to spell his last name',
@@ -63,4 +63,32 @@ export const MalvenVale: BlogInfo = {
   Hot tip: Create a 12-month mentoring program to educate the young bartenders to make a Jager bomb.
   `,
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1575869331/BlogPhotos/Screen_Shot_2019-12-09_at_4.26.21_pm_ckz9ca.png"
+}
+export const SubiQKoreanBBQ: BlogInfo = {
+  title: 'Slippery Korean weapons',
+  restaurant: 'Subi Q Korean BBQ, South Yarra',
+  body:  `
+  KBBQ Fridays, a special treat that the members love to delve into only a few times a year. Subi Q was the restaurant of choice, 
+  just 100m down from Bistro Thierry and across the road from Hobba café, where Kevin Costaner (Trid) and Lord Smitzis lost their brunch virginities.</br>
+  </br>
+  Lord Simitzis slamming some KFC</br>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1576569177/BlogPhotos/simisChicky_rud4s1.jpg" alt="" height='200px' width="auto">
+  </br>
+  Food was amazing, sizzled to bloody perfection! Beef Bugolgi and the KFC wings were a big hoot, leaving Panini D Dragon in a great mood after his incredibly authoritarian style of 
+  restaurant ordering. Although, the members did have a little trouble adapting to the iron weapons that the Koreans manufactured. 
+  The chopsticks were to slippery for our greasy western grip!</br>
+  </br>
+  The meal before the members fuck it off forever
+  </br> 
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1576569164/BlogPhotos/kbbqFood_emrbjz.jpg" alt="" height="200px" width="auto"/>
+  </br>
+  Environment: 7</br>
+  Rice: 7</br>
+  Chopsticks: 2</br>
+  </br>
+  Hot tip: don’t be fancy with iron chopsticks, wood and bamboo chopsticks work fine as seen everywhere but Korea. An Iron spork will also do.
+  </br>
+  </br>
+  `,
+  img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1576569157/BlogPhotos/knick_Trid_wkw0e1.jpg"
 }
