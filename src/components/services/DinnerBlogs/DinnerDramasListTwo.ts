@@ -72,7 +72,7 @@ export const SubiQKoreanBBQ: BlogInfo = {
   just 100m down from Bistro Thierry and across the road from Hobba café, where Kevin Costaner (Trid) and Lord Smitzis lost their brunch virginities.</br>
   </br>
   Lord Simitzis slamming some KFC</br>
-  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1576569177/BlogPhotos/simisChicky_rud4s1.jpg" alt="" height='200px' width="auto">
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1576569177/BlogPhotos/simisChicky_rud4s1.jpg" alt="" height='180px' width="auto">
   </br>
   Food was amazing, sizzled to bloody perfection! Beef Bugolgi and the KFC wings were a big hoot, leaving Panini D Dragon in a great mood after his incredibly authoritarian style of 
   restaurant ordering. Although, the members did have a little trouble adapting to the iron weapons that the Koreans manufactured. 
@@ -80,7 +80,7 @@ export const SubiQKoreanBBQ: BlogInfo = {
   </br>
   The meal before the members fuck it off forever
   </br> 
-  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1576569164/BlogPhotos/kbbqFood_emrbjz.jpg" alt="" height="200px" width="auto"/>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1576569164/BlogPhotos/kbbqFood_emrbjz.jpg" alt="" height="180px" width="auto"/>
   </br>
   Environment: 7</br>
   Rice: 7</br>
