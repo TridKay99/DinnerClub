@@ -92,3 +92,26 @@ export const SubiQKoreanBBQ: BlogInfo = {
   `,
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1576569157/BlogPhotos/knick_Trid_wkw0e1.jpg"
 }
+
+export const ReturnOfTheTao: BlogInfo = {
+  title: 'Return to the Tao of Terror',
+  restaurant: 'Tao, South Yarra',
+  body:  `
+  To celebrate the last night of the work year, a Dinner Club favorite, Tao Dumplings in South Yarra was chosen. 
+  The 43 degree night proved too much for Mr. Kay, who opted to stay at home until sundown.<br/>
+  The heat also played havoc with Christian’s Uber, causing a 30 minute delay. This left Gus and myself to order, with many dumplings, 
+  Peking duck rolls, veggie noodles and Chinese greens selected for our banquet.<br/>
+  <br/>
+  The food was a smash hit as per usual, however the wine pairing was a bit of a miss.
+  Nick’s Riesling was well received but the warm Shiraz was a struggle to get down. None the less, nothing went to waste and we left satisfied, though a little sweaty. 
+  Merry Christmas from all of us at Dinner Club adventures, I hope everyone enjoys their Christmas feasts!<br/>
+  Air Conditioning – 5<br/>
+  Dumplings – 8<br/>
+  Punctuality - 1<br/>
+  <br/>
+  <br/>
+  Award winning dumpers and free wifi? What a chrissy present for the whole fam.<br/>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1577228338/BlogPhotos/taoChamps_hj2e7f.jpg" alt="" height="250px" width="auto"/>
+  `,
+  img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1577228338/BlogPhotos/taoChamps_hj2e7f.jpg"
+}
