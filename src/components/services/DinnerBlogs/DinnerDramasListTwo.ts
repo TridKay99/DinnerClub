@@ -115,3 +115,34 @@ export const ReturnOfTheTao: BlogInfo = {
   `,
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1577228338/BlogPhotos/taoChamps_hj2e7f.jpg"
 }
+
+export const dragonDumplingHouse: BlogInfo = {
+  title: 'Rob and the spag bol at Shanghai Dragon Dumpling House',
+  restaurant: 'Shanghai Dragon Dumpling House, South Yarra',
+  body: `
+  A wet and windy Friday night saw us at the Shanghai Dragon Dumpling House, a name plucked right from 
+  a Chinese restaurant random name generator. None the less, with Shiraz in hand, we were excited to 
+  see what culinary delights they had to offer. We were also joined by several of our favorite guest 
+  diners, which created a jovial atmosphere. It is also worth noting that this is the only Chinese 
+  restaurant I’ve been to which has had not one, but two TVs showing the cricket.
+  <br/>
+  <br/>
+  The pork dumplings were very nice however we were shocked to find that the Xiao Long Bao, 
+  which we all excited for, lacked any soup inside and were not the slightest bit juicy. 
+  The dishes that followed were equally disappointing. The BBQ Pork Belly should’ve been named the 
+  Sahara Desert Pork Belly and the Kung Po Chicken was way too sweet. The only redeeming dish was 
+  the Beef with Oyster Sauce which had a nice peppery kick to it. Rob’s sweet and sour soup also 
+  tasted like they just got a ladle and scooped out the dishwater and served it.
+  <br/>
+  <br/>
+  Overall, fun time with friends but we all expected more from the food. Hot tip, put some bloody soup in your Xiao Long Bao!
+  <br/>
+  Food -3 <br/>
+  Atmosphere - 8 <br/>
+  Glenn Maxwell’s batting – 9 <br/>
+  Rob's choice on dinner - Spaghetti Bolgenese/10 <br/>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1579080215/BlogPhotos/spagBowl_kwhwre.jpg" alt="" height='200px' width="auto">
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1579080932/BlogPhotos/closeSpag_vrdgky.png" alt="" height='200px' width="auto">
+  `,
+  img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1579080215/BlogPhotos/spagBowl_kwhwre.jpg"
+}

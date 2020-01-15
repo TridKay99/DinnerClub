@@ -8,7 +8,8 @@ import {
   ReturnOfTheTao,
   SubiQKoreanBBQ,
   TaoDumplings,
-  ThaiToGo
+  ThaiToGo,
+  dragonDumplingHouse
 } from "../../services/DinnerBlogs/DinnerDramasListTwo";
 import {BlogInfo} from "../../types/BlogInfo";
 
@@ -28,7 +29,7 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
   }
 
   getBlogCards = () => {
-    const dinnerDramas = [ReturnOfTheTao, SubiQKoreanBBQ, MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings]
+    const dinnerDramas = [dragonDumplingHouse, ReturnOfTheTao, SubiQKoreanBBQ, MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings]
     return dinnerDramas.map((blog) => {
       return (
         <div className={'blogContent'}>
