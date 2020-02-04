@@ -146,3 +146,61 @@ export const dragonDumplingHouse: BlogInfo = {
   `,
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1579080215/BlogPhotos/spagBowl_kwhwre.jpg"
 }
+
+export const vietStar: BlogInfo = {
+  title: 'A Vietnamese Interrogation',
+  restaurant: 'Viet Star, Glenferrie',
+  body: `
+  Environment 6/10<br>
+  Food 8/10<br>
+  Staff memorization 3/10<br>
+  AC 4/10<br>
+  <br>
+  A VERY hot Friday night brought us to Viet Star down near Lord Simitzis' ol’ university stomping ground and Panini D Dragon’s 
+  electrical pangolier study days. Once Dragon hopped off the Number 16 tram, he realised this was the place where he used to pretend 
+  to be a Swinburne student where he would help himself to the university’s facilities at his leisure. This brought Dragon to look like a sweaty man who 
+  had just been interrogated hoping no one would be able to recognize him because he actually went to Hogwarts.
+  <br>
+  <br>
+  This was the Lord's first Vietnamese experience ever in his 25 years of life so a new milestone to flex about to his work colleagues to really show 
+  how diverse his palate really is. The members were accompanied by Rex Hunt, Rizzly Adams, Cal Gadot and Sallalopolous! Ordering was done by Kevin Costner
+  this time as Panini D Dragon was still catching his breath at the table. Costner really nailed it, almost like he rehearsed it at home prior…
+  <br>
+  <br>
+  One happy member, Knicky!
+  <br>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1580796557/BlogPhotos/vietKnicky_hqkdpw.jpg" alt="" height='200px' width="auto">
+  <br>
+  <br>
+  The entrée to start the night off was a classic deep-fried prawn wantons which were absolutely spot on! The members were in awe, with its sexy oily taste and light 
+  sweet chili lighting up our eyes.
+  <br>
+  <br>
+  The Mains ordered tonight was the Duck with Plum sauce, Salt & Pepper Calamari and SIZZLING ginger chicken and stir-fried veggies!
+  <br>
+  <br>
+  All were exceptional to the members, although, Dragon and Kevin seemed to dislike the light tang that was accompanied by the Duck and Plum. 
+  This is a result of two men who didn't grow up with lemon chicken, a meal that has sculpted billions of palates through its history, but one must start somewhere.
+  <br>
+  <br>
+  The calamari was a real hoot, with its lightly fried layer which just softly broke when you took your first bite and the sizzling ginger chicken and veg were absolutely 
+  juicy and gave us our week’s greens in one sitting. 
+  <br>
+  <br>
+  PS: Rex Hunt ordered a different calamari dish for the starving members, but the staff seemed to have missed his order even though he was the first one? 
+  Repeated recitation is a great way for people to remember specific material, being in the hospitality industry, I would recommend this method for 
+  anyone trying to woo customers and show off your menu knowledge to your peers. 
+  <br>
+  <br>
+  Hot Tip: Hire a bouncer to watch the door at all times as when it’s a 40 degree night and your blasting 2 Fujitsu's inside. You don’t let your staff leave the bloody 
+  door open and let the cool air escape. BO and the aroma of Asian sauces don’t mix.
+  <br>
+  <br>
+  Introduction Christian Marvolo Riddle. Lord Simitzis! 
+  <br>
+  <br>
+  <img src="https://res.cloudinary.com/dqsacxogt/image/upload/v1580796569/BlogPhotos/vietSimi_o7xjqp.jpg" alt="" height='200px' width="auto">
+  <br>
+  `,
+  img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1580796557/BlogPhotos/vietKnicky_hqkdpw.jpg"
+}
