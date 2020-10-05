@@ -1,0 +1,28 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <JSON>
+      <option name="SPACE_AFTER_COLON" value="false" />
+      <option name="OBJECT_WRAPPING" value="0" />
+      <option name="ARRAY_WRAPPING" value="0" />
+    </JSON>
+    <TypeScriptCodeStyleSettings version="0">
+      <option name="FORCE_SEMICOLON_STYLE" value="true" />
+    </TypeScriptCodeStyleSettings>
+    <codeStyleSettings language="JSON">
+      <option name="RIGHT_MARGIN" value="0" />
+      <option name="KEEP_LINE_BREAKS" value="false" />
+      <option name="SPACE_AFTER_COMMA" value="false" />
+      <indentOptions>
+        <option name="INDENT_SIZE" value="0" />
+        <option name="CONTINUATION_INDENT_SIZE" value="0" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="TypeScript">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="2" />
+        <option name="CONTINUATION_INDENT_SIZE" value="2" />
+        <option name="TAB_SIZE" value="2" />
+      </indentOptions>
+    </codeStyleSettings>
+  </code_scheme>
+</component>

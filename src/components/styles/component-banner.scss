@@ -1,30 +1,30 @@
 body {
-  background: black;
+  background: black !important;
 }
 
 .banner {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  width: 73%
 }
 
 .dinnerClubTitle {
-  font-family: 'Great Vibes', cursive;
-  color: #f73677;
-  font-size: 55px;
-  display: flex;
-  align-items: center;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
+  font-family: 'Great Vibes', cursive !important;
+  color: #f73677 !important;
+  font-size: 55px !important;
+  display: flex !important;
+  align-items: center !important;
+  -webkit-transition: all 0.3s ease !important;
+  -moz-transition: all 0.3s ease !important;
+  -o-transition: all 0.3s ease !important;
+  -ms-transition: all 0.3s ease !important;
 }
 
 .homeText {
-  color: white;
-  font-family: 'Source Sans Pro', sans-serif;
-  text-align: center;
+  color: white !important;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  text-align: center !important;
 }
 
 .instagram {
@@ -53,9 +53,19 @@ body {
   font-size: 60px;
 }
 
+.boobs {
+  height: 40px;
+  width: 40px;
+}
+
 @media screen and (max-width: 600px) {
   .dinnerClubTitle {
     font-size: 40px;
     margin-top: 50px;
+  }
+
+  .boobs {
+    height: 0px;
+    width: 0px;
   }
 }

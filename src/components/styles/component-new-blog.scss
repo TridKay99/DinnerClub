@@ -1,0 +1,16 @@
+.newBlogContainer {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+}
+
+.textEditor{
+  background: white !important;
+  height: 300px;
+  width: 200px;
+}
+
+.rktRichTextEditorWrapper {
+  height: 300px;
+}

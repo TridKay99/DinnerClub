@@ -74,6 +74,19 @@
   &:focus { outline: 2px dotted #55d7dc; }
 }
 
+.adminBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Source Sans Pro', sans-serif;
+  padding: 0.25em 0.5em;
+  letter-spacing: 0.05rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  &:focus { outline: 2px dotted #55d7dc; }
+}
+
 @media screen and (max-width: 600px) {
   .btn {
     font-size: 1rem !important;

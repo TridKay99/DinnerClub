@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/component-navbar.scss'
 import {Button} from "semantic-ui-react";
-import {ToggleBlogs} from "../DinnerClubContainerAdventures";
+import {DisplayToggle} from "../DinnerClubContainerAdventures";
 
 type Props = {
-  handleClick: (value: ToggleBlogs) => void
+  handleClick: (value: DisplayToggle) => void
 }
 
 export class NavBar extends React.Component<Props> {
@@ -13,12 +13,12 @@ export class NavBar extends React.Component<Props> {
     return (
       <div className={'navbar'}>
         <div className={'bnavButtons'}>
-        <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(ToggleBlogs.BREAKKY_BLOG_LIST)}>
-          Breakky Blogs
-        </Button>
-        <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(ToggleBlogs.DINNER_BLOG_LIST)}>
-          Dinner Dramas
-        </Button>
+          <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(DisplayToggle.BREAKKY_BLOG_LIST)}>
+            Breakky Blogs
+          </Button>
+          <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(DisplayToggle.DINNER_BLOG_LIST)}>
+            Dinner Dramas
+          </Button>
         </div>
       </div>
     )

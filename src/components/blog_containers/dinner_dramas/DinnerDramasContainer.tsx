@@ -26,16 +26,16 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
 
   state: State = {
     blogInfo: null
-  }
+  };
 
   getBlogCards = () => {
-    const dinnerDramas = [vietStar, dragonDumplingHouse, ReturnOfTheTao, SubiQKoreanBBQ, MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings]
-    return dinnerDramas.map((blog) => {
+    const dinnerDramas = [vietStar, dragonDumplingHouse, ReturnOfTheTao, SubiQKoreanBBQ, MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings];
+    return dinnerDramas.map((blog, index) => {
       return (
-        <div className={'blogContent'}>
-          <Image src={blog.img} className={'blogImage'}/>
+        <div className={'blogContent'} key={index}>
+          <Image src={blog.img} className={'blogImage'} key={index}/>
           {blog.title}
-          <button className={'btn draw-border blogArrowIcon'} onClick={() => this.handleBlogChange(blog)}>
+          <button className={'btn draw-border blogArrowIcon'} onClick={() => this.handleBlogChange(blog)} key={index}>
             >
           </button>
         </div>
@@ -45,24 +45,24 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
 
   handleBlogChange = (value: BlogInfo) => {
     this.setState({blogInfo: value}, () => this.props.handleIsBlogPicked())
-  }
+  };
 
   renderBlog = () => {
-    const {blogInfo} = this.state
+    const {blogInfo} = this.state;
     if(blogInfo) {
       return (
         <Blog blog={blogInfo}/>
       )
     }
-  }
+  };
 
   render() {
     return (
       <>
         {!this.props.isBlogPicked ?  <Container className={'blogOptionContainer'}>
-                                     {this.getBlogCards()}
+                                      {this.getBlogCards()}
                                      </Container>
-                                    :  this.renderBlog()
+                                  :  this.renderBlog()
         }
       </>
     )
