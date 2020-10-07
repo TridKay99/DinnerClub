@@ -3,6 +3,7 @@ import {Banner} from './banner/Banner';
 import {NavBar} from "./banner/NavBar";
 import {BlogRenderer} from "./blog_containers/BlogRenderer";
 import './styles/component-container-container.scss'
+import {UserProfileService} from "../Services/UserProfileService"
 
 export enum DisplayToggle {
   BREAKKY_BLOG_LIST = 'breakky',
@@ -33,7 +34,6 @@ export class DinnerClubContainerAdventures extends React.Component<{}, State> {
   };
 
   render() {
-    console.log(this.state.pageToRender);
     return (
       <div className={'container'}>
         <Banner handleClick={this.handleClick}/>

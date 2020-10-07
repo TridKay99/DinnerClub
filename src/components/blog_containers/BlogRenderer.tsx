@@ -5,6 +5,7 @@ import {DisplayToggle} from "../DinnerClubContainerAdventures";
 import {BreakkyBlogContainer} from './breakky_blog/BreakkyBlogContainer';
 import {DinnerDramasContainer} from './dinner_dramas/DinnerDramasContainer';
 import {NewBlog} from "../NewBlog";
+import {AdminLogin} from "../AdminLogin"
 
 type Props = {
   pageToRender: DisplayToggle
@@ -19,8 +20,8 @@ export class BlogRenderer extends React.Component<Props> {
     const {pageToRender} = this.props;
 
     switch(pageToRender) {
-      case DisplayToggle.ADMIN_LOGIN || DisplayToggle.NEW_BLOG: return <NewBlog handleClick={this.props.handleClick}
-                                                                                pageToRender={this.props.pageToRender}/>;
+      case DisplayToggle.ADMIN_LOGIN: return <AdminLogin handleClick={this.props.handleClick}
+                                                         pageToRender={this.props.pageToRender}/>;
       case DisplayToggle.NEW_BLOG: return <NewBlog handleClick={this.props.handleClick}
                                                    pageToRender={this.props.pageToRender}/>;
       case DisplayToggle.DINNER_BLOG_LIST: return <DinnerDramasContainer isBlogPicked={this.props.isBlogPicked}

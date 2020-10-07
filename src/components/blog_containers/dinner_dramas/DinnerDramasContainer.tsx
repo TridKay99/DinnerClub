@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/component-blog-containers.scss'
-import {Container, Image} from "semantic-ui-react";
+import {Button, Container, Image} from "semantic-ui-react"
 import {EmpressOfChina, ILoveDumplings, Madaeya} from "../../services/DinnerBlogs/DinnerDramaService";
 import {Blog} from "../../Blog";
 import {
@@ -29,15 +29,19 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
   };
 
   getBlogCards = () => {
+    const arrow = '>'
     const dinnerDramas = [vietStar, dragonDumplingHouse, ReturnOfTheTao, SubiQKoreanBBQ, MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings];
     return dinnerDramas.map((blog, index) => {
       return (
         <div className={'blogContent'} key={index}>
           <Image src={blog.img} className={'blogImage'} key={index}/>
           {blog.title}
-          <button className={'btn draw-border blogArrowIcon'} onClick={() => this.handleBlogChange(blog)} key={index}>
-            >
-          </button>
+          <Button className={'btn draw-border blogArrowIcon'}
+                  color={"teal"}
+                  onClick={() => this.handleBlogChange(blog)}
+                  key={index}>
+            {arrow}
+          </Button>
         </div>
       )
     })

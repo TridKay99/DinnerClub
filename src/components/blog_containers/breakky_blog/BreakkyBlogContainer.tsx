@@ -22,14 +22,16 @@ export class BreakkyBlogContainer extends React.Component<Props, State> {
   }
 
   getBlogCards = () => {
+    const arrow = '>'
     const breakkyBlogs = [MobyDick, Darling, BeansRepublique, MrFoxx]
     return breakkyBlogs.map((blog) => {
       return (
         <div className={'blogContent'}>
           <Image src={blog.img} className={'blogImage'}/>
           {blog.title}
-          <button className={'btn draw-border blogArrowIcon'} onClick={() => this.handleBlogChange(blog)}>
-            >
+          <button className={'btn draw-border blogArrowIcon'}
+                  onClick={() => this.handleBlogChange(blog)}>
+            {arrow}
           </button>
         </div>
       )
