@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Form, Input, InputOnChangeData} from "semantic-ui-react";
+import {Button, Form, Input, InputOnChangeData, Message} from "semantic-ui-react"
 import './styles/component-new-blog.scss';
 import {DisplayToggle} from "./DinnerClubContainerAdventures";
 import {EditorState} from "draft-js";
@@ -19,7 +19,8 @@ type State = {
   admin: UserProfile | null
   editorState: EditorState
   password: string
-  authorized: boolean
+  authorized: boolean | null
+  userName: string
 }
 
 export class AdminLogin extends React.Component<Props, State> {
@@ -28,46 +29,65 @@ export class AdminLogin extends React.Component<Props, State> {
     admin: null,
     editorState: EditorState.createEmpty(),
     password: '',
-    authorized: false
+    authorized: null,
+    userName: ''
   };
 
   componentDidMount = async() => {
     const userProfiles: UserProfile[] = await UserProfileService.getAllProfiles()
     const admin = userProfiles.find(user => user.name === 'Admin')
-
     if(admin) {
       this.setState({admin})
+      this.setState({userName: admin.name})
     }
   }
 
-  handleChange = (data: InputOnChangeData) => {
+  handlePasswordChange = (data: InputOnChangeData) => {
     this.setState({password: data.value})
   };
+
+  handleUserNameChange = (data: InputOnChangeData) => {
+    this.setState({userName: data.value})
+  }
 
   authPassword = (password: string) => {
     if(password === this.state.admin?.password) {
       this.props.handleClick(DisplayToggle.NEW_BLOG);
       this.setState({authorized: true})
+    } else {
+      this.setState({authorized: false}, () => console.log('comes in here!', this.state.authorized))
     }
   };
 
   render() {
     return (
-      <div className={'newBlogContainer'}>
+      <div className={'authPasswordContainer'}>
         <React.Fragment>
-          <br/>
           <br/>
           <Form>
             <Form.Field>
+              <Input icon='user secret'
+                     value={this.state.userName}
+                     onChange={(e,data) => this.handleUserNameChange(data)}/>
+            </Form.Field>
+            <Form.Field>
               <Input icon='lock'
                      value={this.state.password}
-                     onChange={(e,data) => this.handleChange(data)}
+                     onChange={(e,data) => this.handlePasswordChange(data)}
                      placeholder={'Auth Password'}
-                     type='password'/>
+                     type='password'
+              />
             </Form.Field>
             <Button content={'Submit'}
                     onClick={() => this.authPassword(this.state.password)}/>
           </Form>
+          {this.state.authorized === false &&
+          // <React.Fragment>
+            <Message error>
+              <Message.Header>Incorrect password ya boof!</Message.Header>
+            </Message>
+          // </React.Fragment>
+          }
         </React.Fragment>
       </div>
     )

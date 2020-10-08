@@ -1,5 +1,4 @@
 import React from 'react';
-import {Button, Form, Input, InputOnChangeData} from "semantic-ui-react";
 import './styles/component-new-blog.scss';
 import {DisplayToggle} from "./DinnerClubContainerAdventures";
 import {EditorState} from "draft-js";
@@ -21,7 +20,6 @@ export class NewBlog extends React.Component<Props, State> {
   };
 
   handleEditorStateChange = (editorState: EditorState) => {
-    console.log('editorState', editorState);
     this.setState({editorState})
   };
 

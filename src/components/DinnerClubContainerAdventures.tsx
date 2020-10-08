@@ -1,9 +1,8 @@
 import React from 'react';
-import {Banner} from './banner/Banner';
-import {NavBar} from "./banner/NavBar";
-import {BlogRenderer} from "./blog_containers/BlogRenderer";
+import {Banner} from './Banner/Banner';
+import {NavBar} from "./Banner/NavBar";
+import {BlogRenderer} from "./BlogContainers/BlogRenderer";
 import './styles/component-container-container.scss'
-import {UserProfileService} from "../Services/UserProfileService"
 
 export enum DisplayToggle {
   BREAKKY_BLOG_LIST = 'breakky',

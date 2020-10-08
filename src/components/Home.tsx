@@ -8,6 +8,7 @@ export class Home extends React.Component {
     return (
       <div className={'homeImages'}>
         <div className={'instagram'}>
+          {/* eslint-disable-next-line react/jsx-no-target-blank */}
           <a href={'https://www.instagram.com/dinner_club_adventures/?hl=en'} target="_blank" rel=''>
             <img src={'https://res.cloudinary.com/dqsacxogt/image/upload/v1573648182/BlogPhotos/instagram_b1zv60.png'} alt={''} className={'instagram'}/>
           </a>
