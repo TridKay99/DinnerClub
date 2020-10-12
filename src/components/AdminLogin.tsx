@@ -34,7 +34,7 @@ export class AdminLogin extends React.Component<Props, State> {
   };
 
   componentDidMount = async() => {
-    const userProfiles: UserProfile[] = await UserProfileService.getAllProfiles()
+    const userProfiles: UserProfile[] = await UserProfileService.getAll()
     const admin = userProfiles.find(user => user.name === 'Admin')
     if(admin) {
       this.setState({admin})
@@ -52,10 +52,10 @@ export class AdminLogin extends React.Component<Props, State> {
 
   authPassword = (password: string) => {
     if(password === this.state.admin?.password) {
-      this.props.handleClick(DisplayToggle.NEW_BLOG);
+      this.props.handleClick(DisplayToggle.MAINTAIN_BLOGS);
       this.setState({authorized: true})
     } else {
-      this.setState({authorized: false}, () => console.log('comes in here!', this.state.authorized))
+      this.setState({authorized: false})
     }
   };
 

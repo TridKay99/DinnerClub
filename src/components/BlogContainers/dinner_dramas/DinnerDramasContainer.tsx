@@ -33,6 +33,7 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
     const dinnerDramas = [vietStar, dragonDumplingHouse, ReturnOfTheTao, SubiQKoreanBBQ, MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings];
     return dinnerDramas.map((blog, index) => {
       return (
+        <React.Fragment>
         <div className={'blogContent'} key={index}>
           <Image src={blog.img} className={'blogImage'} key={index}/>
           {blog.title}
@@ -43,6 +44,7 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
             {arrow}
           </Button>
         </div>
+        </React.Fragment>
       )
     })
   };
