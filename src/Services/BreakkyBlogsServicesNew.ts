@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import {BreakkyBlog} from "../Types/BreakkyBlog"
 
 export const BreakkyBlogsServiceNew = {
   getAll: async () => {
@@ -8,6 +9,14 @@ export const BreakkyBlogsServiceNew = {
     } catch (e) {
       console.log('ERROR!!!!', e)
     }
+  },
+
+  create: async (blog: BreakkyBlog) => {
+    console.log('blog', blog)
+    const res = await Axios.post('/create-breakky-blog', {
+      body: blog
+    })
+    console.log(res)
   },
 
   delete: async (id: string) => {

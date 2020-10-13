@@ -2,17 +2,8 @@ import React from 'react'
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 import {Button, Card, Header} from "semantic-ui-react"
 import {DisplayToggle} from "../DinnerClubContainerAdventures"
-import {BlogForm, BlogType} from "../BlogForm"
-
-export type BreakkyBlog = {
-  title: string
-  cafe: string
-  location: string
-  displayImage: string
-  body: string
-  blogType: BlogType
-  _id?: string
-}
+import {BlogForm} from "../BlogForm"
+import {BreakkyBlog} from "../../Types/BreakkyBlog"
 
 export enum MaintainBlogsToggle {
   MAINTAIN = 'maintain',
@@ -84,10 +75,10 @@ export class MaintainBlogs extends React.Component<Props, State> {
     })
   }
 
-  deleteBlog = (blog: BreakkyBlog) => {
+  deleteBlog = async(blog: BreakkyBlog) => {
     console.log(blog)
     if(blog._id) {
-      BreakkyBlogsServiceNew.delete(blog._id)
+      await BreakkyBlogsServiceNew.delete(blog._id)
     }
   }
 

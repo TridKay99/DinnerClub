@@ -13,26 +13,20 @@ import {TextEditorButtons} from "./TextEditorButtons";
 import '../styles/component-text-editor.scss'
 import { stateToHTML } from 'draft-js-export-html';
 import {DraftPlugins} from "./index";
+import {RecursivePick} from "../../DeepStateMerge/RecursivePick"
+import {BlogFormState} from "../BlogForm"
 
 type Props = {
   editorState: EditorState;
-  onChange: (editorState: EditorState) => void;
+  editorStateChange: (editorState: EditorState) => void;
 };
 
-type State = {
-  editorState: EditorState
-}
-
-export class TextEditor extends React.Component<Props, State> {
-
-  state: State = {
-    editorState: EditorState.createEmpty()
-  };
+export class TextEditor extends React.Component<Props> {
 
   handleKeyCommand = (command: DraftEditorCommand, editorState: EditorState): DraftHandleValue => {
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
-      this.props.onChange(newState);
+      this.props.editorStateChange(newState);
       return 'handled';
     }
     return 'not-handled';
@@ -42,7 +36,7 @@ export class TextEditor extends React.Component<Props, State> {
     if (e.keyCode === 9 /* TAB */) {
       const newEditorState = RichUtils.onTab(e, this.props.editorState, 4 /* maxDepth */);
       if (newEditorState !== this.props.editorState) {
-        this.props.onChange(newEditorState);
+        this.props.editorStateChange(newEditorState);
       }
       return null;
     }
@@ -95,20 +89,12 @@ export class TextEditor extends React.Component<Props, State> {
     return AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' ');
   };
 
-  onChange = (editorState: EditorState) => {
-    this.setState({editorState: editorState})
-  };
-
   render() {
-    const { editorState } = this.state;
-    const editorTextContent = editorState.getCurrentContent();
-    const htmlBody = stateToHTML(editorTextContent);
-    console.log('htmlBody', htmlBody)
     return (
       <div className="RichEditor-root rktRichTextEditorWrapper">
         <TextEditorButtons
-          editorState={this.state.editorState}
-          onEditorStateChange={this.onChange}
+          editorState={this.props.editorState}
+          onEditorStateChange={this.props.editorStateChange}
           // onInlineFilesAttached={this.onInlineImageAdded}
           // onFilesAttached={this.props.onFilesAttached!}
           className={'uploadButtonNew'}
@@ -118,10 +104,10 @@ export class TextEditor extends React.Component<Props, State> {
           <Editor
             blockStyleFn={this.getBlockStyle}
             customStyleMap={this.getStyleMap()}
-            editorState={this.state.editorState}
+            editorState={this.props.editorState}
             handleKeyCommand={this.handleKeyCommand}
             keyBindingFn={this.mapKeyToEditorCommand}
-            onChange={this.onChange}
+            onChange={this.props.editorStateChange}
             spellCheck={true}
             plugins={DraftPlugins}
           />

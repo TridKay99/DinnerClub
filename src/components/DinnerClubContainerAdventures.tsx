@@ -25,7 +25,7 @@ type State = {
 export class DinnerClubContainerAdventures extends React.Component<{}, State> {
 
   state: State = {
-    pageToRender: DisplayToggle.HOME,
+    pageToRender: DisplayToggle.ADMIN_LOGIN,
     isBlogPicked: false
   };
 
@@ -46,8 +46,7 @@ export class DinnerClubContainerAdventures extends React.Component<{}, State> {
       case DisplayToggle.MAINTAIN_BLOGS: return <MaintainBlogs handleClick={this.handleClick}
                                                                pageToRender={DisplayToggle.ADMIN_LOGIN}/>
       case DisplayToggle.DINNER_BLOG_LIST: return <DinnerDramasContainer isBlogPicked={this.state.isBlogPicked}
-                                                                         handleIsBlogPicked={this.handleIsBlogPicked}
-      />;
+                                                                         handleIsBlogPicked={this.handleIsBlogPicked}/>;
       case DisplayToggle.BREAKKY_BLOG_LIST: return <BreakkyBlogContainer isBlogPicked={this.state.isBlogPicked}
                                                                          handleIsBlogPicked={this.handleIsBlogPicked}/>;
       default: return <Home/>
