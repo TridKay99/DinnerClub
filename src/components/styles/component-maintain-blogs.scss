@@ -1,4 +1,17 @@
 .maintainBlogsContainer {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  margin-left: 30px;
+  //justify-content: start;
+}
+
+.blogTabs {
+  //background: #FFF8B7;
+  width: 80vw;
+  height: 100vh;
+}
+
+.ui.bottom.attached.segment.active.tab {
+  height: 80vh !important;
 }

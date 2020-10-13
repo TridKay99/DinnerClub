@@ -1,9 +1,10 @@
 import React from 'react'
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
-import {Button, Card, Header} from "semantic-ui-react"
+import {Tab} from "semantic-ui-react"
 import {DisplayToggle} from "../DinnerClubContainerAdventures"
-import {BlogForm} from "../BlogForm"
 import {BreakkyBlog} from "../../Types/BreakkyBlog"
+import '../styles/component-maintain-blogs.scss'
+import {MaintainBreakkyBlogs} from "./MaintainBreakkyBlogs"
 
 export enum MaintainBlogsToggle {
   MAINTAIN = 'maintain',
@@ -36,83 +37,32 @@ export class MaintainBlogs extends React.Component<Props, State> {
   }
 
   changeMaintainToggle = (maintainToggle: MaintainBlogsToggle) => {
+    console.log('maintainToggle', maintainToggle)
     this.setState({maintainToggle})
   }
 
-  renderBlogRow = () => {
-    return this.state.breakkyBlogs.map((blog) => {
-      return (
-        <Card>
-          <Card.Content>
-            <Card.Header>{blog.title}</Card.Header>
-            <Card.Description>
-              {blog.cafe},
-            </Card.Description>
-            <Card.Description>
-              {blog.location}
-            </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <div className='ui two buttons'>
-              <Button basic
-                      color='blue'
-                      onClick={() => this.setState({
-                        maintainToggle: MaintainBlogsToggle.UPDATE,
-                        selectedBlog: blog
-                      })}>
-                Edit
-              </Button>
-              <Button basic
-                      color='red'
-                      onClick={() => this.deleteBlog(blog)}
-              >
-                Delete
-              </Button>
-            </div>
-          </Card.Content>
-        </Card>
-      )
-    })
-  }
-
-  deleteBlog = async(blog: BreakkyBlog) => {
-    console.log(blog)
-    if(blog._id) {
-      await BreakkyBlogsServiceNew.delete(blog._id)
-    }
+  blogVarietyTabs = () => {
+    return [
+    { menuItem: 'Breakky Blogs', render: () =>
+        <Tab.Pane>
+          <MaintainBreakkyBlogs maintainToggle={this.state.maintainToggle}
+                                changeMaintainToggle={this.changeMaintainToggle}
+                                breakkyBlogs={this.state.breakkyBlogs}
+                                handleClick={this.props.handleClick}
+          />
+        </Tab.Pane> },
+    { menuItem: 'Dinner Dramas', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
+      ]
   }
 
   render() {
     return (
       <div className={'maintainBlogsContainer'}>
-        {this.state.maintainToggle === MaintainBlogsToggle.MAINTAIN &&
-        <React.Fragment>
-          <Header color={'red'} as={'h1'}>Breakky Blogs</Header>
-          <Button basic
-                  color={'green'}
-                  icon={'plus'}
-                  onClick={() => this.changeMaintainToggle(MaintainBlogsToggle.CREATE)}
-                  content={'New Blog'}/>
-          <Card.Group>
-            {this.renderBlogRow()}
-          </Card.Group>
-        </React.Fragment>
-        }
-        {this.state.maintainToggle === MaintainBlogsToggle.CREATE &&
-        <React.Fragment>
-          <BlogForm handleClick={this.props.handleClick}
-                    pageToRender={DisplayToggle.ADMIN_LOGIN}
-                    blog={null}
-          />
-        </React.Fragment>
-        }
-        {this.state.maintainToggle === MaintainBlogsToggle.UPDATE &&
-        <React.Fragment>
-          <BlogForm handleClick={this.props.handleClick}
-                    pageToRender={DisplayToggle.ADMIN_LOGIN}
-                    blog={this.state.selectedBlog}/>
-        </React.Fragment>
-        }
+        <div className={'blogTabs'}>
+          {(this.state.maintainToggle === MaintainBlogsToggle.MAINTAIN || this.state.maintainToggle === MaintainBlogsToggle.CREATE) &&
+            <Tab menu={{fluid: true, vertical: true, pointing: true}} panes={this.blogVarietyTabs()}/>
+          }
+        </div>
       </div>
     )
   }

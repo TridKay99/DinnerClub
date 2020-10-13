@@ -3,7 +3,7 @@ import './styles/component-new-blog.scss';
 import {DisplayToggle} from "./DinnerClubContainerAdventures";
 import {EditorState} from "draft-js";
 import {TextEditor} from "./TextEditor/TextEditor";
-import {Button, Form} from "semantic-ui-react"
+import {Button, Form, Header} from "semantic-ui-react"
 import {RecursivePick} from "../DeepStateMerge/RecursivePick"
 import {deepStateMerge} from "../DeepStateMerge/MergeUtils"
 import {BreakkyBlog} from "../Types/BreakkyBlog"
@@ -13,7 +13,6 @@ import {BreakkyBlogsServiceNew} from "../Services/BreakkyBlogsServicesNew"
 
 type Props = {
   handleClick: (value: DisplayToggle) => void
-  pageToRender: DisplayToggle
   blog: BreakkyBlog | null
 }
 
@@ -85,6 +84,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     return (
       <div className={'newBlogContainer'}>
         <React.Fragment>
+          <Header as={'h3'} block>Create Blog Ya Fuck Boy</Header>
           <br/>
           <br/>
           <div className={'blogForm'}>
