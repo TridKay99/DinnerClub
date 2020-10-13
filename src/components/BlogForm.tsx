@@ -28,7 +28,7 @@ export type BlogFormState = {
   title: string
   cafeOrRestaurant: string
   location: string
-  blogType: BlogType
+  blogVariety: BlogType
 }
 
 export class BlogForm extends React.Component<Props, BlogFormState> {
@@ -38,7 +38,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     title: '',
     cafeOrRestaurant: '',
     location: '',
-    blogType: BlogType.NONE
+    blogVariety: BlogType.NONE
   };
 
   componentDidMount = () =>{
@@ -48,7 +48,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
         title: blog.title,
         cafeOrRestaurant: blog.cafe,
         location: blog.location,
-        blogType: blog.blogType
+        blogVariety: blog.blogVariety
       })
     }
   }
@@ -63,7 +63,6 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
 
   saveBlog = async() => {
     const blog = this.constructBlog()
-    console.log('in save blog', blog)
     await BreakkyBlogsServiceNew.create(blog)
   }
 
@@ -73,8 +72,8 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
       cafe: this.state.cafeOrRestaurant,
       location: this.state.location,
       displayImage: 'IMAGE',
-      body: stateToHTML(this.state.editorState.getCurrentContent()),
-      blogType: this.state.blogType
+      BlogText: stateToHTML(this.state.editorState.getCurrentContent()),
+      blogVariety: this.state.blogVariety
     }
   }
 
@@ -111,9 +110,9 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
                 />
                 <Form.Select fluid
                              label={'Blog Type'}
-                             onChange={(e, data) => this.handleChange({blogType: data.value as BlogType})}
+                             onChange={(e, data) => this.handleChange({blogVariety: data.value as BlogType})}
                              selection
-                             value={this.state.blogType !== null ? this.state.blogType : undefined}
+                             value={this.state.blogVariety !== null ? this.state.blogVariety : undefined}
                              options={[
                                { key: 'breakky', text: 'Breakky Blog', value: BlogType.BREAKKY },
                                { key: 'dinner', text: 'Dinner Drama', value: BlogType.DINNER },

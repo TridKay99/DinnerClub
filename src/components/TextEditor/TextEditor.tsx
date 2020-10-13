@@ -11,10 +11,7 @@ import {
 import Editor from 'draft-js-plugins-editor';
 import {TextEditorButtons} from "./TextEditorButtons";
 import '../styles/component-text-editor.scss'
-import { stateToHTML } from 'draft-js-export-html';
 import {DraftPlugins} from "./index";
-import {RecursivePick} from "../../DeepStateMerge/RecursivePick"
-import {BlogFormState} from "../BlogForm"
 
 type Props = {
   editorState: EditorState;

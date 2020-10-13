@@ -20,14 +20,32 @@ export enum DisplayToggle {
 type State = {
   pageToRender: DisplayToggle
   isBlogPicked: boolean
+  removeMainBlogButtons: boolean
 }
 
 export class DinnerClubContainerAdventures extends React.Component<{}, State> {
 
   state: State = {
     pageToRender: DisplayToggle.ADMIN_LOGIN,
-    isBlogPicked: false
+    isBlogPicked: false,
+    removeMainBlogButtons: false
   };
+
+  componentDidUpdate = () => {
+    if((this.state.pageToRender === DisplayToggle.ADMIN_LOGIN
+      || this.state.pageToRender === DisplayToggle.MAINTAIN_BLOGS
+      || this.state.pageToRender === DisplayToggle.NEW_BLOG)
+      && !this.state.removeMainBlogButtons) {
+      this.setState({removeMainBlogButtons: true})
+    }
+
+    if((this.state.pageToRender === DisplayToggle.HOME
+      || this.state.pageToRender === DisplayToggle.BREAKKY_BLOG_LIST
+      || this.state.pageToRender === DisplayToggle.DINNER_BLOG_LIST)
+      && this.state.removeMainBlogButtons) {
+      this.setState({removeMainBlogButtons: false})
+    }
+  }
 
   handleClick = (value: DisplayToggle) => {
     this.setState({pageToRender: value, isBlogPicked: false})
@@ -54,12 +72,15 @@ export class DinnerClubContainerAdventures extends React.Component<{}, State> {
   };
 
   render() {
+    console.log('this.state.removeMainBlogButtons', this.state.removeMainBlogButtons)
     return (
       <div className={'container'}>
         <Banner handleClick={this.handleClick}/>
         <br/>
         <br/>
-        <NavBar handleClick={this.handleClick}/>
+        {!this.state.removeMainBlogButtons &&
+          <NavBar handleClick={this.handleClick} removeMainBlogButtons={this.state.removeMainBlogButtons}/>
+        }
         {this.pageToRender()}
       </div>
     )

@@ -5,6 +5,7 @@ import {DisplayToggle} from "../DinnerClubContainerAdventures";
 
 type Props = {
   handleClick: (value: DisplayToggle) => void
+  removeMainBlogButtons: boolean
 }
 
 export class NavBar extends React.Component<Props> {
@@ -13,11 +14,12 @@ export class NavBar extends React.Component<Props> {
     return (
       <div className={'navbar'}>
         <div className={'bnavButtons'}>
-          <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(DisplayToggle.BREAKKY_BLOG_LIST)}>
+          <Button className={'btn draw-border'} color={'teal'}
+                  onClick={() => this.props.handleClick(DisplayToggle.BREAKKY_BLOG_LIST)}>
             Breakky Blogs
           </Button>
-          <Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(DisplayToggle.DINNER_BLOG_LIST)}>
-            Dinner Dramas
+          < Button className={'btn draw-border'} color={'teal'} onClick={() => this.props.handleClick(DisplayToggle.DINNER_BLOG_LIST)}>
+          Dinner Dramas
           </Button>
         </div>
       </div>
