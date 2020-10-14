@@ -1,19 +1,21 @@
-import React from 'react';
-import './styles/component-new-blog.scss';
-import {DisplayToggle} from "./DinnerClubContainerAdventures";
-import {EditorState} from "draft-js";
-import {TextEditor} from "./TextEditor/TextEditor";
-import {Button, Form, Header} from "semantic-ui-react"
+import React from 'react'
+import './styles/component-new-blog.scss'
+import {DisplayToggle} from "./DinnerClubContainerAdventures"
+import {EditorState} from "draft-js"
+import {TextEditor} from "./TextEditor/TextEditor"
+import {Button, Form, Header, Icon} from "semantic-ui-react"
 import {RecursivePick} from "../DeepStateMerge/RecursivePick"
 import {deepStateMerge} from "../DeepStateMerge/MergeUtils"
 import {BreakkyBlog} from "../Types/BreakkyBlog"
 import {stateToHTML} from "draft-js-export-html"
 import {BreakkyBlogsServiceNew} from "../Services/BreakkyBlogsServicesNew"
+import {MaintainBlogsToggle} from "./MaintainBlogs/MaintainBlogs"
 
 
 type Props = {
   handleClick: (value: DisplayToggle) => void
   blog: BreakkyBlog | null
+  changeMaintainToggle: (maintainToggle: MaintainBlogsToggle) => void
 }
 
 export enum BlogType {
@@ -38,11 +40,11 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     cafeOrRestaurant: '',
     location: '',
     blogVariety: BlogType.NONE
-  };
+  }
 
-  componentDidMount = () =>{
+  componentDidMount = () => {
     const {blog} = this.props
-    if(blog !== null) {
+    if (blog !== null) {
       this.setState({
         title: blog.title,
         cafeOrRestaurant: blog.cafe,
@@ -60,7 +62,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     this.setState(this.state)
   }
 
-  saveBlog = async() => {
+  saveBlog = async () => {
     const blog = this.constructBlog()
     await BreakkyBlogsServiceNew.create(blog)
   }
@@ -78,61 +80,72 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
 
   editorStateChange = (editorState: EditorState) => {
     this.setState({editorState: editorState})
-  };
+  }
 
   render() {
     return (
-      <div className={'newBlogContainer'}>
-        <React.Fragment>
-          <Header as={'h3'} block>Create Blog Ya Fuck Boy</Header>
-          <br/>
-          <br/>
-          <div className={'blogForm'}>
-            <Form>
-              <Form.Input fluid
-                          label={'Title'}
-                          onChange={(e, data) => this.handleChange({title: data.value})}
-                          value={this.state.title}
-                          placeholder={'Title...'}
-              />
-              <Form.Group widths={"equal"}>
+      <React.Fragment>
+        <Button basic
+                color={'blue'}
+                floated={'left'}
+                icon
+                labelPosition={'left'}
+                onClick={() => this.props.changeMaintainToggle(MaintainBlogsToggle.MAINTAIN)}>
+          <Icon name={'meh'}/>
+          Back
+        </Button>
+        <div className={'newBlogContainer'}>
+          <React.Fragment>
+            <Header as={'h3'} block>Create Blog Ya Fuck Boy</Header>
+            <br/>
+            <br/>
+            <div className={'blogForm'}>
+              <Form>
                 <Form.Input fluid
-                            label={'Cafe/Restaurant Name'}
-                            onChange={(e, data) => this.handleChange({cafeOrRestaurant: data.value})}
-                            value={this.state.cafeOrRestaurant}
-                            placeholder={'Cafe/Restaurant Name...'}
+                            label={'Title'}
+                            onChange={(e, data) => this.handleChange({title: data.value})}
+                            value={this.state.title}
+                            placeholder={'Title...'}
                 />
-                <Form.Input fluid
-                            label={'Suburb'}
-                            onChange={(e, data) => this.handleChange({location: data.value})}
-                            value={this.state.location}
-                            placeholder={'Cafe/Restaurant Suburb...'}
-                />
-                <Form.Select fluid
-                             label={'Blog Type'}
-                             onChange={(e, data) => this.handleChange({blogVariety: data.value as BlogType})}
-                             selection
-                             value={this.state.blogVariety !== null ? this.state.blogVariety : undefined}
-                             options={[
-                               { key: 'breakky', text: 'Breakky Blog', value: BlogType.BREAKKY },
-                               { key: 'dinner', text: 'Dinner Drama', value: BlogType.DINNER },
-                               { key: 'none', text: '', value: BlogType.NONE }
+                <Form.Group widths={"equal"}>
+                  <Form.Input fluid
+                              label={'Cafe/Restaurant Name'}
+                              onChange={(e, data) => this.handleChange({cafeOrRestaurant: data.value})}
+                              value={this.state.cafeOrRestaurant}
+                              placeholder={'Cafe/Restaurant Name...'}
+                  />
+                  <Form.Input fluid
+                              label={'Suburb'}
+                              onChange={(e, data) => this.handleChange({location: data.value})}
+                              value={this.state.location}
+                              placeholder={'Cafe/Restaurant Suburb...'}
+                  />
+                  <Form.Select fluid
+                               label={'Blog Type'}
+                               onChange={(e, data) => this.handleChange({blogVariety: data.value as BlogType})}
+                               selection
+                               value={this.state.blogVariety !== null ? this.state.blogVariety : undefined}
+                               options={[
+                                 {key: 'breakky', text: 'Breakky Blog', value: BlogType.BREAKKY},
+                                 {key: 'dinner', text: 'Dinner Drama', value: BlogType.DINNER},
+                                 {key: 'none', text: '', value: BlogType.NONE}
                                ]}
-                             placeholder={'Blog Type...'}
-                />
-              </Form.Group>
-              <TextEditor editorState={this.state.editorState}
-                          editorStateChange={this.editorStateChange}/>
-              <br/>
-              <br/>
-              <Button content={'Save Blog'}
-                      float={'right'}
-                      onClick={() => this.saveBlog()}
-                      color={'green'}/>
-            </Form>
-          </div>
-        </React.Fragment>
-      </div>
+                               placeholder={'Blog Type...'}
+                  />
+                </Form.Group>
+                <TextEditor editorState={this.state.editorState}
+                            editorStateChange={this.editorStateChange}/>
+                <br/>
+                <br/>
+                <Button content={'Save Blog'}
+                        float={'right'}
+                        onClick={() => this.saveBlog()}
+                        color={'green'}/>
+              </Form>
+            </div>
+          </React.Fragment>
+        </div>
+      </React.Fragment>
     )
   }
 }

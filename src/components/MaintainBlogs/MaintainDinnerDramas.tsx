@@ -16,6 +16,12 @@ type Props = {
 
 export class MaintainDinnerDramas extends React.Component<Props> {
 
+  componentDidMount = () => {
+    if(this.props.maintainToggle === MaintainBlogsToggle.CREATE) {
+      this.props.changeMaintainToggle(MaintainBlogsToggle.MAINTAIN)
+    }
+  }
+
   renderBlogRow = () => {
     return this.props.dinnerDramas.map((blog) => {
       return (
@@ -78,6 +84,7 @@ export class MaintainDinnerDramas extends React.Component<Props> {
         <React.Fragment>
           <BlogForm handleClick={this.props.handleClick}
                     blog={null}
+                    changeMaintainToggle={this.props.changeMaintainToggle}
           />
         </React.Fragment>
         }
