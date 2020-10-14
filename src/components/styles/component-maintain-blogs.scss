@@ -10,6 +10,12 @@
   //background: #FFF8B7;
   width: 92.5vw;
   height: 100vh;
+  overflow: -moz-scrollbars-vertical;
+}
+
+.ui.bottom.attached.segment.active.tab {
+  background: black !important;
+  border: none !important;
 }
 
 .ui.bottom.attached.segment.active.tab {

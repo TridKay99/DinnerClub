@@ -45,10 +45,6 @@ export class MaintainBlogs extends React.Component<Props, State> {
     this.setState({maintainToggle})
   }
 
-  trial = () => {
-    this.setState({maintainToggle: MaintainBlogsToggle.MAINTAIN})
-  }
-
   blogVarietyTabs = () => {
     return [
     { menuItem: 'Breakky Blogs', render: () =>
