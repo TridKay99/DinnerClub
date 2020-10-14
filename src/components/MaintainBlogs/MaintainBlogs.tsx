@@ -2,9 +2,11 @@ import React from 'react'
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 import {Tab} from "semantic-ui-react"
 import {DisplayToggle} from "../DinnerClubContainerAdventures"
-import {BreakkyBlog} from "../../Types/BreakkyBlog"
+import {BreakkyBlog, DinnerDrama} from "../../Types/BreakkyBlog"
 import '../styles/component-maintain-blogs.scss'
 import {MaintainBreakkyBlogs} from "./MaintainBreakkyBlogs"
+import {DinnerDramaServiceNew} from "../../Services/DinnerDramaServiceNew"
+import {MaintainDinnerDramas} from "./MaintainDinnerDramas"
 
 export enum MaintainBlogsToggle {
   MAINTAIN = 'maintain',
@@ -19,6 +21,7 @@ type Props = {
 
 type State = {
   breakkyBlogs: BreakkyBlog[]
+  dinnerDramas: DinnerDrama[]
   maintainToggle: MaintainBlogsToggle
   selectedBlog: BreakkyBlog | null
 }
@@ -27,17 +30,18 @@ export class MaintainBlogs extends React.Component<Props, State> {
 
   state: State = {
     breakkyBlogs: [],
+    dinnerDramas: [],
     maintainToggle: MaintainBlogsToggle.MAINTAIN,
     selectedBlog: null
   }
 
   componentDidMount = async() => {
     const breakkyBlogs = await BreakkyBlogsServiceNew.getAll()
-    this.setState({breakkyBlogs})
+    const dinnerDramas = await DinnerDramaServiceNew.getAll()
+    this.setState({breakkyBlogs, dinnerDramas})
   }
 
   changeMaintainToggle = (maintainToggle: MaintainBlogsToggle) => {
-    console.log('maintainToggle', maintainToggle)
     this.setState({maintainToggle})
   }
 
@@ -48,10 +52,15 @@ export class MaintainBlogs extends React.Component<Props, State> {
           <MaintainBreakkyBlogs maintainToggle={this.state.maintainToggle}
                                 changeMaintainToggle={this.changeMaintainToggle}
                                 breakkyBlogs={this.state.breakkyBlogs}
-                                handleClick={this.props.handleClick}
-          />
+                                handleClick={this.props.handleClick}/>
         </Tab.Pane> },
-    { menuItem: 'Dinner Dramas', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
+    { menuItem: 'Dinner Dramas', render: () =>
+        <Tab.Pane>
+          <MaintainDinnerDramas maintainToggle={this.state.maintainToggle}
+                                changeMaintainToggle={this.changeMaintainToggle}
+                                dinnerDramas={this.state.dinnerDramas}
+                                handleClick={this.props.handleClick}/>
+        </Tab.Pane> },
       ]
   }
 

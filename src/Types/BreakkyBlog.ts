@@ -9,3 +9,13 @@ export type BreakkyBlog = {
   blogVariety: BlogType
   _id?: string
 }
+
+export type DinnerDrama = {
+  title: string
+  restaurant: string
+  location: string
+  displayImage: string
+  blogText: string
+  blogVariety: BlogType
+  _id?: string
+}

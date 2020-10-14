@@ -8,10 +8,14 @@
 
 .blogTabs {
   //background: #FFF8B7;
-  width: 80vw;
+  width: 92.5vw;
   height: 100vh;
 }
 
 .ui.bottom.attached.segment.active.tab {
   height: 80vh !important;
+}
+
+.ui.card, .ui.cards.card {
+  width: 240px !important;
 }
