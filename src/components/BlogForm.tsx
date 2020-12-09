@@ -19,8 +19,7 @@ type Props = {
 
 export enum BlogType {
   DINNER = 'dinner',
-  BREAKKY = 'breakky',
-  NONE = 'none'
+  BREAKKY = 'breakky'
 }
 
 export type BlogFormState = {
@@ -38,7 +37,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     title: '',
     cafeOrRestaurant: '',
     location: '',
-    blogVariety: BlogType.NONE
+    blogVariety: BlogType.BREAKKY
   }
 
   componentDidMount = () => {
@@ -110,9 +109,9 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
           Back
         </Button>
         }
+        <Header as={'h3'} className={'blogFormHeader'} block>Create Blog Ya Fuck Boy</Header>
         <div className={'newBlogContainer'}>
           <React.Fragment>
-            <Header as={'h3'} block>Create Blog Ya Fuck Boy</Header>
             <br/>
             <br/>
             <div className={'blogForm'}>
@@ -140,13 +139,11 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
                                label={'Blog Type'}
                                onChange={(e, data) => this.handleChange({blogVariety: data.value as BlogType})}
                                selection
-                               value={this.state.blogVariety !== null ? this.state.blogVariety : undefined}
+                               value={this.state.blogVariety}
                                options={[
                                  {key: 'breakky', text: 'Breakky Blog', value: BlogType.BREAKKY},
-                                 {key: 'dinner', text: 'Dinner Drama', value: BlogType.DINNER},
-                                 {key: 'none', text: '', value: BlogType.NONE}
+                                 {key: 'dinner', text: 'Dinner Drama', value: BlogType.DINNER}
                                ]}
-                               placeholder={'Blog Type...'}
                   />
                 </Form.Group>
                 <TextEditor editorState={this.state.editorState}

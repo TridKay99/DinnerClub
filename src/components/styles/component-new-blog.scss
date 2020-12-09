@@ -1,7 +1,7 @@
 .newBlogContainer {
   display:flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   height: 300px;
 }
 
@@ -21,6 +21,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.ui.block.header.blogFormHeader {
+  width: 35%;
 }
 
 .blogForm {

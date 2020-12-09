@@ -78,6 +78,13 @@ export class MaintainDinnerDramas extends React.Component<Props, State> {
       <React.Fragment>
         {this.props.maintainToggle === MaintainBlogsToggle.MAINTAIN &&
         <React.Fragment>
+          <Button basic
+                  color={'green'}
+                  icon={'plus'}
+                  onClick={() => this.props.changeMaintainToggle(MaintainBlogsToggle.CREATE)}
+                  content={'New Blog'}/>
+          <br/>
+          <br/>
           <Card.Group>
             {this.renderBlogRow()}
           </Card.Group>

@@ -61,14 +61,8 @@ export class MaintainBlogs extends React.Component<Props, State> {
                                 changeMaintainToggle={this.changeMaintainToggle}
                                 dinnerDramas={this.state.dinnerDramas}
                                 handleClick={this.props.handleClick}/>
-        </Tab.Pane> },
-    { menuItem: 'New Blog', render: () =>
-        <Tab.Pane>
-          <BlogForm handleClick={this.props.handleClick}
-                    blog={null}
-                    changeMaintainToggle={this.changeMaintainToggle}/>
-        </Tab.Pane> },
-      ]
+        </Tab.Pane>
+    }]
   }
 
   render() {
