@@ -58,7 +58,7 @@ export const BreakkyBlogContainerNew = (props: Props) => {
     setPresentingBlog(blog)
     props.handleIsBlogPicked()
   }
-  console.log('blogs', blogs)
+
   return (
     <React.Fragment>
       {props.isBlogPicked

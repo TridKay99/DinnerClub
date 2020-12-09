@@ -24,10 +24,6 @@ export class DinnerClubContainerAdventures extends React.Component<{}, State> {
     removeMainBlogButtons: false
   };
 
-  componentDidMount = () => {
-
-  }
-
   componentDidUpdate = () => {
     if((this.state.pageToRender === DisplayToggle.ADMIN_LOGIN
       || this.state.pageToRender === DisplayToggle.MAINTAIN_BLOGS
