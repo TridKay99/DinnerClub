@@ -4,7 +4,7 @@ import {Container, Image} from 'semantic-ui-react';
 import {BeansRepublique, Darling, MrFoxx} from "../../services/BreakkyBlogs/BreakkyBlogService";
 import {Blog} from "../../Blog";
 import {MobyDick} from "../../services/BreakkyBlogs/BreakkyBlogListTwo";
-import {BlogInfo} from "../../types/BlogInfo";
+import {BlogInfo} from "../../../Types/BlogInfo";
 
 type State = {
   blogInfo: BlogInfo | null

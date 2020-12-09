@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/component-banner.scss';
 import {Header} from 'semantic-ui-react';
-import {DisplayToggle} from "../DinnerClubContainerAdventures";
 import {AdminButton} from "./AdminButton";
+import {DisplayToggle} from "../../Enums/DisplayToggle"
 
 type Props = {
   handleClick: (value: DisplayToggle) => void

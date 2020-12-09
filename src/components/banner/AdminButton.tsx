@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/component-banner.scss';
 import {Button} from 'semantic-ui-react';
-import {DisplayToggle} from "../DinnerClubContainerAdventures";
+import { DisplayToggle } from '../../Enums/DisplayToggle';
 
 export type Props = {
   handleClick: (value: DisplayToggle) => void

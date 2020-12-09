@@ -1,20 +1,19 @@
 import React from 'react'
 import './styles/component-new-blog.scss'
-import {DisplayToggle} from "./DinnerClubContainerAdventures"
 import {EditorState} from "draft-js"
 import {TextEditor} from "./TextEditor/TextEditor"
 import {Button, Form, Header, Icon} from "semantic-ui-react"
-import {RecursivePick} from "../DeepStateMerge/RecursivePick"
-import {deepStateMerge} from "../DeepStateMerge/MergeUtils"
-import {BreakkyBlog} from "../Types/BreakkyBlog"
+import {RecursivePick} from "../utils/DeepStateMerge/RecursivePick"
+import {deepStateMerge} from "../utils/DeepStateMerge/MergeUtils"
+import {BreakkyBlog, DinnerDrama, isBreakkyBlog} from "../Types/BlogTypes"
 import {stateToHTML} from "draft-js-export-html"
 import {BreakkyBlogsServiceNew} from "../Services/BreakkyBlogsServicesNew"
 import {MaintainBlogsToggle} from "./MaintainBlogs/MaintainBlogs"
-
+import {DisplayToggle} from "../Enums/DisplayToggle"
 
 type Props = {
   handleClick: (value: DisplayToggle) => void
-  blog: BreakkyBlog | null
+  blog: BreakkyBlog | DinnerDrama | null
   changeMaintainToggle: (maintainToggle: MaintainBlogsToggle) => void
 }
 
@@ -45,13 +44,28 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
   componentDidMount = () => {
     const {blog} = this.props
     if (blog !== null) {
-      this.setState({
-        title: blog.title,
-        cafeOrRestaurant: blog.cafe,
-        location: blog.location,
-        blogVariety: blog.blogVariety
-      })
+      isBreakkyBlog(blog)
+        ? this.updateFormForBreakkyBlog(blog)
+        : this.updateFormForDinnerDrama(blog)
     }
+  }
+
+  updateFormForBreakkyBlog = (blog: BreakkyBlog) => {
+    this.setState({
+      title: blog.title,
+      cafeOrRestaurant: blog.cafe,
+      location: blog.location,
+      blogVariety: blog.blogVariety
+    })
+  }
+
+  updateFormForDinnerDrama = (blog: DinnerDrama) => {
+    this.setState({
+      title: blog.title,
+      cafeOrRestaurant: blog.restaurant,
+      location: blog.location,
+      blogVariety: blog.blogVariety
+    })
   }
 
   handleChange = (delta: RecursivePick<BlogFormState>) => {
@@ -85,6 +99,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
   render() {
     return (
       <React.Fragment>
+        {this.props.blog &&
         <Button basic
                 color={'blue'}
                 floated={'left'}
@@ -94,6 +109,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
           <Icon name={'meh'}/>
           Back
         </Button>
+        }
         <div className={'newBlogContainer'}>
           <React.Fragment>
             <Header as={'h3'} block>Create Blog Ya Fuck Boy</Header>

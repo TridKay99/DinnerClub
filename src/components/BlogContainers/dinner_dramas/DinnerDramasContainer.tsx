@@ -11,7 +11,7 @@ import {
   ThaiToGo,
   dragonDumplingHouse, vietStar
 } from "../../services/DinnerBlogs/DinnerDramasListTwo";
-import {BlogInfo} from "../../types/BlogInfo";
+import {BlogInfo} from "../../../Types/BlogInfo";
 
 type State = {
   blogInfo: BlogInfo | null

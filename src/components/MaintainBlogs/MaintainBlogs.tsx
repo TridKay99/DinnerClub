@@ -1,12 +1,13 @@
 import React from 'react'
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 import {Tab} from "semantic-ui-react"
-import {DisplayToggle} from "../DinnerClubContainerAdventures"
-import {BreakkyBlog, DinnerDrama} from "../../Types/BreakkyBlog"
+import {BreakkyBlog, DinnerDrama} from "../../Types/BlogTypes"
 import '../styles/component-maintain-blogs.scss'
 import {MaintainBreakkyBlogs} from "./MaintainBreakkyBlogs"
 import {DinnerDramaServiceNew} from "../../Services/DinnerDramaServiceNew"
 import {MaintainDinnerDramas} from "./MaintainDinnerDramas"
+import {BlogForm} from "../BlogForm"
+import {DisplayToggle} from "../../Enums/DisplayToggle"
 
 export enum MaintainBlogsToggle {
   MAINTAIN = 'maintain',
@@ -61,6 +62,12 @@ export class MaintainBlogs extends React.Component<Props, State> {
                                 dinnerDramas={this.state.dinnerDramas}
                                 handleClick={this.props.handleClick}/>
         </Tab.Pane> },
+    { menuItem: 'New Blog', render: () =>
+        <Tab.Pane>
+          <BlogForm handleClick={this.props.handleClick}
+                    blog={null}
+                    changeMaintainToggle={this.changeMaintainToggle}/>
+        </Tab.Pane> },
       ]
   }
 
@@ -68,7 +75,7 @@ export class MaintainBlogs extends React.Component<Props, State> {
     return (
       <div className={'maintainBlogsContainer'}>
         <div className={'blogTabs'}>
-          {(this.state.maintainToggle === MaintainBlogsToggle.MAINTAIN || this.state.maintainToggle === MaintainBlogsToggle.CREATE) &&
+          {(this.state.maintainToggle === MaintainBlogsToggle.MAINTAIN || this.state.maintainToggle === MaintainBlogsToggle.CREATE || this.state.maintainToggle === MaintainBlogsToggle.UPDATE) &&
             <Tab menu={{fluid: true, vertical: true, pointing: true}} panes={this.blogVarietyTabs()}/>
           }
         </div>

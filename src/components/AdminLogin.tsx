@@ -1,9 +1,9 @@
 import React from 'react';
 import {Button, Form, Input, InputOnChangeData, Message} from "semantic-ui-react"
 import './styles/component-new-blog.scss';
-import {DisplayToggle} from "./DinnerClubContainerAdventures";
 import {EditorState} from "draft-js";
 import {UserProfileService} from "../Services/UserProfileService"
+import {DisplayToggle} from "../Enums/DisplayToggle"
 
 export type UserProfile = {
   name: string,

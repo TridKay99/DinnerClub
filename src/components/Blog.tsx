@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/component-blog.scss'
 import { Container } from 'semantic-ui-react';
-import {BlogInfo} from "./types/BlogInfo";
+import {BlogInfo} from "../Types/BlogInfo";
 
 type Props = {
   blog: BlogInfo

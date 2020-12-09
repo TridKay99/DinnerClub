@@ -1,4 +1,4 @@
-import {BlogInfo} from "../../types/BlogInfo";
+import {BlogInfo} from "../../../Types/BlogInfo";
 
 export const TaoDumplings: BlogInfo = {
   title: 'Christian and the attempt to spell his last name',

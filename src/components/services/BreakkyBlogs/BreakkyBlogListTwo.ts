@@ -1,4 +1,4 @@
-import {BlogInfo} from "../../types/BlogInfo";
+import {BlogInfo} from "../../../Types/BlogInfo";
 
 export const MobyDick: BlogInfo = {
   title: `Now I'm Moby Dick for real`,

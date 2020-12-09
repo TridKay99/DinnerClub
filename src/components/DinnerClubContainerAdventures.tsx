@@ -7,15 +7,8 @@ import {MaintainBlogs} from "./MaintainBlogs/MaintainBlogs"
 import {DinnerDramasContainer} from "./BlogContainers/dinner_dramas/DinnerDramasContainer"
 import {BreakkyBlogContainer} from "./BlogContainers/breakky_blog/BreakkyBlogContainer"
 import {Home} from "./Home"
-
-export enum DisplayToggle {
-  BREAKKY_BLOG_LIST = 'breakky',
-  DINNER_BLOG_LIST = 'dinner',
-  ADMIN_LOGIN = 'admin_login',
-  MAINTAIN_BLOGS = 'MAINTAIN_BLOGS',
-  NEW_BLOG = 'new_blog',
-  HOME = 'home'
-}
+import {DisplayToggle} from "../Enums/DisplayToggle"
+import {BreakkyBlogContainerNew} from "../Services/BreakkyBlogContainerNew"
 
 type State = {
   pageToRender: DisplayToggle
@@ -26,10 +19,14 @@ type State = {
 export class DinnerClubContainerAdventures extends React.Component<{}, State> {
 
   state: State = {
-    pageToRender: DisplayToggle.ADMIN_LOGIN,
+    pageToRender: DisplayToggle.HOME,
     isBlogPicked: false,
     removeMainBlogButtons: false
   };
+
+  componentDidMount = () => {
+
+  }
 
   componentDidUpdate = () => {
     if((this.state.pageToRender === DisplayToggle.ADMIN_LOGIN
@@ -65,14 +62,13 @@ export class DinnerClubContainerAdventures extends React.Component<{}, State> {
                                                                pageToRender={DisplayToggle.ADMIN_LOGIN}/>
       case DisplayToggle.DINNER_BLOG_LIST: return <DinnerDramasContainer isBlogPicked={this.state.isBlogPicked}
                                                                          handleIsBlogPicked={this.handleIsBlogPicked}/>;
-      case DisplayToggle.BREAKKY_BLOG_LIST: return <BreakkyBlogContainer isBlogPicked={this.state.isBlogPicked}
-                                                                         handleIsBlogPicked={this.handleIsBlogPicked}/>;
+      case DisplayToggle.BREAKKY_BLOG_LIST: return <BreakkyBlogContainerNew isBlogPicked={this.state.isBlogPicked}
+                                                                            handleIsBlogPicked={this.handleIsBlogPicked}/>;
       default: return <Home/>
     }
   };
 
   render() {
-    console.log('this.state.removeMainBlogButtons', this.state.removeMainBlogButtons)
     return (
       <div className={'container'}>
         <Banner handleClick={this.handleClick}/>

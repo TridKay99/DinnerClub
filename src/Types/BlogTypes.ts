@@ -19,3 +19,7 @@ export type DinnerDrama = {
   blogVariety: BlogType
   _id?: string
 }
+
+export const isBreakkyBlog = (blog: BreakkyBlog | DinnerDrama): blog is BreakkyBlog => {
+  return (blog as BreakkyBlog).cafe !== undefined
+}

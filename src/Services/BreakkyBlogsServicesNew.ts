@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import {BreakkyBlog} from "../Types/BreakkyBlog"
+import {BreakkyBlog} from "../Types/BlogTypes"
 
 export const BreakkyBlogsServiceNew = {
   getAll: async () => {
