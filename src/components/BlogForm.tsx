@@ -93,6 +93,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
       blogVariety: this.props.blogVariety
     }
   }
+
   constructDinner = (): DinnerDrama => {
     return {
       title: this.state.title,
@@ -106,6 +107,10 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
 
   editorStateChange = (editorState: EditorState) => {
     this.setState({editorState: editorState})
+  }
+
+  onInlineFilesAttached = (file: File) => {
+    console.log('file', file)
   }
 
   render() {
@@ -160,7 +165,10 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
                   />
                 </Form.Group>
                 <TextEditor editorState={this.state.editorState}
-                            editorStateChange={this.editorStateChange}/>
+                            editorStateChange={this.editorStateChange}
+                            onInlineFilesAttached={this.onInlineFilesAttached}
+                            onFileAttached={this.onInlineFilesAttached}
+                />
                 <br/>
                 <br/>
                 <Button content={'Save Blog'}

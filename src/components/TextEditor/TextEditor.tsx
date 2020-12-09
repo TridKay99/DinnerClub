@@ -12,10 +12,13 @@ import Editor from 'draft-js-plugins-editor';
 import {TextEditorButtons} from "./TextEditorButtons";
 import '../styles/component-text-editor.scss'
 import {DraftPlugins} from "./index";
+import {BlobUtils} from "../../utils/BlobUtils"
 
 type Props = {
   editorState: EditorState;
   editorStateChange: (editorState: EditorState) => void;
+  onInlineFilesAttached: (file: File) => void
+  onFileAttached: (file: File) => void
 };
 
 export class TextEditor extends React.Component<Props> {
@@ -63,18 +66,18 @@ export class TextEditor extends React.Component<Props> {
     };
   };
 
-  // onInlineImageAdded = async (file: File) => {
-  //   const type = file.type;
-  //   const base64 = await BlobUtils.readBlobAsBase64String(file);
-  //   const base64String = 'data:' + type + ';base64, ' + base64;
-  //   const newEditorState = this.insertImage(this.props.editorState, base64String);
-  //   this.insertImage(this.props.editorState, base64String);
-  //   this.props.onChange(newEditorState);
-  //
-  //   if (this.props.onInlineFilesAttached) {
-  //     this.props.onInlineFilesAttached(file);
-  //   }
-  // };
+  onInlineImageAdded = async (file: File) => {
+    const type = file.type;
+    const base64 = await BlobUtils.readBlobAsBase64String(file);
+    const base64String = 'data:' + type + ';base64, ' + base64;
+    const newEditorState = this.insertImage(this.props.editorState, base64String);
+    this.insertImage(this.props.editorState, base64String);
+    this.props.editorStateChange(newEditorState);
+
+    if (this.props.onInlineFilesAttached) {
+      this.props.onInlineFilesAttached(file);
+    }
+  };
 
   insertImage = (editorState: EditorState, base64: string) => {
     const contentState = editorState.getCurrentContent();
@@ -87,27 +90,37 @@ export class TextEditor extends React.Component<Props> {
   };
 
   render() {
+    const {editorState} = this.props;
+    let className = 'RichEditor-editor rktRichTextEditorWrapper'
+    let contentState = editorState.getCurrentContent();
+    if(!contentState.hasText()) {
+      if(
+        contentState.getBlockMap()
+                    .first()
+                    .getType() !== 'unstyled'
+      ) {
+        className += ' RichEditor-hidePlaceholder';
+      }
+    }
+
     return (
       <div className="RichEditor-root rktRichTextEditorWrapper">
         <TextEditorButtons
           editorState={this.props.editorState}
           onEditorStateChange={this.props.editorStateChange}
-          // onInlineFilesAttached={this.onInlineImageAdded}
-          // onFilesAttached={this.props.onFilesAttached!}
+          onInlineFilesAttached={this.onInlineImageAdded}
+          onFilesAttached={this.props.onFileAttached}
           className={'uploadButtonNew'}
         />
-        <div className={'RichEditor-editor rktRichTextEditorWrapper'}>
-          {/*<Editor blockStyleFn={this.getBlockStyle} editorState={this.state.editorState} onChange={this.onChange}/>*/}
-          <Editor
-            blockStyleFn={this.getBlockStyle}
-            customStyleMap={this.getStyleMap()}
-            editorState={this.props.editorState}
-            handleKeyCommand={this.handleKeyCommand}
-            keyBindingFn={this.mapKeyToEditorCommand}
-            onChange={this.props.editorStateChange}
-            spellCheck={true}
-            plugins={DraftPlugins}
-          />
+        <div className={className}>
+          <Editor blockStyleFn={this.getBlockStyle}
+                  customStyleMap={this.getStyleMap()}
+                  editorState={this.props.editorState}
+                  handleKeyCommand={this.handleKeyCommand}
+                  keyBindingFn={this.mapKeyToEditorCommand}
+                  onChange={this.props.editorStateChange}
+                  spellCheck
+                  plugins={DraftPlugins}/>
         </div>
       </div>
     );
