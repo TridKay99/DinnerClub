@@ -3,7 +3,7 @@ import {Button, Card} from "semantic-ui-react"
 import {MaintainBlogsToggle} from "./MaintainBlogs"
 import {BreakkyBlog} from "../../Types/BlogTypes"
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
-import {BlogForm} from "../BlogForm"
+import {BlogForm, BlogType} from "../BlogForm"
 import {DisplayToggle} from "../../Enums/DisplayToggle"
 
 type Props = {
@@ -94,13 +94,16 @@ export class MaintainBreakkyBlogs extends React.Component<Props, State> {
           <BlogForm handleClick={this.props.handleClick}
                     blog={null}
                     changeMaintainToggle={this.props.changeMaintainToggle}
+                    blogVariety={BlogType.BREAKKY}
           />
         </React.Fragment>
         }
         {this.props.maintainToggle === MaintainBlogsToggle.UPDATE &&
         <BlogForm handleClick={this.props.handleClick}
                   changeMaintainToggle={this.props.changeMaintainToggle}
-                  blog={this.state.selectedBlog}/>
+                  blog={this.state.selectedBlog}
+                  blogVariety={BlogType.BREAKKY}
+        />
         }
       </React.Fragment>
     )

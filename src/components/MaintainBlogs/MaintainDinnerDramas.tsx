@@ -2,7 +2,7 @@ import React from 'react'
 import {MaintainBlogsToggle} from "./MaintainBlogs"
 import {DinnerDrama} from "../../Types/BlogTypes"
 import {Button, Card} from "semantic-ui-react"
-import {BlogForm} from "../BlogForm"
+import {BlogForm, BlogType} from "../BlogForm"
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 import '../styles/component-maintain-blogs.scss'
 import {DisplayToggle} from "../../Enums/DisplayToggle"
@@ -95,13 +95,14 @@ export class MaintainDinnerDramas extends React.Component<Props, State> {
           <BlogForm handleClick={this.props.handleClick}
                     blog={null}
                     changeMaintainToggle={this.props.changeMaintainToggle}
-          />
+                    blogVariety={BlogType.DINNER}/>
         </React.Fragment>
         }
         {this.props.maintainToggle === MaintainBlogsToggle.UPDATE &&
           <BlogForm handleClick={this.props.handleClick}
                     changeMaintainToggle={this.props.changeMaintainToggle}
-                    blog={this.state.selectedBlog}/>
+                    blog={this.state.selectedBlog}
+                    blogVariety={BlogType.DINNER}/>
         }
       </React.Fragment>
     )

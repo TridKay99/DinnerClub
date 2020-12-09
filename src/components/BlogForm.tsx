@@ -10,11 +10,13 @@ import {stateToHTML} from "draft-js-export-html"
 import {BreakkyBlogsServiceNew} from "../Services/BreakkyBlogsServicesNew"
 import {MaintainBlogsToggle} from "./MaintainBlogs/MaintainBlogs"
 import {DisplayToggle} from "../Enums/DisplayToggle"
+import {DinnerDramaServiceNew} from "../Services/DinnerDramaServiceNew"
 
 type Props = {
   handleClick: (value: DisplayToggle) => void
   blog: BreakkyBlog | DinnerDrama | null
   changeMaintainToggle: (maintainToggle: MaintainBlogsToggle) => void
+  blogVariety: BlogType
 }
 
 export enum BlogType {
@@ -27,7 +29,6 @@ export type BlogFormState = {
   title: string
   cafeOrRestaurant: string
   location: string
-  blogVariety: BlogType
 }
 
 export class BlogForm extends React.Component<Props, BlogFormState> {
@@ -36,8 +37,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     editorState: EditorState.createEmpty(),
     title: '',
     cafeOrRestaurant: '',
-    location: '',
-    blogVariety: BlogType.BREAKKY
+    location: ''
   }
 
   componentDidMount = () => {
@@ -53,8 +53,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     this.setState({
       title: blog.title,
       cafeOrRestaurant: blog.cafe,
-      location: blog.location,
-      blogVariety: blog.blogVariety
+      location: blog.location
     })
   }
 
@@ -62,8 +61,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     this.setState({
       title: blog.title,
       cafeOrRestaurant: blog.restaurant,
-      location: blog.location,
-      blogVariety: blog.blogVariety
+      location: blog.location
     })
   }
 
@@ -76,21 +74,33 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
   }
 
   saveBlog = async () => {
-    const blog = this.constructBlog()
-    // blog.blogVariety === BlogType.BREAKKY
-    //   ? await BreakkyBlogsServiceNew.create(blog)
-    //   : await DinnerDramaServiceNew.create(blog)
-    await BreakkyBlogsServiceNew.create(blog)
+    if(this.props.blogVariety === BlogType.BREAKKY) {
+      const blog = this.constructBreakky()
+      await BreakkyBlogsServiceNew.create(blog)
+    } else {
+      const blog = this.constructDinner()
+      await DinnerDramaServiceNew.create(blog)
+    }
   }
 
-  constructBlog = () => {
+  constructBreakky = (): BreakkyBlog => {
     return {
       title: this.state.title,
       cafe: this.state.cafeOrRestaurant,
       location: this.state.location,
       displayImage: 'IMAGE',
       blogText: stateToHTML(this.state.editorState.getCurrentContent()),
-      blogVariety: this.state.blogVariety
+      blogVariety: this.props.blogVariety
+    }
+  }
+  constructDinner = (): DinnerDrama => {
+    return {
+      title: this.state.title,
+      restaurant: this.state.cafeOrRestaurant,
+      location: this.state.location,
+      displayImage: 'IMAGE',
+      blogText: stateToHTML(this.state.editorState.getCurrentContent()),
+      blogVariety: this.props.blogVariety
     }
   }
 
@@ -140,9 +150,9 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
                   />
                   <Form.Select fluid
                                label={'Blog Type'}
-                               onChange={(e, data) => this.handleChange({blogVariety: data.value as BlogType})}
                                selection
-                               value={this.state.blogVariety}
+                               disabled
+                               value={this.props.blogVariety}
                                options={[
                                  {key: 'breakky', text: 'Breakky Blog', value: BlogType.BREAKKY},
                                  {key: 'dinner', text: 'Dinner Drama', value: BlogType.DINNER}
