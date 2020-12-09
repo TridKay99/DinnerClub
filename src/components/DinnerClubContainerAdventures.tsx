@@ -8,7 +8,8 @@ import {DinnerDramasContainer} from "./BlogContainers/dinner_dramas/DinnerDramas
 import {BreakkyBlogContainer} from "./BlogContainers/breakky_blog/BreakkyBlogContainer"
 import {Home} from "./Home"
 import {DisplayToggle} from "../Enums/DisplayToggle"
-import {BreakkyBlogContainerNew} from "../Services/BreakkyBlogContainerNew"
+import {BreakkyBlogContainerNew} from "./BlogContainers/breakky_blog/BreakkyBlogContainerNew"
+import {DinnerDramaContainerNew} from "./BlogContainers/dinner_dramas/DinnerDramaContainerNew"
 
 type State = {
   pageToRender: DisplayToggle
@@ -56,8 +57,8 @@ export class DinnerClubContainerAdventures extends React.Component<{}, State> {
                                                          pageToRender={DisplayToggle.ADMIN_LOGIN}/>;
       case DisplayToggle.MAINTAIN_BLOGS: return <MaintainBlogs handleClick={this.handleClick}
                                                                pageToRender={DisplayToggle.ADMIN_LOGIN}/>
-      case DisplayToggle.DINNER_BLOG_LIST: return <DinnerDramasContainer isBlogPicked={this.state.isBlogPicked}
-                                                                         handleIsBlogPicked={this.handleIsBlogPicked}/>;
+      case DisplayToggle.DINNER_BLOG_LIST: return <DinnerDramaContainerNew isBlogPicked={this.state.isBlogPicked}
+                                                                           handleIsBlogPicked={this.handleIsBlogPicked}/>;
       case DisplayToggle.BREAKKY_BLOG_LIST: return <BreakkyBlogContainerNew isBlogPicked={this.state.isBlogPicked}
                                                                             handleIsBlogPicked={this.handleIsBlogPicked}/>;
       default: return <Home/>

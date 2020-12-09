@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {Button, Card, Container, Image} from "semantic-ui-react"
-import {Blog} from "../components/Blog"
-import {BreakkyBlog} from "../Types/BlogTypes"
-import {BreakkyBlogsServiceNew} from "./BreakkyBlogsServicesNew"
+import {Blog} from "../../Blog"
+import {BreakkyBlog} from "../../../Types/BlogTypes"
+import {BreakkyBlogsServiceNew} from "../../../Services/BreakkyBlogsServicesNew"
 
 type Props = {
   isBlogPicked: boolean
