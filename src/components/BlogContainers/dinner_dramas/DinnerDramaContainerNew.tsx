@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {Button, Card, Container, Image} from "semantic-ui-react"
 import {Blog} from "../../Blog"
-import {BreakkyBlog, DinnerDrama} from "../../../Types/BlogTypes"
+import {DinnerDrama} from "../../../Types/BlogTypes"
 import {DinnerDramaServiceNew} from "../../../Services/DinnerDramaServiceNew"
 
 type Props = {

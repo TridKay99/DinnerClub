@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Card} from "semantic-ui-react"
 import {MaintainBlogsToggle} from "./MaintainBlogs"
-import {BreakkyBlog, DinnerDrama} from "../../Types/BlogTypes"
+import {BreakkyBlog} from "../../Types/BlogTypes"
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 import {BlogForm} from "../BlogForm"
 import {DisplayToggle} from "../../Enums/DisplayToggle"
