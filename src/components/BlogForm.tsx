@@ -87,7 +87,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
       cafe: this.state.cafeOrRestaurant,
       location: this.state.location,
       displayImage: 'IMAGE',
-      BlogText: stateToHTML(this.state.editorState.getCurrentContent()),
+      blogText: stateToHTML(this.state.editorState.getCurrentContent()),
       blogVariety: this.state.blogVariety
     }
   }

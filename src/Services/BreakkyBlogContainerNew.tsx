@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {BlogInfo} from "../Types/BlogInfo"
-import {Button, Card, Container, Icon, Image} from "semantic-ui-react"
+import {Button, Card, Container, Image} from "semantic-ui-react"
 import {Blog} from "../components/Blog"
 import {BreakkyBlog} from "../Types/BlogTypes"
 import {BreakkyBlogsServiceNew} from "./BreakkyBlogsServicesNew"
@@ -12,7 +11,7 @@ type Props = {
 
 export const BreakkyBlogContainerNew = (props: Props) => {
   const [blogs, setBlogs] = useState<BreakkyBlog[]>([])
-  const [blogInfo, setBlogInfo] = useState<BlogInfo | null>(null)
+  const [presentingBlog, setPresentingBlog] = useState<BreakkyBlog | null>(null)
 
   useEffect(() => {
     const collectedBlogs = async () => {
@@ -26,14 +25,6 @@ export const BreakkyBlogContainerNew = (props: Props) => {
     const collectedBlogs = await BreakkyBlogsServiceNew.getAll()
     setBlogs(collectedBlogs)
   }
-
-  // useEffect(() => {
-  //   props.handleIsBlogPicked()
-  // }, [blogInfo])
-
-  useEffect(() => {
-    setBlogs(blogs)
-  }, [blogs])
 
   const getBlogCards = () => {
     return blogs.map((blog: BreakkyBlog) => {
@@ -53,6 +44,7 @@ export const BreakkyBlogContainerNew = (props: Props) => {
             <Card.Content extra>
               <Button content={'Read more...'}
                       color={'blue'}
+                      onClick={() => selectBlog(blog)}
                       inverted
               />
             </Card.Content>
@@ -62,13 +54,20 @@ export const BreakkyBlogContainerNew = (props: Props) => {
     })
   }
 
+  const selectBlog = (blog: BreakkyBlog) => {
+    setPresentingBlog(blog)
+    props.handleIsBlogPicked()
+  }
+  console.log('blogs', blogs)
   return (
     <React.Fragment>
       {props.isBlogPicked
-        ? <Blog blog={blogInfo!}/>
+        ? <Blog blog={presentingBlog!}/>
         : <Container className={'blogOptionContainer'}>
-          {getBlogCards()}
-        </Container>
+            <Card.Group>
+              { getBlogCards() }
+            </Card.Group>
+          </Container>
       }
     </React.Fragment>
   )

@@ -42,14 +42,14 @@ export class BreakkyBlogContainer extends React.Component<Props, State> {
     this.setState({blogInfo: value}, () => this.props.handleIsBlogPicked())
   }
 
-  renderBlog = () => {
-    const {blogInfo} = this.state
-    if(blogInfo) {
-      return (
-        <Blog blog={blogInfo}/>
-      )
-    }
-  }
+  // renderBlog = () => {
+  //   const {blogInfo} = this.state
+  //   if(blogInfo) {
+  //     return (
+  //       <Blog blog={blogInfo}/>
+  //     )
+  //   }
+  // }
 
   render() {
     return (
@@ -58,7 +58,8 @@ export class BreakkyBlogContainer extends React.Component<Props, State> {
                                   {this.getBlogCards()}
                                   </Container>
                                 :
-                                  this.renderBlog()
+                                  // this.renderBlog()
+                                    'butt'
                                   }
       </>
     )

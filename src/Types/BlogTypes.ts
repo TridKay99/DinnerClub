@@ -5,7 +5,7 @@ export type BreakkyBlog = {
   cafe: string
   location: string
   displayImage: string
-  BlogText: string
+  blogText: string
   blogVariety: BlogType
   _id?: string
 }

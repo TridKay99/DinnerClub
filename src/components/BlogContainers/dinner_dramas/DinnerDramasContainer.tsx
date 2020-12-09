@@ -2,7 +2,6 @@ import React from 'react';
 import '../../styles/component-blog-containers.scss'
 import {Button, Container, Image} from "semantic-ui-react"
 import {EmpressOfChina, ILoveDumplings, Madaeya} from "../../services/DinnerBlogs/DinnerDramaService";
-import {Blog} from "../../Blog";
 import {
   MalvenVale,
   ReturnOfTheTao,
@@ -53,14 +52,14 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
     this.setState({blogInfo: value}, () => this.props.handleIsBlogPicked())
   };
 
-  renderBlog = () => {
-    const {blogInfo} = this.state;
-    if(blogInfo) {
-      return (
-        <Blog blog={blogInfo}/>
-      )
-    }
-  };
+  // renderBlog = () => {
+  //   const {blogInfo} = this.state;
+  //   if(blogInfo) {
+  //     return (
+  //       <Blog blog={blogInfo}/>
+  //     )
+  //   }
+  // };
 
   render() {
     return (
@@ -68,7 +67,8 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
         {!this.props.isBlogPicked ?  <Container className={'blogOptionContainer'}>
                                       {this.getBlogCards()}
                                      </Container>
-                                  :  this.renderBlog()
+                                  : 'butt'
+          // this.renderBlog()
         }
       </>
     )

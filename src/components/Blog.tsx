@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles/component-blog.scss'
 import { Container } from 'semantic-ui-react';
-import {BlogInfo} from "../Types/BlogInfo";
+import {BreakkyBlog} from "../Types/BlogTypes"
 
 type Props = {
-  blog: BlogInfo
+  blog: BreakkyBlog
 }
 
 export class Blog extends React.Component<Props> {
@@ -20,9 +20,9 @@ export class Blog extends React.Component<Props> {
             <p>{blog.title}</p>
           </div>
           <div className={'blogRestaurant'}>
-            <p>{blog.restaurant}</p>
+            <p>{blog.cafe}</p>
           </div>
-          <p dangerouslySetInnerHTML={{ __html: `${blog.body}` }} />
+          <p dangerouslySetInnerHTML={{ __html: `${blog.blogText}` }} />
         </div>
       </Container>
     )
