@@ -77,6 +77,9 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
 
   saveBlog = async () => {
     const blog = this.constructBlog()
+    // blog.blogVariety === BlogType.BREAKKY
+    //   ? await BreakkyBlogsServiceNew.create(blog)
+    //   : await DinnerDramaServiceNew.create(blog)
     await BreakkyBlogsServiceNew.create(blog)
   }
 
