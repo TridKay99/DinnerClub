@@ -105,11 +105,6 @@ export class TextEditorButtons extends React.Component<Props> {
         />
         <Button icon={"image outline"}
                 onClick={this.onClick}/>
-        {/*<TextEditorAttachmentButton*/}
-        {/*  // onChange={this.onFileAttached}*/}
-        {/*                            className={this.props.className}*/}
-        {/*                            // onFilesAttached={this.props.onFilesAttached}*/}
-        {/*/>*/}
       </div>
     )
   }

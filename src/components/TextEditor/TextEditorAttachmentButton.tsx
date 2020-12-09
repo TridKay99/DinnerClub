@@ -1,8 +1,10 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import {RecursivePick} from "../../utils/DeepStateMerge/RecursivePick"
+import {BlogFormState} from "../BlogForm"
+import {BlobUtils} from "../../utils/BlobUtils"
 
 type Props = {
-  // onChange(file: File): void
+  onChange(delta: RecursivePick<BlogFormState>): void
   className: string
   onFilesAttached?: (file: File) => void
 }
@@ -16,22 +18,26 @@ export class TextEditorAttachmentButton extends React.Component<Props> {
     }
   };
 
-  onFileSelected = () => {
-    // this.props.onChange((this.ref as any).files[0])
+  onFileSelected = async () => {
+    const file = (this.ref as any).files[0]
+    const base64 = await BlobUtils.readBlobAsBase64String(file)
+    const base64File = {
+      name: file.name as string,
+      base64
+    }
+
+    this.props.onChange({displayImage: base64File})
   };
 
   render () {
     return (
-      <>
+      <React.Fragment>
+        <strong>Choose cover photo...</strong>
         <input type="file"
                ref={(ref) => this.ref = ref}
                onChange={this.onFileSelected}
                className={"uploadButtonInput"}/>
-        <Button  className={this.props.className}
-                 icon={"paperclip"}
-                 onChange={this.props.onFilesAttached}
-                 onClick={this.onClick}/>
-      </>
+      </React.Fragment>
     )
   }
 }

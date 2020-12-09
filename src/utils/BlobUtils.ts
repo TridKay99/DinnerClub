@@ -6,7 +6,7 @@ export type ImageDimensions = {
 }
 
 export const BlobUtils = {
-  readBlobAsBase64String: (file: File) => {
+  readBlobAsBase64String: (file: File): Promise<string> => {
     return new Promise((resolve) => {
       const reader = new FileReader();
       reader.onload = function(evt: any){

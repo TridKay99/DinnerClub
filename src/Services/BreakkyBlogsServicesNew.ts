@@ -12,6 +12,7 @@ export const BreakkyBlogsServiceNew = {
   },
 
   create: async (blog: BreakkyBlog) => {
+    console.log('blog', blog)
     const res = await Axios.post('/create-breakky-blog', {
       data: blog
     })

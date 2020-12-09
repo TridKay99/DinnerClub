@@ -35,10 +35,12 @@ export class AdminLogin extends React.Component<Props, State> {
 
   componentDidMount = async() => {
     const userProfiles: UserProfile[] = await UserProfileService.getAll()
-    const admin = userProfiles.find(user => user.name === 'Admin')
-    if(admin) {
-      this.setState({admin})
-      this.setState({userName: admin.name})
+    if(userProfiles) {
+      const admin = userProfiles.find(user => user.name === 'Admin')
+      if(admin) {
+        this.setState({admin})
+        this.setState({userName: admin.name})
+      }
     }
   }
 

@@ -5,12 +5,13 @@ import {TextEditor} from "./TextEditor/TextEditor"
 import {Button, Form, Header, Icon} from "semantic-ui-react"
 import {RecursivePick} from "../utils/DeepStateMerge/RecursivePick"
 import {deepStateMerge} from "../utils/DeepStateMerge/MergeUtils"
-import {BreakkyBlog, DinnerDrama, isBreakkyBlog} from "../Types/BlogTypes"
+import {BreakkyBlog, DinnerDrama, FileType, isBreakkyBlog} from "../Types/BlogTypes"
 import {stateToHTML} from "draft-js-export-html"
 import {BreakkyBlogsServiceNew} from "../Services/BreakkyBlogsServicesNew"
 import {MaintainBlogsToggle} from "./MaintainBlogs/MaintainBlogs"
 import {DisplayToggle} from "../Enums/DisplayToggle"
 import {DinnerDramaServiceNew} from "../Services/DinnerDramaServiceNew"
+import {TextEditorAttachmentButton} from "./TextEditor/TextEditorAttachmentButton"
 
 type Props = {
   handleClick: (value: DisplayToggle) => void
@@ -29,6 +30,7 @@ export type BlogFormState = {
   title: string
   cafeOrRestaurant: string
   location: string
+  displayImage: FileType | null
 }
 
 export class BlogForm extends React.Component<Props, BlogFormState> {
@@ -37,7 +39,8 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     editorState: EditorState.createEmpty(),
     title: '',
     cafeOrRestaurant: '',
-    location: ''
+    location: '',
+    displayImage: null
   }
 
   componentDidMount = () => {
@@ -88,9 +91,10 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
       title: this.state.title,
       cafe: this.state.cafeOrRestaurant,
       location: this.state.location,
-      displayImage: 'IMAGE',
+      displayImage: this.state.displayImage,
       blogText: stateToHTML(this.state.editorState.getCurrentContent()),
-      blogVariety: this.props.blogVariety
+      blogVariety: this.props.blogVariety,
+      date: new Date()
     }
   }
 
@@ -99,9 +103,10 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
       title: this.state.title,
       restaurant: this.state.cafeOrRestaurant,
       location: this.state.location,
-      displayImage: 'IMAGE',
+      displayImage: this.state.displayImage,
       blogText: stateToHTML(this.state.editorState.getCurrentContent()),
-      blogVariety: this.props.blogVariety
+      blogVariety: this.props.blogVariety,
+      date: new Date()
     }
   }
 
@@ -168,6 +173,10 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
                             editorStateChange={this.editorStateChange}
                             onInlineFilesAttached={this.onInlineFilesAttached}
                             onFileAttached={this.onInlineFilesAttached}
+                />
+                <br/>
+                <TextEditorAttachmentButton onChange={this.handleChange}
+                                            className={'className2'}
                 />
                 <br/>
                 <br/>
