@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Button, Card, Container, Image} from "semantic-ui-react"
+import {Button, Card, Container} from "semantic-ui-react"
 import {Blog} from "../../Blog"
 import {BreakkyBlog} from "../../../Types/BlogTypes"
 import {BreakkyBlogsServiceNew} from "../../../Services/BreakkyBlogsServicesNew"
@@ -31,7 +31,8 @@ export const BreakkyBlogContainerNew = (props: Props) => {
       return (
         <React.Fragment>
           <Card>
-            <Image src='/images/avatar/large/matthew.png' wrapped ui={false}/>
+            {/*TODO add images to the cards when backend ready*/}
+            {/*<Image src='/images/avatar/large/matthew.png' wrapped ui={false}/>*/}
             <Card.Content>
               <Card.Header>{blog.cafe}</Card.Header>
               <Card.Meta>
@@ -64,7 +65,7 @@ export const BreakkyBlogContainerNew = (props: Props) => {
       {props.isBlogPicked
         ? <Blog blog={presentingBlog!}/>
         : <Container className={'blogOptionContainer'}>
-            <Card.Group>
+            <Card.Group itemsPerRow={3}>
               { getBlogCards() }
             </Card.Group>
           </Container>

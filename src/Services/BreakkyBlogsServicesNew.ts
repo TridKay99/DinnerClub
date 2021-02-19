@@ -7,16 +7,19 @@ export const BreakkyBlogsServiceNew = {
       const res = await Axios.get('/get-all-breakky-blog')
       return res.data || []
     } catch (e) {
-      console.log('ERROR!!!!', e)
+      console.log('ERROR!!!! TRIDDA', e)
     }
   },
 
   create: async (blog: BreakkyBlog) => {
-    console.log('blog', blog)
-    const res = await Axios.post('/create-breakky-blog', {
-      data: blog
-    })
-    console.log(res)
+    try {
+      const res = await Axios.post('/create-breakky-blog', {
+        data: blog
+      })
+      console.log(res)
+    } catch (e) {
+      console.log('ERROR TRIDDA!!!', e)
+    }
   },
 
   delete: async (id: string) => {
@@ -28,7 +31,7 @@ export const BreakkyBlogsServiceNew = {
       })
       console.log('res', res)
     } catch (e) {
-      console.log('ERROR!!!!', e)
+      console.log('ERROR TRIDDA!!!!', e)
     }
   }
 }

@@ -31,7 +31,8 @@ export const DinnerDramaContainerNew = (props: Props) => {
       return (
         <React.Fragment>
           <Card>
-            <Image src='/images/avatar/large/matthew.png' wrapped ui={false}/>
+            {/*TODO add images to the cards when backend ready*/}
+            {/*<Image src='/images/avatar/large/matthew.png' wrapped ui={false}/>*/}
             <Card.Content>
               <Card.Header>{blog.restaurant}</Card.Header>
               <Card.Meta>
