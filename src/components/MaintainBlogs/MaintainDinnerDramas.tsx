@@ -6,6 +6,7 @@ import {BlogForm, BlogType} from "../BlogForm"
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 import '../styles/component-maintain-blogs.scss'
 import {DisplayToggle} from "../../Enums/DisplayToggle"
+import {DinnerDramaServiceNew} from "../../Services/DinnerDramaServiceNew"
 
 type Props = {
   maintainToggle: MaintainBlogsToggle
@@ -69,7 +70,7 @@ export class MaintainDinnerDramas extends React.Component<Props, State> {
 
   deleteBlog = async(blog: DinnerDrama) => {
     if(blog._id) {
-      await BreakkyBlogsServiceNew.delete(blog._id)
+      await DinnerDramaServiceNew.delete(blog._id)
     }
   }
 

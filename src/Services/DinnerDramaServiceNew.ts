@@ -16,5 +16,18 @@ export const DinnerDramaServiceNew = {
       data: blog
     })
     console.log(res)
+  },
+
+  delete: async (id: string) => {
+    try {
+      const res = await Axios.delete(`/delete-dinner-drama/`, {
+        headers: {
+          _id: id
+        }
+      })
+      console.log('res', res)
+    } catch (e) {
+      console.log('ERROR TRIDDA!!!!', e)
+    }
   }
 }
