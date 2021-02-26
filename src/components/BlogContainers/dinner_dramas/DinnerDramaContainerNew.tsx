@@ -34,12 +34,12 @@ export const DinnerDramaContainerNew = (props: Props) => {
             {/*TODO add images to the cards when backend ready*/}
             {/*<Image src='/images/avatar/large/matthew.png' wrapped ui={false}/>*/}
             <Card.Content>
-              <Card.Header>{blog.restaurant}</Card.Header>
+              <Card.Header>{blog.title}</Card.Header>
               <Card.Meta>
                 <span className='date'>{blog.location}</span>
               </Card.Meta>
               <Card.Description>
-                {blog.title}
+                {blog.restaurant}
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
@@ -65,7 +65,7 @@ export const DinnerDramaContainerNew = (props: Props) => {
       {props.isBlogPicked
         ? <Blog blog={presentingBlog!}/>
         : <Container className={'blogOptionContainer'}>
-          <Card.Group>
+          <Card.Group itemsPerRow={3}>
             { getBlogCards() }
           </Card.Group>
         </Container>

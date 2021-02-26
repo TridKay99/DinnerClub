@@ -13,7 +13,6 @@
   height: 500px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   p {
     padding-bottom: 10px;
   }
@@ -26,6 +25,8 @@
   float: left;
   width: 100%;
   color: #ffe593;
+  display: flex;
+  justify-content: center;
   p {
     margin-bottom: 5px !important;
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles/component-blog.scss'
-import { Container } from 'semantic-ui-react';
 import {BreakkyBlog, DinnerDrama, isBreakkyBlog} from "../Types/BlogTypes"
 
 type Props = {
@@ -13,7 +12,7 @@ export class Blog extends React.Component<Props> {
     const { blog } = this.props
 
     return (
-      <Container className={'blogContainer'}>
+      <div className={'blogContainer'}>
         <div className={'blog'}>
           <div className={'blogTitle'}>
             <p>{blog.title}</p>
@@ -26,7 +25,7 @@ export class Blog extends React.Component<Props> {
           </div>
           <p dangerouslySetInnerHTML={{ __html: `${blog.blogText}` }}/>
         </div>
-      </Container>
+      </div>
     )
   }
 }
