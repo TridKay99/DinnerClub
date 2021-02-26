@@ -12,6 +12,7 @@ import {MaintainBlogsToggle} from "./MaintainBlogs/MaintainBlogs"
 import {DisplayToggle} from "../Enums/DisplayToggle"
 import {DinnerDramaServiceNew} from "../Services/DinnerDramaServiceNew"
 import {TextEditorAttachmentButton} from "./TextEditor/TextEditorAttachmentButton"
+import {TextEditorCludgeService} from "../Services/TextEditorCludgeService"
 
 type Props = {
   handleClick: (value: DisplayToggle) => void
@@ -61,10 +62,13 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
   }
 
   updateFormForDinnerDrama = (blog: DinnerDrama) => {
+    const editorState = TextEditorCludgeService.getEditorState(blog.blogText)
+
     this.setState({
       title: blog.title,
       cafeOrRestaurant: blog.restaurant,
-      location: blog.location
+      location: blog.location,
+      editorState
     })
   }
 
