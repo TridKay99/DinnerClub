@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react"
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 import {Button, Card} from "semantic-ui-react"
 import {BlogForm, BlogType} from "../BlogForm"
+import {DinnerDramaServiceNew} from "../../Services/DinnerDramaServiceNew"
 
 type Props = {
   dinnerDramas: DinnerDrama[]
@@ -28,7 +29,8 @@ export const MaintainDinnerDramas = (props: Props) => {
 
   const deleteBlog = async (blog: DinnerDrama) => {
     if (blog._id) {
-      await BreakkyBlogsServiceNew.delete(blog._id)
+      await DinnerDramaServiceNew.delete(blog._id)
+      props.collectBlogs()
     }
   }
 
@@ -92,7 +94,7 @@ export const MaintainDinnerDramas = (props: Props) => {
         ? renderBlogCards()
         : <BlogForm setBlogDisplay={props.setBlogDisplay}
                     blog={selectedBlog}
-                    blogVariety={BlogType.BREAKKY}
+                    blogVariety={BlogType.DINNER}
                     saveType={MaintainBlogsToggle.CREATE}
                     collectBlogs={props.collectBlogs}
                     handleSetSelectedBlogToNull={handleSetSelectedBlogToNull}

@@ -96,18 +96,21 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
       this.props.saveType === MaintainBlogsToggle.CREATE
         ? await BreakkyBlogsServiceNew.create(blog)
         : await BreakkyBlogsServiceNew.update(blog)
-      this.collectBlogsAndSwapView()
+
+      return this.collectBlogsAndSwapView()
     } else {
       const blog = this.constructDinner()
 
       this.props.saveType === MaintainBlogsToggle.CREATE
         ? await DinnerDramaServiceNew.create(blog)
         : await DinnerDramaServiceNew.update(blog)
+
+      return this.collectBlogsAndSwapView()
     }
   }
 
-  collectBlogsAndSwapView = async () => {
-    await this.props.collectBlogs
+  collectBlogsAndSwapView = async() => {
+    await this.props.collectBlogs()
     this.props.setBlogDisplay(BlogDisplayToggle.MAINTAIN)
   }
 

@@ -29,6 +29,7 @@ export const MaintainBreakkyBlogs = (props: Props) => {
   const deleteBlog = async (blog: BreakkyBlog) => {
     if (blog._id) {
       await BreakkyBlogsServiceNew.delete(blog._id)
+      props.collectBlogs()
     }
   }
 
