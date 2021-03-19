@@ -3,7 +3,7 @@ import {BreakkyBlog, DinnerDrama} from "../../Types/BlogTypes"
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 import {DinnerDramaServiceNew} from "../../Services/DinnerDramaServiceNew"
 import {DisplayToggle} from "../../Enums/DisplayToggle"
-import {Tab} from "semantic-ui-react"
+import {Button, Tab} from "semantic-ui-react"
 import '../styles/component-maintain-blogs.scss'
 import {MaintainBreakkyBlogs} from "./MaintainBreakkyBlogs"
 import {MaintainDinnerDramas} from "./MaintainDinnerDramas"
@@ -70,15 +70,25 @@ export const MaintainBlogs = (props: Props) => {
     ]
   }
 
+  const returnHome = () => {
+    props.handleClick(DisplayToggle.HOME)
+  }
+
   return (
-    <div className={'maintainBlogsContainer'}>
-      <div className={'blogTabs'}>
-        <Tab menu={{ pointing: true}}
-             panes={panes()}
-             activeIndex={activeIndex}
-             onTabChange={(e, data) => setActiveIndex(data.activeIndex as number)}
-        />
+    <React.Fragment>
+      <Button content={'Return Home'}
+              onClick={() => returnHome()}
+              inverted
+              color={"teal"}/>
+      <div className={'maintainBlogsContainer'}>
+        <div className={'blogTabs'}>
+          <Tab menu={{ pointing: true}}
+               panes={panes()}
+               activeIndex={activeIndex}
+               onTabChange={(e, data) => setActiveIndex(data.activeIndex as number)}
+          />
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   )
 }

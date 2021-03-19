@@ -68,7 +68,6 @@ export class DinnerClubContainerAdventures extends React.Component<{}, State> {
       <div className={'container'}>
         <Banner handleClick={this.handleClick}/>
         <br/>
-        <br/>
         {!this.state.removeMainBlogButtons &&
           <NavBar handleClick={this.handleClick} removeMainBlogButtons={this.state.removeMainBlogButtons}/>
         }
