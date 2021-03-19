@@ -3,11 +3,11 @@ import {Banner} from './Banner/Banner';
 import {NavBar} from "./Banner/NavBar";
 import './styles/component-container-container.scss'
 import {AdminLogin} from "./AdminLogin"
-import {MaintainBlogs} from "./MaintainBlogs/MaintainBlogs"
 import {Home} from "./Home"
 import {DisplayToggle} from "../Enums/DisplayToggle"
 import {BreakkyBlogContainerNew} from "./BlogContainers/breakky_blog/BreakkyBlogContainerNew"
 import {DinnerDramaContainerNew} from "./BlogContainers/dinner_dramas/DinnerDramaContainerNew"
+import {MaintainBlogs} from "./MaintainBlogs/MaintainBlogs"
 
 type State = {
   pageToRender: DisplayToggle

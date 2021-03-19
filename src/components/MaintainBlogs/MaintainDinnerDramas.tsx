@@ -1,43 +1,43 @@
-import React from 'react'
-import {MaintainBlogsToggle} from "./MaintainBlogs"
 import {DinnerDrama} from "../../Types/BlogTypes"
+import {BlogDisplayToggle, MaintainBlogsToggle} from "./MaintainBlogs"
+import React, {useEffect, useState} from "react"
+import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 import {Button, Card} from "semantic-ui-react"
 import {BlogForm, BlogType} from "../BlogForm"
-import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
-import '../styles/component-maintain-blogs.scss'
-import {DisplayToggle} from "../../Enums/DisplayToggle"
-import {DinnerDramaServiceNew} from "../../Services/DinnerDramaServiceNew"
 
 type Props = {
-  maintainToggle: MaintainBlogsToggle
-  changeMaintainToggle: (maintainToggle: MaintainBlogsToggle) => void
   dinnerDramas: DinnerDrama[]
-  handleClick: (value: DisplayToggle) => void
+  blogDisplayToggle: BlogDisplayToggle
+  setBlogDisplay: (display: BlogDisplayToggle) => void
+  collectBlogs: () => void
+  activeIndex: number
 }
 
-type State = {
-  selectedBlog: DinnerDrama | null
-}
+export const MaintainDinnerDramas = (props: Props) => {
+  const [selectedBlog, setSelectedBlog] = useState<DinnerDrama | null>(null)
 
-export class MaintainDinnerDramas extends React.Component<Props, State> {
+  useEffect(() => {
+    setSelectedBlog(null)
+    props.setBlogDisplay(BlogDisplayToggle.MAINTAIN)
+  }, [props.activeIndex])
 
-  state: State = {
-    selectedBlog: null
+  const handleEditClick = (blog: DinnerDrama) => {
+    setSelectedBlog(blog)
+    props.setBlogDisplay(BlogDisplayToggle.EDIT)
   }
 
-  componentDidMount = () => {
-    if(this.props.maintainToggle === MaintainBlogsToggle.CREATE) {
-      this.props.changeMaintainToggle(MaintainBlogsToggle.MAINTAIN)
+  const deleteBlog = async (blog: DinnerDrama) => {
+    if (blog._id) {
+      await BreakkyBlogsServiceNew.delete(blog._id)
     }
   }
 
-  handleEditClick = (blog: DinnerDrama) => {
-    this.setState({selectedBlog: blog})
-    this.props.changeMaintainToggle(MaintainBlogsToggle.UPDATE)
+  const handleSetSelectedBlogToNull = () => {
+    setSelectedBlog(null)
   }
 
-  renderBlogRow = () => {
-    return this.props.dinnerDramas.map((blog) => {
+  const renderBlogRow = () => {
+    return props.dinnerDramas.map((blog) => {
       return (
         <Card>
           <Card.Content>
@@ -53,12 +53,13 @@ export class MaintainDinnerDramas extends React.Component<Props, State> {
             <div className='ui two buttons'>
               <Button basic
                       color='blue'
-                      onClick={() => this.handleEditClick(blog)}>
+                      onClick={() => handleEditClick(blog)}
+              >
                 Edit
               </Button>
               <Button basic
                       color='red'
-                      onClick={() => this.deleteBlog(blog)}>
+                      onClick={() => deleteBlog(blog)}>
                 Delete
               </Button>
             </div>
@@ -68,44 +69,35 @@ export class MaintainDinnerDramas extends React.Component<Props, State> {
     })
   }
 
-  deleteBlog = async(blog: DinnerDrama) => {
-    if(blog._id) {
-      await DinnerDramaServiceNew.delete(blog._id)
-    }
-  }
-
-  render() {
+  const renderBlogCards = () => {
     return (
       <React.Fragment>
-        {this.props.maintainToggle === MaintainBlogsToggle.MAINTAIN &&
-        <React.Fragment>
-          <Button basic
-                  color={'green'}
-                  icon={'plus'}
-                  onClick={() => this.props.changeMaintainToggle(MaintainBlogsToggle.CREATE)}
-                  content={'New Blog'}/>
-          <br/>
-          <br/>
-          <Card.Group>
-            {this.renderBlogRow()}
-          </Card.Group>
-        </React.Fragment>
-        }
-        {this.props.maintainToggle === MaintainBlogsToggle.CREATE &&
-        <React.Fragment>
-          <BlogForm handleClick={this.props.handleClick}
-                    blog={null}
-                    changeMaintainToggle={this.props.changeMaintainToggle}
-                    blogVariety={BlogType.DINNER}/>
-        </React.Fragment>
-        }
-        {this.props.maintainToggle === MaintainBlogsToggle.UPDATE &&
-          <BlogForm handleClick={this.props.handleClick}
-                    changeMaintainToggle={this.props.changeMaintainToggle}
-                    blog={this.state.selectedBlog}
-                    blogVariety={BlogType.DINNER}/>
-        }
+        <Button inverted
+                color={'green'}
+                icon={'plus'}
+                onClick={() => props.setBlogDisplay(BlogDisplayToggle.EDIT)}
+                content={'New Blog'}/>
+        <br/>
+        <br/>
+        <Card.Group>
+          {renderBlogRow()}
+        </Card.Group>
       </React.Fragment>
     )
   }
+
+  return (
+    <React.Fragment>
+      {props.blogDisplayToggle === BlogDisplayToggle.MAINTAIN
+        ? renderBlogCards()
+        : <BlogForm setBlogDisplay={props.setBlogDisplay}
+                    blog={selectedBlog}
+                    blogVariety={BlogType.BREAKKY}
+                    saveType={MaintainBlogsToggle.CREATE}
+                    collectBlogs={props.collectBlogs}
+                    handleSetSelectedBlogToNull={handleSetSelectedBlogToNull}
+        />
+      }
+    </React.Fragment>
+  )
 }

@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import {BreakkyBlog} from "../Types/BlogTypes"
+import {BreakkyBlog, DinnerDrama} from "../Types/BlogTypes"
 
 export const BreakkyBlogsServiceNew = {
   getAll: async () => {
@@ -18,6 +18,17 @@ export const BreakkyBlogsServiceNew = {
       })
       console.log(res)
     } catch (e) {
+      console.log('ERROR TRIDDA!!!', e)
+    }
+  },
+
+  update: async (blog: BreakkyBlog) => {
+    try {
+      const res = await Axios.put('/update-breakky-blog', {
+        data: blog
+      })
+      console.log(res)
+    } catch(e) {
       console.log('ERROR TRIDDA!!!', e)
     }
   },

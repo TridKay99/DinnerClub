@@ -22,6 +22,17 @@ export const DinnerDramaServiceNew = {
     }
   },
 
+  update: async (blog: DinnerDrama) => {
+    try {
+      const res = await Axios.put('/update-dinner-drama', {
+        data: blog
+      })
+      console.log(res)
+    } catch(e) {
+      console.log('ERROR TRIDDA!!!', e)
+    }
+  },
+
   delete: async (id: string) => {
     try {
       const res = await Axios.delete(`/delete-dinner-drama/`, {

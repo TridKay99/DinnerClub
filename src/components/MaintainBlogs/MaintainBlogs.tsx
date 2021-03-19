@@ -1,13 +1,22 @@
-import React from 'react'
-import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
-import {Tab} from "semantic-ui-react"
+import React, {useEffect, useState} from 'react'
 import {BreakkyBlog, DinnerDrama} from "../../Types/BlogTypes"
+import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
+import {DinnerDramaServiceNew} from "../../Services/DinnerDramaServiceNew"
+import {DisplayToggle} from "../../Enums/DisplayToggle"
+import {Tab} from "semantic-ui-react"
 import '../styles/component-maintain-blogs.scss'
 import {MaintainBreakkyBlogs} from "./MaintainBreakkyBlogs"
-import {DinnerDramaServiceNew} from "../../Services/DinnerDramaServiceNew"
 import {MaintainDinnerDramas} from "./MaintainDinnerDramas"
-import {BlogForm} from "../BlogForm"
-import {DisplayToggle} from "../../Enums/DisplayToggle"
+
+type Props = {
+  handleClick: (value: DisplayToggle) => void
+  pageToRender: DisplayToggle
+}
+
+export enum BlogDisplayToggle {
+  MAINTAIN = 'maintain',
+  EDIT = 'edit'
+}
 
 export enum MaintainBlogsToggle {
   MAINTAIN = 'maintain',
@@ -15,65 +24,61 @@ export enum MaintainBlogsToggle {
   UPDATE = 'update'
 }
 
-type Props = {
-  handleClick: (value: DisplayToggle) => void
-  pageToRender: DisplayToggle
-}
+export const MaintainBlogs = (props: Props) => {
+  const [breakkyBlogs, setBreakkyBlogs] = useState<BreakkyBlog[]>([])
+  const [dinnerDramas, setdinnerDramas] = useState<DinnerDrama[]>([])
+  const [activeIndex, setActiveIndex] = useState<number>(0)
+  const [blogDisplayToggle, setBlogDisplayToggle] = useState<BlogDisplayToggle>(BlogDisplayToggle.MAINTAIN)
 
-type State = {
-  breakkyBlogs: BreakkyBlog[]
-  dinnerDramas: DinnerDrama[]
-  maintainToggle: MaintainBlogsToggle
-  selectedBlog: BreakkyBlog | null
-}
+  useEffect(() => {
+    collectBlogs()
+  }, [])
 
-export class MaintainBlogs extends React.Component<Props, State> {
-
-  state: State = {
-    breakkyBlogs: [],
-    dinnerDramas: [],
-    maintainToggle: MaintainBlogsToggle.MAINTAIN,
-    selectedBlog: null
-  }
-
-  componentDidMount = async() => {
+  const collectBlogs = async () => {
     const breakkyBlogs = await BreakkyBlogsServiceNew.getAll()
     const dinnerDramas = await DinnerDramaServiceNew.getAll()
-    this.setState({breakkyBlogs, dinnerDramas})
+    setBreakkyBlogs(breakkyBlogs)
+    setdinnerDramas(dinnerDramas)
   }
 
-  changeMaintainToggle = (maintainToggle: MaintainBlogsToggle) => {
-    this.setState({maintainToggle})
+  const setBlogDisplay = (display: BlogDisplayToggle) => {
+    setBlogDisplayToggle(display)
   }
 
-  blogVarietyTabs = () => {
+  const panes = () => {
     return [
-    { menuItem: 'Breakky Blogs', render: () =>
+      { menuItem: 'Breakky Blogs', render: () =>
         <Tab.Pane>
-          <MaintainBreakkyBlogs maintainToggle={this.state.maintainToggle}
-                                changeMaintainToggle={this.changeMaintainToggle}
-                                breakkyBlogs={this.state.breakkyBlogs}
-                                handleClick={this.props.handleClick}/>
-        </Tab.Pane> },
-    { menuItem: 'Dinner Dramas', render: () =>
-        <Tab.Pane>
-          <MaintainDinnerDramas maintainToggle={this.state.maintainToggle}
-                                changeMaintainToggle={this.changeMaintainToggle}
-                                dinnerDramas={this.state.dinnerDramas}
-                                handleClick={this.props.handleClick}/>
+          <MaintainBreakkyBlogs breakkyBlogs={breakkyBlogs}
+                                blogDisplayToggle={blogDisplayToggle}
+                                setBlogDisplay={setBlogDisplay}
+                                collectBlogs={collectBlogs}
+                                activeIndex={activeIndex}
+          />
         </Tab.Pane>
-    }]
+      },
+      { menuItem: 'Dinner Dramas', render: () =>
+        <Tab.Pane>
+          <MaintainDinnerDramas dinnerDramas={dinnerDramas}
+                                blogDisplayToggle={blogDisplayToggle}
+                                setBlogDisplay={setBlogDisplay}
+                                collectBlogs={collectBlogs}
+                                activeIndex={activeIndex}
+          />
+        </Tab.Pane>
+      }
+    ]
   }
 
-  render() {
-    return (
-      <div className={'maintainBlogsContainer'}>
-        <div className={'blogTabs'}>
-          {(this.state.maintainToggle === MaintainBlogsToggle.MAINTAIN || this.state.maintainToggle === MaintainBlogsToggle.CREATE || this.state.maintainToggle === MaintainBlogsToggle.UPDATE) &&
-            <Tab menu={{fluid: true, vertical: true, pointing: true}} panes={this.blogVarietyTabs()}/>
-          }
-        </div>
+  return (
+    <div className={'maintainBlogsContainer'}>
+      <div className={'blogTabs'}>
+        <Tab menu={{ pointing: true}}
+             panes={panes()}
+             activeIndex={activeIndex}
+             onTabChange={(e, data) => setActiveIndex(data.activeIndex as number)}
+        />
       </div>
-    )
-  }
+    </div>
+  )
 }

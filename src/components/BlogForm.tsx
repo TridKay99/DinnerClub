@@ -9,16 +9,18 @@ import {BreakkyBlog, DinnerDrama, FileType, isBreakkyBlog} from "../Types/BlogTy
 import {stateToHTML} from "draft-js-export-html"
 import {BreakkyBlogsServiceNew} from "../Services/BreakkyBlogsServicesNew"
 import {MaintainBlogsToggle} from "./MaintainBlogs/MaintainBlogs"
-import {DisplayToggle} from "../Enums/DisplayToggle"
 import {DinnerDramaServiceNew} from "../Services/DinnerDramaServiceNew"
 import {TextEditorAttachmentButton} from "./TextEditor/TextEditorAttachmentButton"
 import {TextEditorCludgeService} from "../Services/TextEditorCludgeService"
+import {BlogDisplayToggle} from "./MaintainBlogs/MaintainBlogs"
 
 type Props = {
-  handleClick: (value: DisplayToggle) => void
+  setBlogDisplay: (display: BlogDisplayToggle) => void
   blog: BreakkyBlog | DinnerDrama | null
-  changeMaintainToggle: (maintainToggle: MaintainBlogsToggle) => void
   blogVariety: BlogType
+  saveType: MaintainBlogsToggle.CREATE | MaintainBlogsToggle.UPDATE
+  collectBlogs: () => void
+  handleSetSelectedBlogToNull: () => void
 }
 
 export enum BlogType {
@@ -32,6 +34,7 @@ export type BlogFormState = {
   cafeOrRestaurant: string
   location: string
   displayImage: FileType | null
+  id: undefined | string
 }
 
 export class BlogForm extends React.Component<Props, BlogFormState> {
@@ -41,11 +44,13 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     title: '',
     cafeOrRestaurant: '',
     location: '',
-    displayImage: null
+    displayImage: null,
+    id: undefined
   }
 
   componentDidMount = () => {
     const {blog} = this.props
+
     if (blog !== null) {
       isBreakkyBlog(blog)
         ? this.updateFormForBreakkyBlog(blog)
@@ -54,10 +59,13 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
   }
 
   updateFormForBreakkyBlog = (blog: BreakkyBlog) => {
+    const editorState = TextEditorCludgeService.getEditorState(blog.blogText)
+
     this.setState({
       title: blog.title,
       cafeOrRestaurant: blog.cafe,
-      location: blog.location
+      location: blog.location,
+      editorState
     })
   }
 
@@ -65,6 +73,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     const editorState = TextEditorCludgeService.getEditorState(blog.blogText)
 
     this.setState({
+      id: blog._id,
       title: blog.title,
       cafeOrRestaurant: blog.restaurant,
       location: blog.location,
@@ -83,11 +92,23 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
   saveBlog = async () => {
     if(this.props.blogVariety === BlogType.BREAKKY) {
       const blog = this.constructBreakky()
-      await BreakkyBlogsServiceNew.create(blog)
+
+      this.props.saveType === MaintainBlogsToggle.CREATE
+        ? await BreakkyBlogsServiceNew.create(blog)
+        : await BreakkyBlogsServiceNew.update(blog)
+      this.collectBlogsAndSwapView()
     } else {
       const blog = this.constructDinner()
-      await DinnerDramaServiceNew.create(blog)
+
+      this.props.saveType === MaintainBlogsToggle.CREATE
+        ? await DinnerDramaServiceNew.create(blog)
+        : await DinnerDramaServiceNew.update(blog)
     }
+  }
+
+  collectBlogsAndSwapView = async () => {
+    await this.props.collectBlogs
+    this.props.setBlogDisplay(BlogDisplayToggle.MAINTAIN)
   }
 
   constructBreakky = (): BreakkyBlog => {
@@ -103,12 +124,15 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
   }
 
   constructDinner = (): DinnerDrama => {
+    const blogText = TextEditorCludgeService.removePTags(stateToHTML(this.state.editorState.getCurrentContent()))
+
     return {
+      _id: this.state.id,
       title: this.state.title,
       restaurant: this.state.cafeOrRestaurant,
       location: this.state.location,
       displayImage: this.state.displayImage,
-      blogText: stateToHTML(this.state.editorState.getCurrentContent()),
+      blogText,
       blogVariety: this.props.blogVariety,
       date: new Date()
     }
@@ -122,21 +146,25 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     console.log('file', file)
   }
 
+  onBackButtonClick = () => {
+    this.props.handleSetSelectedBlogToNull()
+    this.props.setBlogDisplay(BlogDisplayToggle.MAINTAIN)
+  }
+
   render() {
+    const buttonColor = this.props.saveType === MaintainBlogsToggle.CREATE ? 'green' : 'blue'
+    const buttonText = this.props.saveType === MaintainBlogsToggle.CREATE ? 'Create Blog' : 'Update Blog'
+
     return (
       <React.Fragment>
-        {this.props.blog &&
-        <Button basic
-                color={'blue'}
-                floated={'left'}
+        <Button color={'blue'}
                 icon
+                inverted
                 labelPosition={'left'}
-                onClick={() => this.props.changeMaintainToggle(MaintainBlogsToggle.MAINTAIN)}>
+                onClick={() => this.onBackButtonClick()}>
           <Icon name={'meh'}/>
           Back
         </Button>
-        }
-        <Header as={'h3'} className={'blogFormHeader'} block>Create Blog Ya Fuck Boy</Header>
         <div className={'newBlogContainer'}>
           <React.Fragment>
             <br/>
@@ -184,10 +212,10 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
                 />
                 <br/>
                 <br/>
-                <Button content={'Save Blog'}
+                <Button content={buttonText}
                         float={'right'}
                         onClick={() => this.saveBlog()}
-                        color={'green'}/>
+                        color={buttonColor}/>
               </Form>
             </div>
           </React.Fragment>
