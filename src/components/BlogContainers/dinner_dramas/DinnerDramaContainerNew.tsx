@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Button, Card, Container, Image} from "semantic-ui-react"
+import {Button, Card, Container} from "semantic-ui-react"
 import {Blog} from "../../Blog"
 import {DinnerDrama} from "../../../Types/BlogTypes"
 import {DinnerDramaServiceNew} from "../../../Services/DinnerDramaServiceNew"

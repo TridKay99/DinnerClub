@@ -21,6 +21,7 @@ export const MaintainDinnerDramas = (props: Props) => {
   useEffect(() => {
     setSelectedBlog(null)
     props.setBlogDisplay(BlogDisplayToggle.MAINTAIN)
+    // eslint-disable-next-line
   }, [props.activeIndex])
 
   const handleEditClick = (blog: DinnerDrama) => {

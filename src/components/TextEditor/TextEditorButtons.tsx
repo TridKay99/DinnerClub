@@ -3,7 +3,6 @@ import {DraftBlockType, DraftInlineStyleType, EditorState, RichUtils} from 'draf
 import {Button, Icon} from 'semantic-ui-react'
 import {InlineStyleControls} from "./InlineStyleControls";
 import {BlockStyleControls} from "./BlockStyleControls";
-import {TextEditorAttachmentButton} from "./TextEditorAttachmentButton";
 import {BlobUtils, ImageDimensions} from "../../utils/BlobUtils"
 import {toast} from "react-toastify"
 

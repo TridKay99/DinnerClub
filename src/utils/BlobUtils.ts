@@ -30,7 +30,7 @@ export const BlobUtils = {
     return new Promise((resolve) => {
       const reader = new FileReader()
       reader.onload = function(evt: any){
-        let img = new Image
+        let img = new Image()
         img.onload = function(){
           const imageDimensions: ImageDimensions = {
             width: img.width,

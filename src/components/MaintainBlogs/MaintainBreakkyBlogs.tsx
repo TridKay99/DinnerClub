@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {BreakkyBlog} from "../../Types/BlogTypes"
 import {Button, Card} from "semantic-ui-react"
-import {BlogDisplayToggle, MaintainBlogsToggle} from "./MaintainBlogs"
+import {BlogDisplayToggle} from "./MaintainBlogs"
 import {BlogForm, BlogType} from "../BlogForm"
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 
@@ -25,6 +25,7 @@ export const MaintainBreakkyBlogs = (props: Props) => {
   useEffect(() => {
     setSelectedBlog(null)
     props.setBlogDisplay(BlogDisplayToggle.MAINTAIN)
+    // eslint-disable-next-line
   }, [props.activeIndex])
 
   const handleEditClick = (blog: BreakkyBlog) => {
