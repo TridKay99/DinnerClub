@@ -13,12 +13,13 @@ import {DinnerDramaServiceNew} from "../Services/DinnerDramaServiceNew"
 import {TextEditorAttachmentButton} from "./TextEditor/TextEditorAttachmentButton"
 import {TextEditorCludgeService} from "../Services/TextEditorCludgeService"
 import {BlogDisplayToggle} from "./MaintainBlogs/MaintainBlogs"
+import {SaveType} from "./MaintainBlogs/MaintainBreakkyBlogs"
 
 type Props = {
   setBlogDisplay: (display: BlogDisplayToggle) => void
   blog: BreakkyBlog | DinnerDrama | null
   blogVariety: BlogType
-  saveType: MaintainBlogsToggle.CREATE | MaintainBlogsToggle.UPDATE
+  saveType: SaveType
   collectBlogs: () => void
   handleSetSelectedBlogToNull: () => void
 }
@@ -93,7 +94,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     if(this.props.blogVariety === BlogType.BREAKKY) {
       const blog = this.constructBreakky()
 
-      this.props.saveType === MaintainBlogsToggle.CREATE
+      this.props.saveType === SaveType.CREATE
         ? await BreakkyBlogsServiceNew.create(blog)
         : await BreakkyBlogsServiceNew.update(blog)
 
@@ -101,7 +102,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
     } else {
       const blog = this.constructDinner()
 
-      this.props.saveType === MaintainBlogsToggle.CREATE
+      this.props.saveType === SaveType.CREATE
         ? await DinnerDramaServiceNew.create(blog)
         : await DinnerDramaServiceNew.update(blog)
 
@@ -115,12 +116,15 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
   }
 
   constructBreakky = (): BreakkyBlog => {
+    const html = stateToHTML(this.state.editorState.getCurrentContent())
+    const newBody = TextEditorCludgeService.removePTags(html)
+    // console.log('newBody', newBody)
     return {
       title: this.state.title,
       cafe: this.state.cafeOrRestaurant,
       location: this.state.location,
       displayImage: this.state.displayImage,
-      blogText: stateToHTML(this.state.editorState.getCurrentContent()),
+      blogText: newBody,
       blogVariety: this.props.blogVariety,
       date: new Date()
     }
@@ -128,6 +132,7 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
 
   constructDinner = (): DinnerDrama => {
     const blogText = TextEditorCludgeService.removePTags(stateToHTML(this.state.editorState.getCurrentContent()))
+    console.log('blogText', blogText)
 
     return {
       _id: this.state.id,
@@ -155,8 +160,8 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
   }
 
   render() {
-    const buttonColor = this.props.saveType === MaintainBlogsToggle.CREATE ? 'green' : 'blue'
-    const buttonText = this.props.saveType === MaintainBlogsToggle.CREATE ? 'Create Blog' : 'Update Blog'
+    const buttonColor = this.props.saveType === SaveType.CREATE ? 'green' : 'blue'
+    const buttonText = this.props.saveType === SaveType.CREATE ? 'Create Blog' : 'Update Blog'
 
     return (
       <React.Fragment>

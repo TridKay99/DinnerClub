@@ -5,6 +5,11 @@ import {BlogDisplayToggle, MaintainBlogsToggle} from "./MaintainBlogs"
 import {BlogForm, BlogType} from "../BlogForm"
 import {BreakkyBlogsServiceNew} from "../../Services/BreakkyBlogsServicesNew"
 
+export enum SaveType {
+  CREATE = 'create',
+  EDIT = 'edit'
+}
+
 type Props = {
   breakkyBlogs: BreakkyBlog[]
   blogDisplayToggle: BlogDisplayToggle
@@ -15,6 +20,7 @@ type Props = {
 
 export const MaintainBreakkyBlogs = (props: Props) => {
   const [selectedBlog, setSelectedBlog] = useState<BreakkyBlog | null>(null)
+  const [saveType, setSaveType] = useState<SaveType>(SaveType.CREATE)
 
   useEffect(() => {
     setSelectedBlog(null)
@@ -24,6 +30,7 @@ export const MaintainBreakkyBlogs = (props: Props) => {
   const handleEditClick = (blog: BreakkyBlog) => {
     setSelectedBlog(blog)
     props.setBlogDisplay(BlogDisplayToggle.EDIT)
+    setSaveType(SaveType.EDIT)
   }
 
   const deleteBlog = async (blog: BreakkyBlog) => {
@@ -54,8 +61,7 @@ export const MaintainBreakkyBlogs = (props: Props) => {
             <div className='ui two buttons'>
               <Button basic
                       color='blue'
-                      onClick={() => handleEditClick(blog)}
-              >
+                      onClick={() => handleEditClick(blog)}>
                 Edit
               </Button>
               <Button basic
@@ -76,7 +82,7 @@ export const MaintainBreakkyBlogs = (props: Props) => {
         <Button inverted
                 color={'green'}
                 icon={'plus'}
-                onClick={() => props.setBlogDisplay(BlogDisplayToggle.EDIT)}
+                onClick={() => createNewBlogClick()}
                 content={'New Blog'}/>
         <br/>
         <br/>
@@ -87,6 +93,11 @@ export const MaintainBreakkyBlogs = (props: Props) => {
     )
   }
 
+  const createNewBlogClick = () => {
+    props.setBlogDisplay(BlogDisplayToggle.EDIT)
+    setSaveType(SaveType.CREATE)
+  }
+
   return (
     <React.Fragment>
       {props.blogDisplayToggle === BlogDisplayToggle.MAINTAIN
@@ -94,7 +105,7 @@ export const MaintainBreakkyBlogs = (props: Props) => {
         : <BlogForm setBlogDisplay={props.setBlogDisplay}
                     blog={selectedBlog}
                     blogVariety={BlogType.BREAKKY}
-                    saveType={MaintainBlogsToggle.CREATE}
+                    saveType={saveType}
                     collectBlogs={props.collectBlogs}
                     handleSetSelectedBlogToNull={handleSetSelectedBlogToNull}/>
       }

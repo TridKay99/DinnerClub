@@ -4,7 +4,8 @@ import {ContentState, convertFromHTML, EditorState} from "draft-js"
 export const TextEditorCludgeService = {
 
   removePTags: (body: string) => {
-    return body.replace(/<\/p>\\n<p><br>/, '')
+    const cludge = body.replace(/<\/p>/g, '<br>')
+    return cludge.replace(/<p>/g, '')
   },
 
   getEditorState: (body: string): EditorState => {

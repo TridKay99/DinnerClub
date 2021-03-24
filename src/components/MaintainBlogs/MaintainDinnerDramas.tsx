@@ -1,9 +1,10 @@
 import {DinnerDrama} from "../../Types/BlogTypes"
-import {BlogDisplayToggle, MaintainBlogsToggle} from "./MaintainBlogs"
+import {BlogDisplayToggle} from "./MaintainBlogs"
 import React, {useEffect, useState} from "react"
 import {Button, Card} from "semantic-ui-react"
 import {BlogForm, BlogType} from "../BlogForm"
 import {DinnerDramaServiceNew} from "../../Services/DinnerDramaServiceNew"
+import {SaveType} from "./MaintainBreakkyBlogs"
 
 type Props = {
   dinnerDramas: DinnerDrama[]
@@ -15,6 +16,7 @@ type Props = {
 
 export const MaintainDinnerDramas = (props: Props) => {
   const [selectedBlog, setSelectedBlog] = useState<DinnerDrama | null>(null)
+  const [saveType, setSaveType] = useState<SaveType>(SaveType.CREATE)
 
   useEffect(() => {
     setSelectedBlog(null)
@@ -24,6 +26,7 @@ export const MaintainDinnerDramas = (props: Props) => {
   const handleEditClick = (blog: DinnerDrama) => {
     setSelectedBlog(blog)
     props.setBlogDisplay(BlogDisplayToggle.EDIT)
+    setSaveType(SaveType.EDIT)
   }
 
   const deleteBlog = async (blog: DinnerDrama) => {
@@ -76,7 +79,7 @@ export const MaintainDinnerDramas = (props: Props) => {
         <Button inverted
                 color={'green'}
                 icon={'plus'}
-                onClick={() => props.setBlogDisplay(BlogDisplayToggle.EDIT)}
+                onClick={() => createNewBlogClick()}
                 content={'New Blog'}/>
         <br/>
         <br/>
@@ -87,6 +90,11 @@ export const MaintainDinnerDramas = (props: Props) => {
     )
   }
 
+  const createNewBlogClick = () => {
+    props.setBlogDisplay(BlogDisplayToggle.EDIT)
+    setSaveType(SaveType.CREATE)
+  }
+
   return (
     <React.Fragment>
       {props.blogDisplayToggle === BlogDisplayToggle.MAINTAIN
@@ -94,7 +102,7 @@ export const MaintainDinnerDramas = (props: Props) => {
         : <BlogForm setBlogDisplay={props.setBlogDisplay}
                     blog={selectedBlog}
                     blogVariety={BlogType.DINNER}
-                    saveType={MaintainBlogsToggle.CREATE}
+                    saveType={saveType}
                     collectBlogs={props.collectBlogs}
                     handleSetSelectedBlogToNull={handleSetSelectedBlogToNull}
         />
