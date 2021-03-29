@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {DisplayToggle} from "../Enums/DisplayToggle"
-import {Banner} from "./Banner/Banner"
-import {NavBar} from "./Banner/NavBar"
+import {Banner} from "./banner/Banner"
+import {NavBar} from "./banner/NavBar"
 import {AdminLogin} from "./AdminLogin"
 import {MaintainBlogs} from "./MaintainBlogs/MaintainBlogs"
 import {DinnerDramasContainer} from "./BlogContainers/dinner_dramas/DinnerDramasContainer"

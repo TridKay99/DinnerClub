@@ -6,8 +6,8 @@ import {DisplayToggle} from "../Enums/DisplayToggle"
 import {BreakkyBlogContainer} from "./BlogContainers/breakky_blog/BreakkyBlogContainer"
 import {DinnerDramaContainerNew} from "./BlogContainers/dinner_dramas/DinnerDramaContainerNew"
 import {MaintainBlogs} from "./MaintainBlogs/MaintainBlogs"
-import {Banner} from "./Banner/Banner"
-import {NavBar} from "./Banner/NavBar"
+import {Banner} from "./banner/Banner"
+import {NavBar} from "./banner/NavBar"
 
 type State = {
   pageToRender: DisplayToggle
