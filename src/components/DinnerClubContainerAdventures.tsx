@@ -1,5 +1,4 @@
 import React from 'react';
-import {NavBar} from "./Banner/NavBar";
 import './styles/component-container-container.scss'
 import {AdminLogin} from "./AdminLogin"
 import {Home} from "./Home"
@@ -8,6 +7,7 @@ import {BreakkyBlogContainer} from "./BlogContainers/breakky_blog/BreakkyBlogCon
 import {DinnerDramaContainerNew} from "./BlogContainers/dinner_dramas/DinnerDramaContainerNew"
 import {MaintainBlogs} from "./MaintainBlogs/MaintainBlogs"
 import {Banner} from "./Banner/Banner"
+import {NavBar} from "./Banner/NavBar"
 
 type State = {
   pageToRender: DisplayToggle
