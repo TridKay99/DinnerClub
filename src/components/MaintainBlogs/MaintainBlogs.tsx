@@ -18,12 +18,6 @@ export enum BlogDisplayToggle {
   EDIT = 'edit'
 }
 
-export enum MaintainBlogsToggle {
-  MAINTAIN = 'maintain',
-  CREATE = 'create',
-  UPDATE = 'update'
-}
-
 export const MaintainBlogs = (props: Props) => {
   const [breakkyBlogs, setBreakkyBlogs] = useState<BreakkyBlog[]>([])
   const [dinnerDramas, setdinnerDramas] = useState<DinnerDrama[]>([])

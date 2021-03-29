@@ -42,9 +42,9 @@ export const MaintainDinnerDramas = (props: Props) => {
   }
 
   const renderBlogRow = () => {
-    return props.dinnerDramas.map((blog) => {
+    return props.dinnerDramas.map((blog, index) => {
       return (
-        <Card>
+        <Card key={index}>
           <Card.Content>
             <Card.Header>{blog.title}</Card.Header>
             <Card.Description>
@@ -58,8 +58,7 @@ export const MaintainDinnerDramas = (props: Props) => {
             <div className='ui two buttons'>
               <Button basic
                       color='blue'
-                      onClick={() => handleEditClick(blog)}
-              >
+                      onClick={() => handleEditClick(blog)}>
                 Edit
               </Button>
               <Button basic

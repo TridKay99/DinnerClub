@@ -46,9 +46,9 @@ export const MaintainBreakkyBlogs = (props: Props) => {
   }
 
   const renderBlogRow = () => {
-    return props.breakkyBlogs.map((blog) => {
+    return props.breakkyBlogs.map((blog, index) => {
       return (
-        <Card>
+        <Card key={index}>
           <Card.Content>
             <Card.Header>{blog.title}</Card.Header>
             <Card.Description>

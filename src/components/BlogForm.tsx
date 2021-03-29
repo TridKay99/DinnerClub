@@ -131,7 +131,6 @@ export class BlogForm extends React.Component<Props, BlogFormState> {
 
   constructDinner = (): DinnerDrama => {
     const blogText = TextEditorCludgeService.removePTags(stateToHTML(this.state.editorState.getCurrentContent()))
-    console.log('blogText', blogText)
 
     return {
       _id: this.state.id,

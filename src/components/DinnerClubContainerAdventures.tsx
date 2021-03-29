@@ -5,7 +5,7 @@ import './styles/component-container-container.scss'
 import {AdminLogin} from "./AdminLogin"
 import {Home} from "./Home"
 import {DisplayToggle} from "../Enums/DisplayToggle"
-import {BreakkyBlogContainerNew} from "./BlogContainers/breakky_blog/BreakkyBlogContainerNew"
+import {BreakkyBlogContainer} from "./BlogContainers/breakky_blog/BreakkyBlogContainer"
 import {DinnerDramaContainerNew} from "./BlogContainers/dinner_dramas/DinnerDramaContainerNew"
 import {MaintainBlogs} from "./MaintainBlogs/MaintainBlogs"
 
@@ -57,8 +57,8 @@ export class DinnerClubContainerAdventures extends React.Component<{}, State> {
                                                                pageToRender={DisplayToggle.ADMIN_LOGIN}/>
       case DisplayToggle.DINNER_BLOG_LIST: return <DinnerDramaContainerNew isBlogPicked={this.state.isBlogPicked}
                                                                            handleIsBlogPicked={this.handleIsBlogPicked}/>;
-      case DisplayToggle.BREAKKY_BLOG_LIST: return <BreakkyBlogContainerNew isBlogPicked={this.state.isBlogPicked}
-                                                                            handleIsBlogPicked={this.handleIsBlogPicked}/>;
+      case DisplayToggle.BREAKKY_BLOG_LIST: return <BreakkyBlogContainer isBlogPicked={this.state.isBlogPicked}
+                                                                         handleIsBlogPicked={this.handleIsBlogPicked}/>;
       default: return <Home/>
     }
   };

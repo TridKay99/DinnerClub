@@ -27,30 +27,28 @@ export const DinnerDramaContainerNew = (props: Props) => {
   }
 
   const getBlogCards = () => {
-    return blogs.map((blog: DinnerDrama) => {
+    return blogs.map((blog: DinnerDrama, index) => {
       return (
-        <React.Fragment>
-          <Card>
-            {/*TODO add images to the cards when backend ready*/}
-            {/*<Image src='/images/avatar/large/matthew.png' wrapped ui={false}/>*/}
-            <Card.Content>
-              <Card.Header>{blog.title}</Card.Header>
-              <Card.Meta>
-                <span className='date'>{blog.location}</span>
-              </Card.Meta>
-              <Card.Description>
-                {blog.restaurant}
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <Button content={'Read more...'}
-                      color={'blue'}
-                      onClick={() => selectBlog(blog)}
-                      inverted
-              />
-            </Card.Content>
-          </Card>
-        </React.Fragment>
+        <Card key={index}>
+          {/*TODO add images to the cards when backend ready*/}
+          {/*<Image src='/images/avatar/large/matthew.png' wrapped ui={false}/>*/}
+          <Card.Content>
+            <Card.Header>{blog.title}</Card.Header>
+            <Card.Meta>
+              <span className='date'>{blog.location}</span>
+            </Card.Meta>
+            <Card.Description>
+              {blog.restaurant}
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Button content={'Read more...'}
+                    color={'blue'}
+                    onClick={() => selectBlog(blog)}
+                    inverted
+            />
+          </Card.Content>
+        </Card>
       )
     })
   }

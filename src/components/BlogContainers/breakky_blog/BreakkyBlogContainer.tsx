@@ -1,67 +1,74 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react'
+import {Button, Card, Container} from "semantic-ui-react"
+import {Blog} from "../../Blog"
+import {BreakkyBlog} from "../../../Types/BlogTypes"
+import {BreakkyBlogsServiceNew} from "../../../Services/BreakkyBlogsServicesNew"
 import '../../styles/component-blog-containers.scss'
-import {Container, Image} from 'semantic-ui-react';
-import {BeansRepublique, Darling, MrFoxx} from "../../services/BreakkyBlogs/BreakkyBlogService";
-import {Blog} from "../../Blog";
-import {MobyDick} from "../../services/BreakkyBlogs/BreakkyBlogListTwo";
-import {BlogInfo} from "../../../Types/BlogInfo";
-
-type State = {
-  blogInfo: BlogInfo | null
-}
 
 type Props = {
   isBlogPicked: boolean
   handleIsBlogPicked: () => void
 }
 
-export class BreakkyBlogContainer extends React.Component<Props, State> {
+export const BreakkyBlogContainer = (props: Props) => {
+  const [blogs, setBlogs] = useState<BreakkyBlog[]>([])
+  const [presentingBlog, setPresentingBlog] = useState<BreakkyBlog | null>(null)
 
-  state: State = {
-    blogInfo: null
+  useEffect(() => {
+    const collectedBlogs = async () => {
+      await setCollectedBlogs()
+    }
+
+    collectedBlogs()
+  }, [])
+
+  const setCollectedBlogs = async () => {
+    const collectedBlogs = await BreakkyBlogsServiceNew.getAll()
+    setBlogs(collectedBlogs)
   }
 
-  getBlogCards = () => {
-    const arrow = '>'
-    const breakkyBlogs = [MobyDick, Darling, BeansRepublique, MrFoxx]
-    return breakkyBlogs.map((blog) => {
+  const getBlogCards = () => {
+    return blogs.map((blog: BreakkyBlog, index) => {
       return (
-        <div className={'blogContent'}>
-          <Image src={blog.img} className={'blogImage'}/>
-          {blog.title}
-          <button className={'btn draw-border blogArrowIcon'}
-                  onClick={() => this.handleBlogChange(blog)}>
-            {arrow}
-          </button>
-        </div>
+        <Card key={index}>
+          {/*TODO add images to the cards when backend ready*/}
+          {/*<Image src='/images/avatar/large/matthew.png' wrapped ui={false}/>*/}
+          <Card.Content>
+            <Card.Header>{blog.title}</Card.Header>
+            <Card.Meta>
+              <span className='date'>{blog.location}</span>
+            </Card.Meta>
+            <Card.Description>
+              {blog.cafe}
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Button content={'Read more...'}
+                    color={'blue'}
+                    onClick={() => selectBlog(blog)}
+                    inverted
+            />
+          </Card.Content>
+        </Card>
       )
     })
-  };
-
-  handleBlogChange = (value: BlogInfo) => {
-    this.setState({blogInfo: value}, () => this.props.handleIsBlogPicked())
   }
 
-  // renderBlog = () => {
-  //   const {blogInfo} = this.state
-  //   if(blogInfo) {
-  //     return (
-  //       <Blog blog={blogInfo}/>
-  //     )
-  //   }
-  // }
-
-  render() {
-    return (
-      <>
-      {!this.props.isBlogPicked ? <Container className={'blogOptionContainer'}>
-                                  {this.getBlogCards()}
-                                  </Container>
-                                :
-                                  // this.renderBlog()
-                                    'butt'
-                                  }
-      </>
-    )
+  const selectBlog = (blog: BreakkyBlog) => {
+    setPresentingBlog(blog)
+    props.handleIsBlogPicked()
   }
+
+  return (
+    <React.Fragment>
+      {props.isBlogPicked
+        ? <Blog blog={presentingBlog!}/>
+        : <Container className={'blogOptionContainer'}>
+            <Card.Group itemsPerRow={3}>
+              { getBlogCards() }
+            </Card.Group>
+          </Container>
+      }
+    </React.Fragment>
+  )
 }
