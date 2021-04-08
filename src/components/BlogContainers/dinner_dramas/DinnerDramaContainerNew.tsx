@@ -33,13 +33,13 @@ export const DinnerDramaContainerNew = (props: Props) => {
     setBlogs(blogs)
   }, [])
 
-  const setCollectedBlogs = async () => {
-    const collectedBlogs = await DinnerDramaServiceNew.getAll()
-    setBlogs(collectedBlogs)
-  }
+  // const setCollectedBlogs = async () => {
+  //   const collectedBlogs = await DinnerDramaServiceNew.getAll()
+  //   setBlogs(collectedBlogs)
+  // }
 
   const getBlogCards = () => {
-    return blogs.map((blog: DinnerDrama, index) => {
+    return blogs.map((blog: any, index) => {
       return (
         <Card key={index}>
           {/*TODO add images to the cards when backend ready*/}

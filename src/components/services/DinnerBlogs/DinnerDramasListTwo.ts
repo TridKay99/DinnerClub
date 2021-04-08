@@ -1,5 +1,3 @@
-import {BlogInfo} from "../../../Types/BlogInfo";
-
 export const TaoDumplings = {
   title: 'Christian and the attempt to spell his last name',
   restaurant: 'Tao Dumplings, South Yarra',

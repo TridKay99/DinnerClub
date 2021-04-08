@@ -27,10 +27,10 @@ export const BreakkyBlogContainer = (props: Props) => {
     setBlogs(blogs)
   }, [])
 
-  const setCollectedBlogs = async () => {
-    const collectedBlogs = await BreakkyBlogsServiceNew.getAll()
-    setBlogs(collectedBlogs)
-  }
+  // const setCollectedBlogs = async () => {
+  //   const collectedBlogs = await BreakkyBlogsServiceNew.getAll()
+  //   setBlogs(collectedBlogs)
+  // }
 
   const getBlogCards = () => {
     return blogs.map((blog: BreakkyBlog, index) => {

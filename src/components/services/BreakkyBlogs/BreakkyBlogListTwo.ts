@@ -1,5 +1,3 @@
-import {BlogInfo} from "../../../Types/BlogInfo";
-
 export const MobyDick = {
   title: `Now I'm Moby Dick for real`,
   restaurant: 'Moby, Armadale',

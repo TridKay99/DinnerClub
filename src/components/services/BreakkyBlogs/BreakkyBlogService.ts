@@ -1,6 +1,3 @@
-import {BlogInfo} from "../../../Types/BlogInfo";
-
-
 export const BeansRepublique = {
   title: 'Chilly Saturdays',
   restaurant: 'Bean Republique, Glen Iris',

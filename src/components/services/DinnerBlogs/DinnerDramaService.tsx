@@ -1,4 +1,3 @@
-import {BlogInfo} from "../../../Types/BlogInfo";
 
 export const ILoveDumplings = {
 title: 'A night with duck',
