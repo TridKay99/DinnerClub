@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import {Button, Card, Container} from "semantic-ui-react"
 import {Blog} from "../../Blog"
 import {DinnerDrama} from "../../../Types/BlogTypes"
-import {DinnerDramaServiceNew} from "../../../Services/DinnerDramaServiceNew"
 import {EmpressOfChina, ILoveDumplings, Madaeya} from "../../services/DinnerBlogs/DinnerDramaService"
 import {
   dragonDumplingHouse,

@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import {Button, Card, Container} from "semantic-ui-react"
 import {Blog} from "../../Blog"
 import {BreakkyBlog} from "../../../Types/BlogTypes"
-import {BreakkyBlogsServiceNew} from "../../../Services/BreakkyBlogsServicesNew"
 import '../../styles/component-blog-containers.scss'
 import {BeansRepublique, Darling, MrFoxx} from "../../services/BreakkyBlogs/BreakkyBlogService"
 import {MobyDick} from "../../services/BreakkyBlogs/BreakkyBlogListTwo"
