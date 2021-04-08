@@ -3,6 +3,15 @@ import {Button, Card, Container} from "semantic-ui-react"
 import {Blog} from "../../Blog"
 import {DinnerDrama} from "../../../Types/BlogTypes"
 import {DinnerDramaServiceNew} from "../../../Services/DinnerDramaServiceNew"
+import {EmpressOfChina, ILoveDumplings, Madaeya} from "../../services/DinnerBlogs/DinnerDramaService"
+import {
+  dragonDumplingHouse,
+  MalvenVale,
+  ReturnOfTheTao,
+  SubiQKoreanBBQ,
+  TaoDumplings,
+  ThaiToGo, vietStar
+} from "../../services/DinnerBlogs/DinnerDramasListTwo"
 
 type Props = {
   isBlogPicked: boolean
@@ -10,15 +19,18 @@ type Props = {
 }
 
 export const DinnerDramaContainerNew = (props: Props) => {
-  const [blogs, setBlogs] = useState<DinnerDrama[]>([])
+  const [blogs, setBlogs] = useState<any[]>([])
   const [presentingBlog, setPresentingBlog] = useState<DinnerDrama | null>(null)
 
   useEffect(() => {
-    const collectedBlogs = async () => {
-      await setCollectedBlogs()
-    }
-
-    collectedBlogs()
+    // const collectedBlogs = async () => {
+    //   await setCollectedBlogs()
+    // }
+    //
+    // collectedBlogs()
+    const blogs = [ILoveDumplings, Madaeya, EmpressOfChina, TaoDumplings, ThaiToGo,
+      MalvenVale, SubiQKoreanBBQ, ReturnOfTheTao, dragonDumplingHouse, vietStar]
+    setBlogs(blogs)
   }, [])
 
   const setCollectedBlogs = async () => {
@@ -35,7 +47,7 @@ export const DinnerDramaContainerNew = (props: Props) => {
           <Card.Content>
             <Card.Header>{blog.title}</Card.Header>
             <Card.Meta>
-              <span className='date'>{blog.location}</span>
+              {/*<span className='date'>{blog.location}</span>*/}
             </Card.Meta>
             <Card.Description>
               {blog.restaurant}
@@ -53,7 +65,7 @@ export const DinnerDramaContainerNew = (props: Props) => {
     })
   }
 
-  const selectBlog = (blog: DinnerDrama) => {
+  const selectBlog = (blog: any) => {
     setPresentingBlog(blog)
     props.handleIsBlogPicked()
   }

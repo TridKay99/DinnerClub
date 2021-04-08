@@ -1,9 +1,9 @@
 import {BlogInfo} from "../../../Types/BlogInfo";
 
-export const TaoDumplings: BlogInfo = {
+export const TaoDumplings = {
   title: 'Christian and the attempt to spell his last name',
   restaurant: 'Tao Dumplings, South Yarra',
-  body: `
+  blogText: `
   If you need a cheap, tasty meal at a restaurant that actually might’ve hired an interior designer then Tao’s your place.</br>
   Oh god does that restaurant fuck on the first date. Tao really delivered on the dumps this fine evening, a solid 8/10.</br>
   </br>
@@ -19,10 +19,10 @@ export const TaoDumplings: BlogInfo = {
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1574671470/BlogPhotos/trid_wine_wje9zz.jpg"
 }
 
-export const ThaiToGo: BlogInfo = {
+export const ThaiToGo = {
   title: 'Knick rates our friends out of 10',
   restaurant: 'Thai Food to go, Windsor',
-  body: `
+  blogText: `
   In contrast to yet another cold and wet Friday night, Dinner Club’s taste buds were transported to tropical South East Asia, where we were treated to some delectable Thai.</br>
   </br>
   Christian ‘Pad Simi Ew’ Simitzis, once again demanded we get him the Chicky Chicky Pad See Ew just to tickle his sick Pad See Ew needs. He later admitted he has never once 
@@ -42,10 +42,10 @@ export const ThaiToGo: BlogInfo = {
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1575271103/BlogPhotos/bobby_kimn4o.jpg"
 }
 
-export const MalvenVale: BlogInfo = {
+export const MalvenVale = {
   title: 'Double Jack-Knife Jager Bombs in front of Chrissy Orlando’s family',
   restaurant: 'Malvernvale Hotel, Malvern',
-  body: `
+  blogText: `
   This week took us Parma Fridays down at the Vale but we were, unfortunately, a man down as Panini D Dragon had a zorba circle 
   to attend to with his work colleagues. In his absence, Michael Jordan joined the gang for a Parma and Pint combo meal deal which 
   was amazing value. Parms were a bit cheesy and lacked napoli sauce but still good for its buck!
@@ -64,10 +64,10 @@ export const MalvenVale: BlogInfo = {
   `,
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1575869331/BlogPhotos/Screen_Shot_2019-12-09_at_4.26.21_pm_ckz9ca.png"
 }
-export const SubiQKoreanBBQ: BlogInfo = {
+export const SubiQKoreanBBQ = {
   title: 'Slippery Korean weapons',
   restaurant: 'Subi Q Korean BBQ, South Yarra',
-  body:  `
+  blogText:  `
   KBBQ Fridays, a special treat that the members love to delve into only a few times a year. Subi Q was the restaurant of choice, 
   just 100m down from Bistro Thierry and across the road from Hobba café, where Kevin Costaner (Trid) and Lord Smitzis lost their brunch virginities.</br>
   </br>
@@ -93,10 +93,10 @@ export const SubiQKoreanBBQ: BlogInfo = {
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1576569157/BlogPhotos/knick_Trid_wkw0e1.jpg"
 }
 
-export const ReturnOfTheTao: BlogInfo = {
+export const ReturnOfTheTao = {
   title: 'Return to the Tao of Terror',
   restaurant: 'Tao, South Yarra',
-  body:  `
+  blogText:  `
   To celebrate the last night of the work year, a Dinner Club favorite, Tao Dumplings in South Yarra was chosen. 
   The 43 degree night proved too much for Mr. Kay, who opted to stay at home until sundown.<br/>
   The heat also played havoc with Christian’s Uber, causing a 30 minute delay. This left Gus and myself to order, with many dumplings, 
@@ -116,10 +116,10 @@ export const ReturnOfTheTao: BlogInfo = {
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1577228338/BlogPhotos/taoChamps_hj2e7f.jpg"
 }
 
-export const dragonDumplingHouse: BlogInfo = {
+export const dragonDumplingHouse = {
   title: 'Rob and the spag bol at Shanghai Dragon Dumpling House',
   restaurant: 'Shanghai Dragon Dumpling House, South Yarra',
-  body: `
+  blogText: `
   A wet and windy Friday night saw us at the Shanghai Dragon Dumpling House, a name plucked right from 
   a Chinese restaurant random name generator. None the less, with Shiraz in hand, we were excited to 
   see what culinary delights they had to offer. We were also joined by several of our favorite guest 
@@ -147,10 +147,10 @@ export const dragonDumplingHouse: BlogInfo = {
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1579080215/BlogPhotos/spagBowl_kwhwre.jpg"
 }
 
-export const vietStar: BlogInfo = {
+export const vietStar = {
   title: 'A Vietnamese Interrogation',
   restaurant: 'Viet Star, Glenferrie',
-  body: `
+  blogText: `
   Environment 6/10<br>
   Food 8/10<br>
   Staff memorization 3/10<br>

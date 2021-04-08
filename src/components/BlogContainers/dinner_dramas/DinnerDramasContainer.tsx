@@ -27,6 +27,8 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
     blogInfo: null
   };
 
+
+
   getBlogCards = () => {
     const arrow = '>'
     const dinnerDramas = [vietStar, dragonDumplingHouse, ReturnOfTheTao, SubiQKoreanBBQ, MalvenVale, ThaiToGo, TaoDumplings ,Madaeya, EmpressOfChina, ILoveDumplings];
@@ -38,7 +40,7 @@ export class DinnerDramasContainer extends React.Component<Props, State> {
           {blog.title}
           <Button className={'btn draw-border blogArrowIcon'}
                   color={"teal"}
-                  onClick={() => this.handleBlogChange(blog)}
+                  // onClick={() => this.handleBlogChange(blog)}
                   key={index}>
             {arrow}
           </Button>

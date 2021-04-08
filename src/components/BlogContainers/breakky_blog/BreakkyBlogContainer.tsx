@@ -4,6 +4,8 @@ import {Blog} from "../../Blog"
 import {BreakkyBlog} from "../../../Types/BlogTypes"
 import {BreakkyBlogsServiceNew} from "../../../Services/BreakkyBlogsServicesNew"
 import '../../styles/component-blog-containers.scss'
+import {BeansRepublique, Darling, MrFoxx} from "../../services/BreakkyBlogs/BreakkyBlogService"
+import {MobyDick} from "../../services/BreakkyBlogs/BreakkyBlogListTwo"
 
 type Props = {
   isBlogPicked: boolean
@@ -11,15 +13,18 @@ type Props = {
 }
 
 export const BreakkyBlogContainer = (props: Props) => {
-  const [blogs, setBlogs] = useState<BreakkyBlog[]>([])
+  const [blogs, setBlogs] = useState<any[]>([])
   const [presentingBlog, setPresentingBlog] = useState<BreakkyBlog | null>(null)
 
   useEffect(() => {
-    const collectedBlogs = async () => {
-      await setCollectedBlogs()
-    }
+    // const collectedBlogs = async () => {
+    //   await setCollectedBlogs()
+    // }
+    //
+    // collectedBlogs()
 
-    collectedBlogs()
+    const blogs = [BeansRepublique, MrFoxx, Darling, MobyDick]
+    setBlogs(blogs)
   }, [])
 
   const setCollectedBlogs = async () => {

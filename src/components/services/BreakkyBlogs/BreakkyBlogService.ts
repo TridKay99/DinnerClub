@@ -1,10 +1,10 @@
 import {BlogInfo} from "../../../Types/BlogInfo";
 
 
-export const BeansRepublique: BlogInfo = {
+export const BeansRepublique = {
   title: 'Chilly Saturdays',
   restaurant: 'Bean Republique, Glen Iris',
-  body: `
+  blogText: `
   Environment: 7/10 Weather: 2/10
   </br>
   </br>
@@ -24,7 +24,7 @@ export const BeansRepublique: BlogInfo = {
 export const MrFoxx = {
   title: 'Christian throwing coffee',
   restaurant: 'Mr.Foxx, Glen Iris',
-  body: `
+  blogText: `
   The atmosphere at Mr.Foxx was rather pleasant for a Saturday brunch outing, although a few hiccups with the waiter. 
   I, as the customer, had to correct him about one of the most popular items on the meny. It's egg your way, not whatever...
   </br>
@@ -38,7 +38,7 @@ export const MrFoxx = {
 export const Darling = {
   title: 'Christian and the potato rosti',
   restaurant: 'The Darling, South Yarra',
-  body: `
+  blogText: `
   Environment: 8 </br>
   Parking: 2 </br>
   </br>

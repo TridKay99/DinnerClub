@@ -1,9 +1,9 @@
 import {BlogInfo} from "../../../Types/BlogInfo";
 
-export const MobyDick: BlogInfo = {
+export const MobyDick = {
   title: `Now I'm Moby Dick for real`,
   restaurant: 'Moby, Armadale',
-  body: `
+  blogText: `
   Great brunch outing this weekend, Moby had the 'eggs your way on toast', yes on toast. We will let it slide!</br>
   It was a solid 7 only because of the mushies.</br>
   Bread was a tad too hard to cut with my knife, leaving me to flex my guns to get into the pesky crust!</br>

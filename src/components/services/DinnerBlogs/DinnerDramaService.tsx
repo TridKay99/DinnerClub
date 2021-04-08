@@ -1,9 +1,9 @@
 import {BlogInfo} from "../../../Types/BlogInfo";
 
-export const ILoveDumplings: BlogInfo = {
+export const ILoveDumplings = {
 title: 'A night with duck',
 restaurant: "I Love Dumplings, Richmond",
-body: `
+blogText: `
 hmmm where do i start?
 </br>
 </br>
@@ -35,10 +35,10 @@ Simi's jumper: 1/10 - very Shao la Tauba.
 };
 
 
-export const EmpressOfChina: BlogInfo = {
+export const EmpressOfChina = {
   title: 'Empress and the ancient Fujitsu Air Con',
   restaurant: 'Empress Of China',
-  body: `
+  blogText: `
   Some Friday night complications caused a schism in dinner club seeing, Tridda heading out for his own adventures 
   with Nick and Christian joined by Mikka and Bas who proved to be great guest diners at Empress of China. 
   </br>
@@ -65,10 +65,10 @@ export const EmpressOfChina: BlogInfo = {
   img: "https://res.cloudinary.com/dqsacxogt/image/upload/v1574071626/BlogPhotos/lemonChick_eqm5md.png"
 }
 
-export const Madaeya: BlogInfo = {
+export const Madaeya = {
   title:'Panini D Dragon and the ipad',
   restaurant: 'Madaeya, Richmond',
-  body: `
+  blogText: `
   The dinner club members were all in full force on a nippy saturday Night!
   </br>
   Being the leading dinner review practitioners in the industry, there was a lot of discussion towards the future of the demanding occupation.
