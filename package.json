@@ -21,7 +21,7 @@
     "draft-js-plugins-editor": "^3.0.0",
     "draft-js-undo-plugin": "^2.0.3",
     "es6-shim": "^0.35.5",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "node-sass": "^4.13.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
